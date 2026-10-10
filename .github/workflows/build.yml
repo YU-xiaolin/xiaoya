@@ -1,0 +1,110 @@
+name: Build Windows and PWA
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pwa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            app-source/package-lock.json
+            app-mobile/package-lock.json
+      - run: npm ci --prefix app-source
+      - run: npm ci --prefix app-mobile
+      - run: node tools/check-public.mjs
+      - run: node tools/sync-core.mjs --check
+      - uses: actions/cache@v4
+        with:
+          path: app-mobile/public/voice/*.mp3
+          key: voice-${{ hashFiles('tools/voice-assets.json') }}
+      - run: node tools/fetch-voice-assets.mjs
+      - run: npm test --prefix app-source
+      - run: npm test --prefix app-mobile
+      - run: npm run build --prefix app-mobile
+      - run: node tools/stamp-build.mjs mobile
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xiaoya-pwa-${{ github.sha }}
+          path: app-mobile/dist/
+          if-no-files-found: error
+          retention-days: 90
+
+  release:
+    needs: [pwa, windows]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: xiaoya-pwa-${{ github.sha }}
+          path: release/pwa
+      - uses: actions/download-artifact@v4
+        with:
+          name: xiaoya-windows-${{ github.sha }}
+          path: release/windows
+      - name: Package verified binaries
+        run: |
+          cp release/windows/family-learning.exe release/xiaoya-windows.exe
+          cp release/windows/build-info-desktop.json release/build-info-desktop.json
+          cd release/pwa
+          zip -qr ../xiaoya-pwa.zip .
+      - name: Publish builds for this source commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          cat > release/release-notes.md <<'EOF'
+          Windows and PWA built from this release's source commit. No private family data is included.
+          Keep the existing WorkBuddy URL and cloud environment when deploying the PWA archive.
+          GitHub building this archive does not deploy it to the existing WorkBuddy application.
+          EOF
+          tag="build-$GITHUB_SHA"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" release/xiaoya-windows.exe release/build-info-desktop.json release/xiaoya-pwa.zip --clobber
+          else
+            gh release create "$tag" --target "$GITHUB_SHA" --title "Xiaoya ${GITHUB_SHA:0:12}" --notes-file release/release-notes.md release/xiaoya-windows.exe release/build-info-desktop.json release/xiaoya-pwa.zip
+          fi
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app-source/package-lock.json
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: app-source/src-tauri -> target
+      - run: npm ci --prefix app-source
+      - run: npm test --prefix app-source
+      - run: cargo test --locked --manifest-path app-source/src-tauri/Cargo.toml
+      - run: npm run build --prefix app-source
+      - run: node tools/stamp-build.mjs desktop
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xiaoya-windows-${{ github.sha }}
+          path: |
+            app-source/src-tauri/target/release/family-learning.exe
+            app-source/src-tauri/target/release/build-info-desktop.json
+          if-no-files-found: error
+          retention-days: 90
+

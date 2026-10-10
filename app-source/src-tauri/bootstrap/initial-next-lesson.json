@@ -1,0 +1,88 @@
+{
+  "protocol": "FAMILY_LEARNING_LESSON_V1",
+  "schemaVersion": 1,
+  "lessonId": "lesson-bootstrap-001",
+  "generatedAt": "2026-08-20T00:00:00+08:00",
+  "basedOnSessionIds": [],
+  "isBootstrap": true,
+  "title": "认识“人”和 A a",
+  "teacherNote": "第一课只接触 1 个汉字和 1 个英语字母。家长负责判断口头回答，软件负责记录提示、示范和独立答对。",
+  "metadata": {
+    "estimatedMinutes": 8,
+    "newHanziCount": 1,
+    "newLetterCount": 1
+  },
+  "tasks": [
+    {
+      "taskId": "boot-zh-ren-recognition",
+      "subject": "hanzi",
+      "questionType": "recognition",
+      "isNew": true,
+      "prompt": "这个字怎么读？",
+      "target": {
+        "ref": "ZH-0001",
+        "display": "人"
+      },
+      "context": "我们每个人，都是“人”。",
+      "hint": "想一想：你、爸爸、妈妈都是人。",
+      "demonstration": "人，rén"
+    },
+    {
+      "taskId": "boot-zh-ren-choice",
+      "subject": "hanzi",
+      "questionType": "choice",
+      "isNew": false,
+      "prompt": "找到读音是“rén”的字，只要告诉我第几个",
+      "speechPrompt": "找到“人”，只要告诉我第几个。",
+      "target": {
+        "ref": "ZH-0001",
+        "display": "人"
+      },
+      "options": [
+        "大",
+        "人",
+        "木",
+        "火"
+      ],
+      "correctAnswer": "人",
+      "hint": "“人”像一个人迈开两条腿。",
+      "demonstration": "第 2 个是“人”"
+    },
+    {
+      "taskId": "boot-al-a-recognition",
+      "subject": "english_letter",
+      "questionType": "recognition",
+      "isNew": true,
+      "prompt": "这是哪个英文字母？",
+      "target": {
+        "ref": "AL-01",
+        "display": "A a"
+      },
+      "context": "A a — apple",
+      "hint": "大写 A 像尖尖的小帐篷。",
+      "demonstration": "A，a，apple"
+    },
+    {
+      "taskId": "boot-al-a-choice",
+      "subject": "english_letter",
+      "questionType": "choice",
+      "isNew": false,
+      "prompt": "听一听，找到我读到的大写字母，只要告诉我第几个",
+      "speechPrompt": "找到大写 A，只要告诉我第几个。",
+      "target": {
+        "ref": "AL-01",
+        "display": "A a"
+      },
+      "options": [
+        "M",
+        "H",
+        "A",
+        "V"
+      ],
+      "correctAnswer": "A",
+      "hint": "A 顶上尖尖，中间有一横。",
+      "demonstration": "第 3 个是 A",
+      "context": "A a — apple"
+    }
+  ]
+}

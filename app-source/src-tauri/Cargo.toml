@@ -1,0 +1,19 @@
+[package]
+name = "family-learning"
+version = "0.2.9"
+description = "Windows 本地家庭学习软件：汉字、英语字母与数学启蒙"
+authors = ["Family Learning"]
+edition = "2021"
+
+[lib]
+name = "family_learning_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+tauri = { version = "2", features = [] }

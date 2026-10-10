@@ -1,0 +1,13 @@
+{
+  "protocol": "XIAOYA_COURSE_PACKAGE_V1",
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-10T00:00:00.000Z",
+  "visibility": "public-generic",
+  "sha256": "5861D1632DFFDCF481B6916D71B1BC76BACAF13EF9DBC63BBE7E5460C5D14D93",
+  "counts": {
+    "hanzi": 1000,
+    "english_letter": 26,
+    "math": 35,
+    "lessonTasks": 4
+  }
+}

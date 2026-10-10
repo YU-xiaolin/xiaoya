@@ -1,0 +1,141 @@
+{
+  "protocol": "XIAOYA_COURSE_PACKAGE_V1",
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-08T06:41:55.623Z",
+  "studentCode": "student-01",
+  "source": "chatgpt-work",
+  "catalog": {
+    "hanzi": [
+      {
+        "ref": "ZH-0001",
+        "display": "人",
+        "optionDisplay": "人",
+        "status": "学习中",
+        "lastSeenAt": "2026-09-23T15:31:31.000Z",
+        "incorrectCount": 0,
+        "parentConfirmedAt": null,
+        "needsAssessment": false,
+        "association": null,
+        "stage": "第1阶段",
+        "stageName": null,
+        "order": null,
+        "kind": null,
+        "number": null,
+        "level": null
+      },
+      {
+        "ref": "ZH-0002",
+        "display": "大",
+        "optionDisplay": "大",
+        "status": "初见",
+        "lastSeenAt": "2026-09-23T15:31:31.000Z",
+        "incorrectCount": 1,
+        "parentConfirmedAt": null,
+        "needsAssessment": false,
+        "association": null,
+        "stage": "第1阶段",
+        "stageName": null,
+        "order": null,
+        "kind": null,
+        "number": null,
+        "level": null
+      }
+    ],
+    "english_letter": [
+      {
+        "ref": "AL-01",
+        "display": "A a",
+        "optionDisplay": "A",
+        "status": "能指认",
+        "lastSeenAt": "2026-09-20T10:00:00.000Z",
+        "incorrectCount": 0,
+        "parentConfirmedAt": null,
+        "needsAssessment": false,
+        "association": "apple",
+        "stage": null,
+        "stageName": null,
+        "order": null,
+        "kind": null,
+        "number": null,
+        "level": null
+      }
+    ],
+    "math": [
+      {
+        "ref": "M-NUM-0",
+        "display": "数字 0",
+        "optionDisplay": "数字 0",
+        "status": "初见",
+        "lastSeenAt": "2026-09-23T15:31:31.000Z",
+        "incorrectCount": 0,
+        "parentConfirmedAt": null,
+        "needsAssessment": false,
+        "association": null,
+        "stage": 1,
+        "stageName": "数字与数量 0～5",
+        "order": 1,
+        "kind": "digit",
+        "number": 0,
+        "level": null
+      }
+    ]
+  },
+  "summary": {
+    "hanziLearned": 2,
+    "letterLearned": 1,
+    "mathLearned": 1,
+    "mathTotal": 35,
+    "hanziNeedsAssessment": 0,
+    "letterNeedsAssessment": 0,
+    "mathNeedsAssessment": 0,
+    "formalItemCount": 1061
+  },
+  "lesson": {
+    "protocol": "FAMILY_LEARNING_LESSON_V1",
+    "schemaVersion": 1,
+    "lessonId": "lesson-20261008-example-four-new",
+    "generatedAt": "2026-10-08T06:41:55.623Z",
+    "basedOnSessionIds": ["session-20261008091200-a1b2c3d4"],
+    "isBootstrap": false,
+    "title": "示例课程 · 四个新字",
+    "teacherNote": "这是课程包的示例文件，可直接被家长管理页导入并发布。",
+    "metadata": {
+      "estimatedMinutes": 8,
+      "newHanziCount": 2,
+      "previousNewHanziRefs": ["ZH-0001", "ZH-0002"],
+      "nextPreviewHanziRefs": ["ZH-0003", "ZH-0004"]
+    },
+    "tasks": [
+      {
+        "taskId": "lesson-example-zh-1",
+        "subject": "hanzi",
+        "questionType": "recognition",
+        "evidenceType": "recognition",
+        "isNew": true,
+        "prompt": "请读出屏幕上的汉字。",
+        "speechPrompt": "请读出屏幕上的汉字。",
+        "target": { "ref": "ZH-0003", "display": "小" },
+        "context": "先自己想一想，再大声读出来。",
+        "hint": "这个字的上面是“小”，下面还有一横。",
+        "demonstration": "这是“小”。跟我读：小。",
+        "reinforcement": "这个字读“小”，大小的小。"
+      },
+      {
+        "taskId": "lesson-example-zh-2",
+        "subject": "hanzi",
+        "questionType": "choice",
+        "evidenceType": "choice",
+        "isNew": true,
+        "prompt": "找到读音是“duō”的字，只要告诉我第几个。",
+        "speechPrompt": "找到“很多”的“多”，只要告诉我第几个。",
+        "target": { "ref": "ZH-0004", "display": "多" },
+        "context": "认真看一看每个选项。",
+        "hint": "两个“夕”上下叠在一起，就是“多”。",
+        "demonstration": "这是“多”。跟我读：多。",
+        "reinforcement": "这个字读“多”，很多的多。",
+        "options": ["多", "少", "大", "人"],
+        "correctAnswer": "多"
+      }
+    ]
+  }
+}

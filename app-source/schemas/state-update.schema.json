@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FAMILY_LEARNING_STATE_UPDATE_V1",
+  "type": "object",
+  "required": ["protocol", "schemaVersion", "updateId", "generatedAt", "basedOnSessionIds", "changes"],
+  "properties": {
+    "protocol": { "const": "FAMILY_LEARNING_STATE_UPDATE_V1" },
+    "schemaVersion": { "const": 1 },
+    "updateId": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "basedOnSessionIds": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+    "ignoredEventIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["subject", "targetRef", "proposedStatus", "reason"],
+        "properties": {
+          "subject": { "enum": ["hanzi", "english_letter", "math"] },
+          "targetRef": { "type": "string" },
+          "proposedStatus": { "type": "string" },
+          "nextReviewAt": { "type": ["string", "null"] },
+          "reason": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "小芽家庭学习主窗口权限",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}

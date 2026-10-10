@@ -1,0 +1,24 @@
+{
+  "name": "小芽家庭学习",
+  "short_name": "小芽学习",
+  "description": "汉字、英语字母与数学启蒙的家庭学习应用，可安装到手机桌面，离线也能学。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#f5f1e8",
+  "theme_color": "#245c43",
+  "categories": ["education", "kids"],
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "./icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "开始学习", "short_name": "学习", "url": "./" }
+  ]
+}

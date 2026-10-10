@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FAMILY_LEARNING_SESSION_V1",
+  "type": "object",
+  "required": ["protocol", "schemaVersion", "sessionId", "lessonId", "startedAt", "endedAt", "completed", "stopReason", "events"],
+  "properties": {
+    "protocol": { "const": "FAMILY_LEARNING_SESSION_V1" },
+    "schemaVersion": { "const": 1 },
+    "sessionId": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+    "lessonId": { "type": "string" },
+    "lessonTitle": { "type": "string" },
+    "lessonProtocol": { "const": "FAMILY_LEARNING_LESSON_V1" },
+    "basedOnLessonGeneratedAt": { "type": "string" },
+    "activityMode": { "enum": ["lesson", "preview", "practice", "test"] },
+    "plannedNewHanziRefs": { "type": "array", "maxItems": 6, "items": { "type": "string" }, "uniqueItems": true },
+    "plannedNewLetterRefs": { "type": "array", "maxItems": 6, "items": { "type": "string" }, "uniqueItems": true },
+    "plannedNewMathRefs": { "type": "array", "maxItems": 4, "items": { "type": "string" }, "uniqueItems": true },
+    "plannedNextPreviewHanziRefs": { "type": "array", "maxItems": 4, "items": { "type": "string" }, "uniqueItems": true },
+    "startedAt": { "type": "string", "format": "date-time" },
+    "endedAt": { "type": "string", "format": "date-time" },
+    "completed": { "type": "boolean" },
+    "stopReason": { "type": "string" },
+    "lessonTaskCount": { "type": "integer", "minimum": 1 },
+    "executedTaskCount": { "type": "integer", "minimum": 0 },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["eventId", "recordedAt", "taskId", "subject", "targetRef", "targetDisplay", "questionType", "attempt", "result", "independent", "hintUsed", "responseTimeMs"],
+        "properties": {
+          "eventId": { "type": "string" }, "recordedAt": { "type": "string", "format": "date-time" },
+          "taskId": { "type": "string" }, "originalTaskId": { "type": "string" },
+          "subject": { "enum": ["hanzi", "english_letter", "math"] }, "targetRef": { "type": "string" }, "targetDisplay": { "type": "string" },
+          "questionType": { "enum": ["recognition", "choice"] }, "attempt": { "type": "integer", "minimum": 1 },
+          "evidenceType": { "type": "string", "minLength": 1 },
+          "result": { "enum": ["correct", "incorrect", "hint_shown", "demonstrated"] },
+          "independent": { "type": "boolean" }, "hintUsed": { "type": "boolean" }, "responseTimeMs": { "type": "integer", "minimum": 0 },
+          "childAnswer": {}, "correctAnswer": {}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

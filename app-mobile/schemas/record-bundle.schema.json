@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "XIAOYA_RECORD_BUNDLE_V1",
+  "title": "小芽学习记录包",
+  "description": "手机端导出或云端下载的学习记录包。每条 sessions[] 元素都是完整的 FAMILY_LEARNING_SESSION_V1 原始记录，字段与 Windows 端 data/schemas/session.schema.json 完全一致，可直接互相导入导出。",
+  "type": "object",
+  "required": ["protocol", "schemaVersion", "exportedAt", "sessions"],
+  "properties": {
+    "protocol": { "const": "XIAOYA_RECORD_BUNDLE_V1" },
+    "schemaVersion": { "const": 1 },
+    "exportedAt": { "type": "string", "format": "date-time" },
+    "studentCode": { "type": ["string", "null"] },
+    "source": { "enum": ["phone-local", "cloud", "windows-pc", "parent-import"] },
+    "since": { "type": ["string", "null"], "format": "date-time" },
+    "deviceCode": { "type": ["string", "null"] },
+    "sessionCount": { "type": "integer", "minimum": 0 },
+    "sessions": {
+      "type": "array",
+      "items": { "$ref": "FAMILY_LEARNING_SESSION_V1" }
+    }
+  },
+  "additionalProperties": false
+}

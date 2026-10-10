@@ -1,0 +1,43 @@
+[
+  { "ref": "M-NUM-0", "value": "数字 0", "stage": 1, "stageName": "数字与数量 0～5", "order": 1, "kind": "digit", "number": 0 },
+  { "ref": "M-QTY-0", "value": "数量 0", "stage": 1, "stageName": "数字与数量 0～5", "order": 2, "kind": "quantity", "number": 0 },
+  { "ref": "M-NUM-1", "value": "数字 1", "stage": 1, "stageName": "数字与数量 0～5", "order": 3, "kind": "digit", "number": 1 },
+  { "ref": "M-QTY-1", "value": "数量 1", "stage": 1, "stageName": "数字与数量 0～5", "order": 4, "kind": "quantity", "number": 1 },
+  { "ref": "M-NUM-2", "value": "数字 2", "stage": 1, "stageName": "数字与数量 0～5", "order": 5, "kind": "digit", "number": 2 },
+  { "ref": "M-QTY-2", "value": "数量 2", "stage": 1, "stageName": "数字与数量 0～5", "order": 6, "kind": "quantity", "number": 2 },
+  { "ref": "M-NUM-3", "value": "数字 3", "stage": 1, "stageName": "数字与数量 0～5", "order": 7, "kind": "digit", "number": 3 },
+  { "ref": "M-QTY-3", "value": "数量 3", "stage": 1, "stageName": "数字与数量 0～5", "order": 8, "kind": "quantity", "number": 3 },
+  { "ref": "M-NUM-4", "value": "数字 4", "stage": 1, "stageName": "数字与数量 0～5", "order": 9, "kind": "digit", "number": 4 },
+  { "ref": "M-QTY-4", "value": "数量 4", "stage": 1, "stageName": "数字与数量 0～5", "order": 10, "kind": "quantity", "number": 4 },
+  { "ref": "M-NUM-5", "value": "数字 5", "stage": 1, "stageName": "数字与数量 0～5", "order": 11, "kind": "digit", "number": 5 },
+  { "ref": "M-QTY-5", "value": "数量 5", "stage": 1, "stageName": "数字与数量 0～5", "order": 12, "kind": "quantity", "number": 5 },
+
+  { "ref": "M-NUM-6", "value": "数字 6", "stage": 2, "stageName": "数字与数量 6～10", "order": 13, "kind": "digit", "number": 6 },
+  { "ref": "M-QTY-6", "value": "数量 6", "stage": 2, "stageName": "数字与数量 6～10", "order": 14, "kind": "quantity", "number": 6 },
+  { "ref": "M-NUM-7", "value": "数字 7", "stage": 2, "stageName": "数字与数量 6～10", "order": 15, "kind": "digit", "number": 7 },
+  { "ref": "M-QTY-7", "value": "数量 7", "stage": 2, "stageName": "数字与数量 6～10", "order": 16, "kind": "quantity", "number": 7 },
+  { "ref": "M-NUM-8", "value": "数字 8", "stage": 2, "stageName": "数字与数量 6～10", "order": 17, "kind": "digit", "number": 8 },
+  { "ref": "M-QTY-8", "value": "数量 8", "stage": 2, "stageName": "数字与数量 6～10", "order": 18, "kind": "quantity", "number": 8 },
+  { "ref": "M-NUM-9", "value": "数字 9", "stage": 2, "stageName": "数字与数量 6～10", "order": 19, "kind": "digit", "number": 9 },
+  { "ref": "M-QTY-9", "value": "数量 9", "stage": 2, "stageName": "数字与数量 6～10", "order": 20, "kind": "quantity", "number": 9 },
+  { "ref": "M-NUM-10", "value": "数字 10", "stage": 2, "stageName": "数字与数量 6～10", "order": 21, "kind": "digit", "number": 10 },
+  { "ref": "M-QTY-10", "value": "数量 10", "stage": 2, "stageName": "数字与数量 6～10", "order": 22, "kind": "quantity", "number": 10 },
+
+  { "ref": "M-CMP-MORE", "value": "比较多与少", "stage": 3, "stageName": "比较与顺序", "order": 23, "kind": "compare_more" },
+  { "ref": "M-CMP-LESS", "value": "比较少与多", "stage": 3, "stageName": "比较与顺序", "order": 24, "kind": "compare_less" },
+  { "ref": "M-ORDER-NEXT", "value": "后一个数", "stage": 3, "stageName": "比较与顺序", "order": 25, "kind": "next_number", "number": 4 },
+  { "ref": "M-ORDER-PREV", "value": "前一个数", "stage": 3, "stageName": "比较与顺序", "order": 26, "kind": "previous_number", "number": 6 },
+  { "ref": "M-ORDER-MISSING", "value": "数字顺序", "stage": 3, "stageName": "比较与顺序", "order": 27, "kind": "missing_number", "number": 3 },
+
+  { "ref": "M-COMP-2", "value": "2 的分与合", "stage": 4, "stageName": "分与合", "order": 28, "kind": "composition", "number": 2 },
+  { "ref": "M-COMP-3", "value": "3 的分与合", "stage": 4, "stageName": "分与合", "order": 29, "kind": "composition", "number": 3 },
+  { "ref": "M-COMP-4", "value": "4 的分与合", "stage": 4, "stageName": "分与合", "order": 30, "kind": "composition", "number": 4 },
+  { "ref": "M-COMP-5", "value": "5 的分与合", "stage": 4, "stageName": "分与合", "order": 31, "kind": "composition", "number": 5 },
+
+  { "ref": "M-ADD-5", "value": "5 以内加法", "stage": 5, "stageName": "5 以内加减", "order": 32, "kind": "addition", "level": 5 },
+  { "ref": "M-SUB-5", "value": "5 以内减法", "stage": 5, "stageName": "5 以内加减", "order": 33, "kind": "subtraction", "level": 5 },
+
+  { "ref": "M-ADD-10", "value": "10 以内加法", "stage": 6, "stageName": "10 以内加减", "order": 34, "kind": "addition", "level": 10 },
+  { "ref": "M-SUB-10", "value": "10 以内减法", "stage": 6, "stageName": "10 以内加减", "order": 35, "kind": "subtraction", "level": 10 }
+]
+
