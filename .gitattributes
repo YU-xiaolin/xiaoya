@@ -1,0 +1,3 @@
+# Shared-core manifests pin the original bytes, including line endings.
+# Keep checkouts identical on Windows and Linux.
+* -text
