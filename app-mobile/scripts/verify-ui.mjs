@@ -185,8 +185,9 @@ async function main() {
     // 5. 连续作答，做完若干题后按“今天先到这里”结束本节（验证保存链路）
     // 可出题的题量取决于本机已有记录覆盖的内容（隔离环境里只先学了一小段），
     // 因此这里校验「连续作答链路可用」，不写死题量下限。
+    const expectedRound = await page.evaluate(() => Math.min(8, window.xiaoya.childApp.runtime.queue.length));
     const outcome = await answerRound(page, 8);
-    record("连续作答成功", outcome.answered >= 3, `作答 ${outcome.answered} 题` + (outcome.error ? ` · ${outcome.error}` : ""));
+    record("连续作答成功", expectedRound > 0 && outcome.answered === expectedRound && !outcome.error && (expectedRound === 8 || outcome.done), `作答 ${outcome.answered}/${expectedRound} 题` + (outcome.error ? ` · ${outcome.error}` : ""));
     if (!outcome.done) {
       await page.click("[data-action='stop']").catch(() => {});
     }

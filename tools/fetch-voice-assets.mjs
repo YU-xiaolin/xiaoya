@@ -27,13 +27,17 @@ async function worker() {
     if (from) {
       bytes = await readFile(path.join(path.resolve(from), name));
     } else {
-      for (let attempt = 0; attempt < 4; attempt++) {
+      for (let attempt = 0; attempt < 8; attempt++) {
         try {
           const response = await fetch(new URL(name, lock.source), { signal: AbortSignal.timeout(30000) });
           if (!response.ok) throw new Error(`HTTP ${response.status}: ${name}`);
           bytes = Buffer.from(await response.arrayBuffer());
           break;
-        } catch (error) { if (attempt === 3) throw error; }
+        } catch (error) {
+          if (attempt === 7) throw error;
+          console.warn(`Retrying audio ${name}: ${error.message}`);
+          await new Promise(resolve => setTimeout(resolve, Math.min(30000, 2000 * 2 ** attempt)));
+        }
       }
     }
     if (bytes.length !== expected.bytes || digest(bytes) !== expected.sha256) throw new Error(`Audio integrity mismatch: ${name}`);
@@ -42,5 +46,5 @@ async function worker() {
     if (completed % 500 === 0) console.log(`Verified audio ${completed}/${entries.length}`);
   }
 }
-await Promise.all(Array.from({ length: 12 }, worker));
+await Promise.all(Array.from({ length: 4 }, worker));
 console.log(`Verified audio ${completed}/${entries.length}`);

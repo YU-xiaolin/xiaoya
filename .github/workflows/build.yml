@@ -10,7 +10,7 @@ permissions:
 
 concurrency:
   group: build-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   pwa:
@@ -107,4 +107,3 @@ jobs:
             app-source/src-tauri/target/release/build-info-desktop.json
           if-no-files-found: error
           retention-days: 90
-
