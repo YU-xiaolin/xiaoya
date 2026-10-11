@@ -76,6 +76,27 @@ test("手机音频下载或播放挂起有超时，不会卡住反馈", async ()
   assert.equal(factory.elements[0].paused, true);
 });
 
+test("直接媒体加载失败会复用同一播放器读取离线录音，取消后不复活", async () => {
+  const factory = mediaFactory();
+  const player = createMobileSpeechPlayer({ ...factory, readCached: async () => new Blob(["simulated audio"], { type: "audio/mpeg" }) });
+  const pending = player.speak("first", pack);
+  factory.elements[0].onerror();
+  await new Promise(resolve => setImmediate(resolve));
+  assert.match(factory.elements[0].src, /^blob:/);
+  assert.equal(factory.elements.length, 1);
+  factory.elements[0].onended();
+  assert.equal(await pending, "ended");
+  let release;
+  const delayed = createMobileSpeechPlayer({ ...factory, readCached: () => new Promise(resolve => { release = resolve; }) });
+  const cancelled = delayed.speak("first", pack);
+  factory.elements[1].onerror();
+  delayed.cancel();
+  release(new Blob(["simulated"]));
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(await cancelled, "cancelled");
+  assert.equal(factory.elements[1].playCalls.length, 1);
+});
+
 test("JSONB 字段重排不改变课程校验，题序变化仍会改变校验", () => {
   assert.equal(canonicalJson({ b: 2, a: [{ z: 1, y: 2 }] }), canonicalJson({ a: [{ y: 2, z: 1 }], b: 2 }));
   assert.notEqual(canonicalJson({ tasks: [1, 2] }), canonicalJson({ tasks: [2, 1] }));

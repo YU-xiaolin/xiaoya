@@ -1,19 +1,42 @@
 // Real media, IndexedDB and service worker checks on an isolated production build.
 // No family files or cloud account are read or changed by this script.
 import { chromium, webkit, devices } from "playwright-core";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile, readFile } from "node:fs/promises";
+import { createServer } from "node:http";
+import { fileURLToPath } from "node:url";
 import path from "node:path";
 
-const base = process.env.XIAOYA_BASE_URL || "http://127.0.0.1:5210/";
+let base = process.env.XIAOYA_BASE_URL || "http://127.0.0.1:5210/";
 const out = process.env.XIAOYA_VERIFY_OUT;
 if (!out) throw new Error("Set XIAOYA_VERIFY_OUT to an evidence directory outside the source checkout.");
 await mkdir(out, { recursive: true });
 const engine = process.env.XIAOYA_ENGINE || "chromium";
+let origin;
+if (engine === "webkit") {
+  // Playwright's WebKit offline flag rejects even literal worker responses:
+  // https://github.com/microsoft/playwright/issues/42775
+  // Stop an isolated origin instead, leaving service-worker requests functional.
+  const dist = fileURLToPath(new URL("../dist/", import.meta.url));
+  const types = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".webmanifest": "application/manifest+json", ".mp3": "audio/mpeg", ".png": "image/png", ".svg": "image/svg+xml" };
+  origin = createServer(async (req, res) => {
+    try {
+      const pathname = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
+      const target = path.resolve(dist, `.${pathname.endsWith("/") ? pathname + "index.html" : pathname}`);
+      if (!target.startsWith(dist)) { res.writeHead(403).end(); return; }
+      const data = await readFile(target);
+      res.writeHead(200, { "Content-Type": types[path.extname(target)] || "application/octet-stream", "Content-Length": data.length });
+      res.end(data);
+    } catch { res.writeHead(404).end(); }
+  });
+  await new Promise(resolve => origin.listen(0, "127.0.0.1", resolve));
+  base = `http://127.0.0.1:${origin.address().port}/`;
+}
 const browser = await (engine === "webkit" ? webkit : chromium).launch(engine === "webkit" ? {} : {
   executablePath: process.env.XIAOYA_CHROME || path.join(process.env.LOCALAPPDATA, "ms-playwright/chromium-1234/chrome-win64/chrome.exe")
 });
 const checks = [];
 const errors = [];
+const unverified = [];
 function check(name, ok, detail) {
   checks.push({ name, ok: Boolean(ok), detail });
   console.log(`${ok ? "PASS" : "FAIL"} ${name}${detail ? `: ${JSON.stringify(detail)}` : ""}`);
@@ -32,6 +55,7 @@ async function fresh() {
         });
       }
       if (window.__blockAudio && /\/voice\//.test(this.src)) return Promise.reject(new DOMException("Test denied playback", "NotAllowedError"));
+      if (window.__failDirect && /\/voice\//.test(this.src)) return Promise.reject(new DOMException("Test direct source failure", "NotSupportedError"));
       return nativePlay.call(this);
     };
   });
@@ -165,6 +189,13 @@ try {
     await page.click("[data-action='retry-voice']");
     await page.waitForFunction(() => window.__mediaLog.some(e => e.kind === "playing" && /\/voice\//.test(e.src)), { timeout: 10000 });
     check("explicit retry recovers real playback", true);
+    if (engine !== "webkit") {
+      await page.evaluate(() => { window.__failDirect = true; window.__mediaLog = []; });
+      await page.click("[data-action='repeat-question']");
+      await page.waitForFunction(() => window.__mediaLog.some(e => e.kind === "playing" && /^blob:/.test(e.src)));
+      check("direct media failure recovers from cached MP3 bytes", true);
+      await page.evaluate(() => window.__failDirect = false);
+    }
     await page.click("[data-action='lesson-back']");
 
     // Use only a fully cached file and reload the page to exercise persisted offline state.
@@ -174,7 +205,21 @@ try {
       return all[0]?.url;
     });
     if (!audioUrl) throw new Error("No lesson audio was cached");
-    await context.setOffline(true);
+    let supportsBlob = true;
+    if (engine === "webkit") {
+      supportsBlob = await page.evaluate(async url => {
+        const blob = await (await fetch(url)).blob();
+        const source = URL.createObjectURL(blob);
+        const control = new Audio(source);
+        try { await control.play(); control.pause(); return true; }
+        catch { return false; }
+        finally { URL.revokeObjectURL(source); }
+      }, audioUrl);
+    }
+    if (origin) {
+      await new Promise(resolve => { origin.close(resolve); origin.closeAllConnections(); });
+      check("offline origin is unavailable without service worker", await fetch(base).then(() => false, () => true));
+    } else await context.setOffline(true);
     await page.reload({ waitUntil: "domcontentloaded" });
     await page.waitForSelector("[data-action='resume-lesson']");
     const range = await page.evaluate(async url => {
@@ -183,8 +228,13 @@ try {
     }, audioUrl);
     check("offline byte-range audio response", range.status === 206 && range.size === 2, range);
     await page.click("[data-action='resume-lesson']");
-    await page.waitForFunction(() => window.__mediaLog.some(e => e.kind === "playing" && /\/voice\//.test(e.src)), { timeout: 15000 });
-    check("cold offline reload retains recorded voice manifest and playback", true);
+    if (supportsBlob) {
+      await page.waitForFunction(() => window.__mediaLog.some(e => e.kind === "playing" && (/\/voice\//.test(e.src) || /^blob:/.test(e.src))), null, { timeout: 15000 });
+      check("cold offline reload retains recorded voice manifest and playback", true);
+    } else {
+      unverified.push({ name: "WebKit offline media playback", reason: "Windows WebKit rejects the same blob MP3 in the online control (media error 4). Verify on iPhone Safari or macOS WebKit." });
+      console.log("UNVERIFIED WebKit offline media: online blob control is unsupported by this runtime");
+    }
     await page.screenshot({ path: path.join(out, `${engine}-offline-audio.png`) });
     await context.close();
   }
@@ -192,8 +242,9 @@ try {
   check("browser audit completes", false, e.stack);
 } finally {
   await browser.close();
+  if (origin?.listening) await new Promise(resolve => origin.close(resolve));
 }
 check("no uncaught application errors", errors.length === 0, errors);
-const report = { at: new Date().toISOString(), engine, base, passed: checks.filter(c => c.ok).length, failed: checks.filter(c => !c.ok).length, checks };
+const report = { at: new Date().toISOString(), engine, base, passed: checks.filter(c => c.ok).length, failed: checks.filter(c => !c.ok).length, unverified, checks };
 await writeFile(path.join(out, `${engine}-mobile-audit.json`), JSON.stringify(report, null, 2));
 if (report.failed) process.exitCode = 1;
