@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "provider": "Microsoft Edge Online TTS (edge-tts)",
   "source": "小芽家庭学习 手机版语音包",
-  "note": "收录应用会朗读的全部文本，均使用晓伊自然语音（Microsoft Edge TTS）。",
-  "generatedAt": "2026-10-10T01:54:42.842Z",
-  "clipCount": 4294,
+  "note": "覆盖内置课程、全部汉字与字母测试、预习及六阶段数学变体；离线前可在家长管理下载语音。自定义课程缺少音频时会提示重试。",
+  "generatedAt": "2026-10-11T11:47:49.021Z",
+  "clipCount": 4318,
   "clips": {
     "真棒，答对了！": {
       "fileName": "de48a4340cfb7fa0bd20d519.mp3",
@@ -30063,6 +30063,174 @@
       "rate": "+12%",
       "volume": "+0%",
       "pitch": "+5Hz"
+    },
+    "这是字母 A。请看清它的大写和小写样子。": {
+      "fileName": "951fe272343f07f3632a71e3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 B。请看清它的大写和小写样子。": {
+      "fileName": "8c1b6eacf21d474e6ab22b12.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 C。请看清它的大写和小写样子。": {
+      "fileName": "fa5e2625e919cf2b9228840e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 F。请看清它的大写和小写样子。": {
+      "fileName": "924a7c5e550a015564e03964.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 G。请看清它的大写和小写样子。": {
+      "fileName": "ecb597e0f1faf9137ac890fb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 H。请看清它的大写和小写样子。": {
+      "fileName": "549308f33a75d48acfd58da3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 I。请看清它的大写和小写样子。": {
+      "fileName": "3dec641b768efc1b49038d79.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 J。请看清它的大写和小写样子。": {
+      "fileName": "43d1f4d30d2f6f22f70ad7d1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 K。请看清它的大写和小写样子。": {
+      "fileName": "b6e17d89007d40da7508d4b7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 L。请看清它的大写和小写样子。": {
+      "fileName": "858a23944517e8651c5101f5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 M。请看清它的大写和小写样子。": {
+      "fileName": "db0bddcfc9b718e6d9f791a0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 N。请看清它的大写和小写样子。": {
+      "fileName": "d890a31e515cfdb16a0a0298.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 O。请看清它的大写和小写样子。": {
+      "fileName": "b1339a032ce4f8ef9dd5b758.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 P。请看清它的大写和小写样子。": {
+      "fileName": "cd778fd2fdf04a97d450a018.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 Q。请看清它的大写和小写样子。": {
+      "fileName": "41b0b72cf6b91476b6d6d9b8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 R。请看清它的大写和小写样子。": {
+      "fileName": "60ef55522a11e13130d0d2e7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 S。请看清它的大写和小写样子。": {
+      "fileName": "38225440612d571c137643fc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 T。请看清它的大写和小写样子。": {
+      "fileName": "021c75513eaa3e774cbf4031.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 U。请看清它的大写和小写样子。": {
+      "fileName": "90637c066fd07c469c3db8de.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 V。请看清它的大写和小写样子。": {
+      "fileName": "edd094755dfdde7ba9474a3a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 W。请看清它的大写和小写样子。": {
+      "fileName": "91996d05dd95d089e35302aa.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 X。请看清它的大写和小写样子。": {
+      "fileName": "cfce8acf9059f985717debfb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 Y。请看清它的大写和小写样子。": {
+      "fileName": "423fc8bc3688246d1e0a8766.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
+    },
+    "这是字母 Z。请看清它的大写和小写样子。": {
+      "fileName": "c49438735811cc0a49895ac2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+14%",
+      "volume": "+0%",
+      "pitch": "+6Hz"
     }
   }
 }

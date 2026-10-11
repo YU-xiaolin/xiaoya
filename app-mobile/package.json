@@ -1,7 +1,7 @@
 {
   "name": "xiaoya-family-learning-mobile",
   "private": true,
-  "version": "0.3.1",
+  "version": "0.3.2",
   "type": "module",
   "description": "小芽家庭学习 手机版 PWA（复用 Windows 端教学核心与正式学习数据协议）",
   "scripts": {

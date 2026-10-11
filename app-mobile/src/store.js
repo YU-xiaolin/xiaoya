@@ -53,6 +53,14 @@ export async function sha256Hex(value) {
   return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, "0")).join("").toUpperCase();
 }
 
+// JSONB may reorder object fields. Arrays retain order, especially task/event
+// sequences, while object keys have a single representation on every device.
+export function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
+  if (value && typeof value === "object") return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(",")}}`;
+  return JSON.stringify(value);
+}
+
 /* ---------------- 课程包 ---------------- */
 
 export const ACTIVE_PACKAGE_KEY = "active";

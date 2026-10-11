@@ -32,6 +32,7 @@ function serviceWorkerManifest() {
         "./",
         "./index.html",
         "./manifest.webmanifest",
+        "./voice/manifest.json",
         "./course/course-package.json",
         "./course/course-package.meta.json",
         "./icons/icon.svg",

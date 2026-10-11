@@ -22,9 +22,10 @@ import { demonstrationSpeechText, hintSpeechText, questionSpeechText, reinforcem
 import { taskHint } from "./core/targeted-hints.js";
 import { compositionInstructions, createCompositionBoard, isCompositionModel, moveCompositionBoard } from "./core/composition-board.js";
 import { validateLesson } from "./core/protocol.js";
-import { cancelSpeech, speak } from "./voice.js";
+import { cancelSpeech, speak as playSpeech, prepareOfflineVoices } from "./voice.js";
+import { taskVoiceTexts } from "./task-voice.js";
 import { newSession, sha256Hex, deviceCode, studentCode, detectPlatform } from "./store.js";
-import { appendLog, putSession, putDraft, deleteDraft, latestDraft, listSessions } from "./db.js";
+import { appendLog, putSession, putDraft, deleteDraft, latestDraft, listSessions, getSession } from "./db.js";
 import { analyzeSessions, mergeCatalogProgress } from "./analysis.js";
 import { captureFocus, restoreFocus } from "./focus-keep.js";
 
@@ -152,13 +153,40 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     return Boolean(runtime.paused && runtime.session && !runtime.saved);
   }
 
+  let lastSpeech = "";
+  async function speak(text) {
+    lastSpeech = text;
+    const taskId = currentTask()?.taskId;
+    const status = await playSpeech(text);
+    if (runtime.view !== "task" || runtime.paused || currentTask()?.taskId !== taskId) return status;
+    const notice = root.querySelector(".voice-notice");
+    if (notice && status !== "cancelled") {
+      notice.hidden = status !== "blocked" && status !== "unavailable";
+      const label = notice.querySelector("span");
+      if (label) label.textContent = status === "blocked"
+        ? "点一下“播放声音”，让小芽读给你听。"
+        : navigator.onLine ? "声音暂时没播出来，可以再试一次。" : "这句语音还没下载，请联网后再试。";
+    }
+    return status;
+  }
+
+  function stopTaskAudio() {
+    clearTimeout(runtime.questionTimer);
+    cancelSpeech();
+  }
+
+  function preloadLessonVoices() {
+    const texts = ["真棒，答对了！", "太好了，这次答对了！", ...runtime.queue.flatMap(task => taskVoiceTexts(task, runtime.studyMode))];
+    prepareOfflineVoices({ texts }).catch(() => { /* Explicit playback offers retry. */ });
+  }
+
   /* ---------------- 草稿：刷新/关闭不丢已发生的作答 ---------------- */
 
   // 草稿只记录「恢复这一节所需的最小状态」，与最终记录分开存放。
   function draftSnapshot() {
     if (!runtime.session || runtime.saved) return null;
     const task = currentTask();
-    return {
+    return structuredClone({
       sessionId: runtime.session.sessionId,
       session: runtime.session,
       studyMode: runtime.studyMode,
@@ -173,10 +201,11 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
       compositionBoard: runtime.compositionBoard,
       taskElapsedMs: Math.max(0, runtime.taskElapsedMs + (runtime.taskShownAt ? Date.now() - runtime.taskShownAt : 0)),
       answerLocked: runtime.answerLocked,
+      feedbackAdvancePending: runtime.feedbackAdvancePending,
       paused: runtime.paused,
       pausedAtTaskId: task?.taskId || null,
       mathStage: runtime.mathStage
-    };
+    });
   }
 
   let draftWriteChain = Promise.resolve();
@@ -204,6 +233,10 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     try {
       const draft = await latestDraft();
       if (!draft?.session) return null;
+      if (await getSession(draft.sessionId)) {
+        await deleteDraft(draft.sessionId);
+        return null;
+      }
       if (!Array.isArray(draft.session.events) || draft.session.events.length === 0) {
         await deleteDraft(draft.sessionId);
         return null;
@@ -234,7 +267,10 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     runtime.saveFailed = false;
     runtime.sessionEnding = false;
     runtime.feedbackActive = false;
-    runtime.feedbackAdvancePending = false;
+    runtime.feedbackAdvancePending = Boolean(draft.feedbackAdvancePending) || Boolean(
+      runtime.answerLocked && runtime.supportMode !== "demo" && runtime.session.events.some(event =>
+        event.taskId === runtime.queue[runtime.queueIndex]?.taskId && event.result === "correct")
+    );
     if (Number.isInteger(draft.mathStage)) runtime.mathStage = draft.mathStage;
     // 恢复后仍处于「暂停」态，由孩子主动选择继续或结束，避免回到首页时状态含糊。
     return draft;
@@ -243,6 +279,8 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
   /* ---------------- 视图 ---------------- */
 
   function renderHome() {
+    root.dataset.appMode = "child";
+    stopTaskAudio();
     runtime.view = "home";
     root.innerHTML = `
       <main class="welcome">
@@ -258,6 +296,8 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
   }
 
   function renderChildHome() {
+    root.dataset.appMode = "child";
+    stopTaskAudio();
     runtime.view = "child-home";
     const s = summary();
     const paused = hasPaused();
@@ -279,6 +319,8 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
   }
 
   function renderSubject() {
+    root.dataset.appMode = "child";
+    stopTaskAudio();
     runtime.view = "subject";
     const subject = runtime.selectedSubject;
     if (subject === "math") return renderMathSubject();
@@ -366,6 +408,8 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
   }
 
   function renderTestSetup() {
+    root.dataset.appMode = "child";
+    stopTaskAudio();
     runtime.view = "test-setup";
     // 手机上输入数字时，任何一次重绘都必须把焦点和光标交还给同一个输入框，
     // 否则软键盘会被收起、刚输入的数字也会消失。
@@ -435,8 +479,9 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
   // resumeTaskId：恢复中断的同一题时必须传当前 taskId，此时保留 attempt / supportMode /
   // activeHint / 分合盘 / 计时与锁定状态；展示新题时才重置。
   function renderTask(resumeTaskId = null) {
+    root.dataset.appMode = "child";
     runtime.view = "task";
-    cancelSpeech();
+    stopTaskAudio();
     const task = currentTask();
     if (!task) return finishSession(true, "completed");
     const resuming = resumeTaskId !== null && resumeTaskId === task.taskId;
@@ -489,6 +534,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
           <div id="support">${supportVisible ? supportHtml(task) : ""}</div>
         </section>
         <footer class="lesson-bottom">
+          <div class="voice-notice notice warn" role="status" hidden><span></span><button class="voice-button" data-action="retry-voice">🔊 播放声音</button></div>
           <button class="voice-button" data-action="repeat-question">🔊 再听一次题目</button>
           <button class="button secondary" data-action="stop">今天先到这里</button>
         </footer>
@@ -621,6 +667,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     const stillCurrent = () => token === runtime.feedbackToken && !runtime.paused && !runtime.sessionEnding;
     runtime.feedbackActive = true;
     runtime.feedbackAdvancePending = true;
+    persistDraft();
     document.querySelectorAll("[data-answer], [data-choice]").forEach(node => { node.disabled = true; });
     document.querySelector(".stage")?.insertAdjacentHTML("beforeend", `
       <div class="feedback" role="status"><div class="feedback-card"><div class="feedback-mark">👍</div><h2>${escapeHtml(title)}</h2><p>${escapeHtml(detail)}</p>
@@ -722,6 +769,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
   }
 
   function pauseLesson() {
+    stopTaskAudio();
     cancelFeedback();
     if (!runtime.session || runtime.saved) return renderSubject();
     if (runtime.session.events.length === 0) {
@@ -743,6 +791,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
   function resumeLesson() {
     if (!hasPaused()) return;
     runtime.paused = false;
+    preloadLessonVoices();
     if (runtime.feedbackAdvancePending) advance();
     else renderTask(currentTask()?.taskId || null);
     persistDraft();
@@ -767,7 +816,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
   async function finishSession(completed, stopReason) {
     if (runtime.saved) return;
     cancelFeedback();
-    cancelSpeech();
+    stopTaskAudio();
     runtime.sessionEnding = true;
     runtime.answerLocked = true;
     runtime.paused = false;
@@ -782,6 +831,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     try {
       const [code, device] = await Promise.all([studentCode(), deviceCode()]);
       const payloadSha256 = await sha256Hex(runtime.session);
+      await draftWriteChain;
       await putSession({
         sessionId: runtime.session.sessionId,
         studentCode: code,
@@ -793,13 +843,13 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
         uploadedAt: null,
         payload: runtime.session,
         payloadSha256
-      });
+      }, { finalizeDraft: true });
       runtime.saved = true;
       // 最终记录已落盘，草稿完成使命，删除以免下次误恢复。
       clearDraft();
       // 刚答过的内容要立刻反映到目录里：否则本节结束后点“小测试”仍然显示「暂无记录」。
       await refreshObservedCatalog();
-      await appendLog({ type: "session", action: "save", sessionId: runtime.session.sessionId, events: runtime.session.events.length });
+      await appendLog({ type: "session", action: "save", sessionId: runtime.session.sessionId, events: runtime.session.events.length }).catch(() => {});
       const count = runtime.session.events.length;
       onSessionSaved?.(runtime.session);
       root.innerHTML = `
@@ -853,6 +903,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     runtime.saved = false;
     runtime.sessionEnding = false;
     runtime.feedbackAdvancePending = false;
+    preloadLessonVoices();
     renderTask();
     persistDraft();
   }
@@ -884,12 +935,13 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
   async function refreshData(pkg) {
     runtime.pkg = pkg;
     await refreshObservedCatalog();
-    if (runtime.view === "home") renderHome();
+    if (runtime.view === "home" && root.dataset.appMode !== "parent") renderHome();
   }
 
   /* ---------------- 事件 ---------------- */
 
   root.addEventListener("click", async event => {
+    if (root.dataset.appMode === "parent" || root.dataset.appMode === "pin") return;
     if (event.target.closest("button:disabled") || event.detail > 1) return;
     // PIN 输入界面由 main.js 接管；此时孩子界面不应响应任何动作。
     if (event.target.closest("[data-pin]")) return;
@@ -934,6 +986,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
         speak(isCompositionModel(task) ? compositionInstructions(task.composition)[runtime.compositionBoard?.phase || "left"] : questionSpeechText(task));
         break;
       }
+      case "retry-voice": if (lastSpeech) speak(lastSpeech); break;
       case "repeat-hint": speak(hintSpeechText(currentTask(), runtime.activeHint || taskHint(currentTask()))); break;
       case "repeat-demo": speak(demonstrationSpeechText(currentTask())); break;
       case "continue": if (runtime.supportMode === "demo") advance(); break;
@@ -965,6 +1018,24 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     runtime.mathStage = Number(stage) || 6;
   }
 
+  async function resetLocalProgress() {
+    stopTaskAudio();
+    cancelFeedback();
+    await draftWriteChain;
+    runtime.session = null;
+    runtime.queue = [];
+    runtime.scheduledRetests = [];
+    runtime.paused = false;
+    runtime.supportMode = null;
+    runtime.feedbackAdvancePending = false;
+    runtime.view = "home";
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden" && runtime.view === "task" && !runtime.paused && !runtime.saved && !runtime.sessionEnding) pauseLesson();
+  });
+  window.addEventListener("pagehide", () => { stopTaskAudio(); persistDraft(); });
+
   function restoreStage() {
     try {
       const saved = Number(localStorage.getItem("xiaoya.math-stage"));
@@ -983,6 +1054,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     findResumableDraft,
     restoreDraft,
     resumeLesson,
+    resetLocalProgress,
     hasPaused,
     currentView: () => runtime.view,
     runtime

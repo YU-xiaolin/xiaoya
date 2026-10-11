@@ -12,7 +12,7 @@ async function loadVoiceModule() {
   return import(/* @vite-ignore */ `${VOICE_PATH}?case=${importCounter}`);
 }
 
-function installBrowserStubs({ manifestClips = null, clipBehavior = "ended" } = {}) {
+function installBrowserStubs({ manifestClips = null, clipBehavior = "ended", deviceBehavior = "ended" } = {}) {
   const deviceSpoken = [];
   const state = { clipBehavior, loadCount: 0, cancelCount: 0 };
 
@@ -41,6 +41,7 @@ function installBrowserStubs({ manifestClips = null, clipBehavior = "ended" } = 
     cancel() { state.cancelCount += 1; },
     speak(utterance) {
       deviceSpoken.push(utterance.text);
+      if (deviceBehavior === "ended") queueMicrotask(() => utterance.onend?.());
     }
   };
   globalThis.SpeechSynthesisUtterance = class {
@@ -156,7 +157,7 @@ test("R10 回退分支也受代次约束：取消后不得用设备语音播出�
 });
 
 test("R10 设备语音朗读过程中被取消时返回 cancelled", async () => {
-  const { deviceSpoken } = installBrowserStubs({ manifestClips: null });
+  const { deviceSpoken } = installBrowserStubs({ manifestClips: null, deviceBehavior: "pending" });
   const voice = await loadVoiceModule();
   await voice.initVoice();
 

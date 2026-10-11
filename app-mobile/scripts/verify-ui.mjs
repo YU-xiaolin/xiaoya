@@ -7,7 +7,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const outDir = path.resolve(here, "..", "..", "output", "work-20261010-0930-mobile-bugfix", "ui-verify");
+const outDir = process.env.XIAOYA_VERIFY_OUT || path.resolve(here, "..", "..", "output", "work-20261010-0930-mobile-bugfix", "ui-verify");
 
 const EXECUTABLES = [
   process.env.PLAYWRIGHT_CHROMIUM,

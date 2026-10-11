@@ -14,9 +14,9 @@
 */
 // 升级缓存版本会清掉旧版本的缓存：语音包从「按优先级裁剪的子集」改为「全量晓伊语音」后，
 // 必须让已安装的设备重新取到新的语音清单，而不是继续用旧清单。
-const VERSION = "xiaoya-mobile-v3";
+const VERSION = "xiaoya-mobile-v4";
 const SHELL_CACHE = `${VERSION}-shell`;
-const ASSET_CACHE = `${VERSION}-assets`;
+const VOICE_CACHE = "xiaoya-voice-v1";
 
 // 启动必需的静态外壳资源。
 // 构建时（vite.config.js 的 xiaoya-sw-manifest 插件）会把下面的占位符替换成
@@ -27,6 +27,7 @@ const BASE_SHELL_URLS = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
+  "./voice/manifest.json",
   "./course/course-package.json",
   "./course/course-package.meta.json",
   "./icons/icon.svg",
@@ -92,32 +93,59 @@ self.addEventListener("activate", event => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
     // 删除所有旧版本缓存（升级缓存版本时会清掉此前误存的云接口响应）。
-    await Promise.all(keys.filter(key => !key.startsWith(VERSION)).map(key => caches.delete(key)));
+    await Promise.all(keys.filter(key => key.startsWith("xiaoya-mobile-") && !key.startsWith(VERSION)).map(key => caches.delete(key)));
     await self.clients.claim();
   })());
 });
 
 /* ---------------- 缓存策略 ---------------- */
 
-async function cacheFirst(request, cacheName) {
+async function cacheFirst(request, cacheName, event) {
   const cache = await caches.open(cacheName);
   const cached = await cache.match(request, { ignoreSearch: false });
   if (cached) {
     // 后台静默更新，下次打开即为最新；离线时忽略失败。
-    revalidate(request, cache);
+    event.waitUntil(revalidate(request, cache));
     return cached;
   }
   const response = await fetch(request);
   if (response && response.ok && response.type === "basic") {
-    cache.put(request, response.clone());
+    await cache.put(request, response.clone());
   }
   return response;
 }
 
 function revalidate(request, cache) {
-  fetch(request).then(response => {
-    if (response && response.ok && response.type === "basic") cache.put(request, response.clone());
+  return fetch(request).then(async response => {
+    if (response && response.ok && response.type === "basic") await cache.put(request, response.clone());
   }).catch(() => { /* 离线，保留缓存。 */ });
+}
+
+// Safari requests byte ranges for media. Store complete MP3s and return the
+// requested slice, so a cached lesson remains playable after disconnecting.
+async function audioResponse(request) {
+  const cache = await caches.open(VOICE_CACHE);
+  const fullRequest = new Request(request.url, { credentials: "same-origin" });
+  let response = await cache.match(fullRequest);
+  if (!response) {
+    response = await fetch(fullRequest);
+    if (!response.ok || /text\/html/i.test(response.headers.get("content-type") || "")) return Response.error();
+    await cache.put(fullRequest, response.clone());
+  }
+  const range = request.headers.get("range");
+  if (!range) return response;
+  const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+  if (!match || (!match[1] && !match[2])) return new Response(null, { status: 416 });
+  const bytes = await response.arrayBuffer();
+  const start = match[1] ? Number(match[1]) : Math.max(0, bytes.byteLength - Number(match[2]));
+  const end = match[1] && match[2] ? Math.min(Number(match[2]), bytes.byteLength - 1) : bytes.byteLength - 1;
+  if (start > end || start >= bytes.byteLength) return new Response(null, { status: 416, headers: { "Content-Range": `bytes */${bytes.byteLength}` } });
+  return new Response(bytes.slice(start, end + 1), { status: 206, headers: {
+    "Content-Type": response.headers.get("content-type") || "audio/mpeg",
+    "Accept-Ranges": "bytes",
+    "Content-Length": String(end - start + 1),
+    "Content-Range": `bytes ${start}-${end}/${bytes.byteLength}`
+  } });
 }
 
 self.addEventListener("fetch", event => {
@@ -143,9 +171,10 @@ self.addEventListener("fetch", event => {
         const response = await fetch(request);
         if (response && response.ok) {
           const cache = await caches.open(SHELL_CACHE);
-          cache.put("./index.html", response.clone());
+          await cache.put("./index.html", response.clone());
+          return response;
         }
-        return response;
+        throw new Error("应用入口暂时不可用");
       } catch {
         const cache = await caches.open(SHELL_CACHE);
         return (await cache.match("./index.html")) || (await cache.match("./")) || Response.error();
@@ -155,11 +184,11 @@ self.addEventListener("fetch", event => {
   }
 
   if (isAudio) {
-    event.respondWith(cacheFirst(request, ASSET_CACHE));
+    event.respondWith(audioResponse(request));
     return;
   }
 
-  event.respondWith(cacheFirst(request, SHELL_CACHE));
+  event.respondWith(cacheFirst(request, SHELL_CACHE, event));
 });
 
 /* ---------------- 账号隔离与缓存清理 ---------------- */

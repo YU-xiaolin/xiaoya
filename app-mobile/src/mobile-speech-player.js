@@ -1,0 +1,69 @@
+// Keep one media element for the lifetime of the page. Mobile browsers grant
+// playback to that element during a tap; fetching a blob before play loses it.
+const SILENCE = "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQIAAAAAAA==";
+
+export function createMobileSpeechPlayer({ createAudio = () => new Audio(), timeoutMs = 12000 } = {}) {
+  let audio;
+  let active = null;
+  let generation = 0;
+  let unlocked = false;
+  const getAudio = () => audio ||= createAudio();
+  function cancel() {
+    generation += 1;
+    active?.finish("cancelled");
+  }
+  function unlock() {
+    if (unlocked || active) return;
+    const token = generation;
+    try {
+      const media = getAudio();
+      media.src = SILENCE;
+      media.preload = "auto";
+      Promise.resolve(media.play()).then(() => {
+        unlocked = true;
+        if (token === generation && !active) media.pause();
+      }).catch(() => { /* Retry on the next gesture. */ });
+    } catch { /* A later explicit play can still succeed. */ }
+  }
+  function speak(text, manifest) {
+    cancel();
+    const clip = manifest?.clips?.[text];
+    if (!clip?.fileName || !/^[a-zA-Z0-9._-]+\.(mp3|wav)$/i.test(clip.fileName)) return Promise.resolve("unavailable");
+    const token = generation;
+    return new Promise(resolve => {
+      let finished = false;
+      let timer;
+      let media;
+      const playback = { finish(status) {
+        if (finished) return;
+        finished = true;
+        clearTimeout(timer);
+        if (media) {
+          media.onended = media.onerror = media.onplaying = null;
+          try { media.pause(); } catch { /* Media may not have initialized. */ }
+        }
+        if (active === playback) active = null;
+        resolve(token === generation ? status : "cancelled");
+      } };
+      active = playback;
+      try {
+        media = getAudio();
+        media.preload = "auto";
+        media.src = `./voice/${clip.fileName}`;
+        media.onended = () => playback.finish("ended");
+        media.onerror = () => playback.finish("unavailable");
+        media.onplaying = () => {
+          clearTimeout(timer);
+          timer = setTimeout(() => playback.finish("unavailable"), Math.max(15000, text.length * 600));
+          timer?.unref?.();
+        };
+        timer = setTimeout(() => playback.finish("unavailable"), timeoutMs);
+        timer?.unref?.();
+        Promise.resolve(media.play()).catch(error => playback.finish(error?.name === "NotAllowedError" ? "blocked" : "unavailable"));
+      } catch (error) {
+        playback.finish(error?.name === "NotAllowedError" ? "blocked" : "unavailable");
+      }
+    });
+  }
+  return { speak, cancel, unlock };
+}

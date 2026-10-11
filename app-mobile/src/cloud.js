@@ -54,7 +54,7 @@ export function onAuthStateChange(callback) {
 }
 
 export async function signOut() {
-  await cloud.auth.signOut();
+  unwrap(await cloud.auth.signOut());
 }
 
 // 发送验证码：SDK 会在返回里带上 isExistingUser，用于决定后续走登录还是注册。
@@ -165,16 +165,25 @@ export async function uploadSessionRow(row) {
   return Array.isArray(data) ? data.length : 0;
 }
 
-export async function listRemoteSessions({ since = null, limit = 500 } = {}) {
-  let query = cloud.database
-    .from(TABLES.sessions)
-    .select("session_id,student_code,device_code,lesson_id,activity_mode,started_at,ended_at,completed,stop_reason,event_count,payload,payload_sha256,uploaded_at")
-    .order("uploaded_at", { ascending: true })
-    .limit(limit);
-  if (since) query = query.gt("uploaded_at", since);
-  const { data, error } = await query;
-  if (error) throw error;
-  return data || [];
+export async function listRemoteSessions({ since = null, limit = null, studentCode = null } = {}) {
+  const rows = [];
+  const maximum = limit == null ? Infinity : Math.max(0, Math.floor(Number(limit) || 0));
+  while (rows.length < maximum) {
+    const pageSize = Math.min(200, maximum - rows.length);
+    let query = cloud.database
+      .from(TABLES.sessions)
+      .select("session_id,student_code,device_code,lesson_id,activity_mode,started_at,ended_at,completed,stop_reason,event_count,payload,payload_sha256,uploaded_at")
+      .order("uploaded_at", { ascending: true }).order("session_id", { ascending: true })
+      .range(rows.length, rows.length + pageSize - 1);
+    if (since) query = query.gte("ended_at", since);
+    if (studentCode) query = query.eq("student_code", studentCode);
+    const { data, error } = await query;
+    if (error) throw error; // Never present a partial export as complete.
+    const page = data || [];
+    rows.push(...page);
+    if (page.length < pageSize) break;
+  }
+  return rows;
 }
 
 export async function countRemoteSessions() {
@@ -247,13 +256,6 @@ export async function publishCourse({ courseKey, version, subject, title, genera
 }
 
 export async function activateCourse({ courseKey, version }) {
-  const off = await cloud.database
-    .from(TABLES.courses)
-    .update({ is_active: false })
-    .eq("course_key", courseKey)
-    .eq("is_active", true)
-    .select("version");
-  if (off.error) throw off.error;
   const on = await cloud.database
     .from(TABLES.courses)
     .update({ is_active: true })
@@ -264,6 +266,13 @@ export async function activateCourse({ courseKey, version }) {
   if (!Array.isArray(on.data) || on.data.length === 0) {
     throw new Error("没有找到要发布的课程版本，可能已被删除。");
   }
+  // Confirm the new course exists and is active before retiring the old one.
+  // A failed first request must never leave the family with no active course.
+  const off = await cloud.database
+    .from(TABLES.courses).update({ is_active: false })
+    .eq("course_key", courseKey).eq("is_active", true).neq("version", version)
+    .select("version");
+  if (off.error) throw off.error;
   return on.data.length;
 }
 

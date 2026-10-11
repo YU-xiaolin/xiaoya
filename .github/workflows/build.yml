@@ -32,6 +32,7 @@ jobs:
         with:
           path: app-mobile/public/voice/*.mp3
           key: voice-${{ hashFiles('tools/voice-assets.json') }}
+          restore-keys: voice-
       - run: node tools/fetch-voice-assets.mjs
       - run: npm test --prefix app-source
       - run: npm test --prefix app-mobile

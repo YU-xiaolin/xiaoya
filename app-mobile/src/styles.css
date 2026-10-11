@@ -58,6 +58,8 @@ h1, h2, h3, p { margin: 0; }
 .text-back { border: 0; background: none; color: var(--ink-soft); font-size: 15px; padding: 14px; width: 100%; text-decoration: underline; }
 .icon-button { width: 48px; height: 48px; border-radius: 16px; border: 1.5px solid var(--line); background: #fff; font-size: 20px; display: grid; place-items: center; }
 .hint-text { color: var(--ink-soft); font-size: 13px; line-height: 1.6; margin-top: 10px; }
+.voice-notice[hidden] { display: none; }
+.voice-notice .voice-button { margin-top: 8px; }
 .section-title { font-size: 17px; margin: 22px 4px 10px; }
 .empty { color: var(--ink-soft); font-size: 14px; padding: 14px 4px; }
 .warn-text { color: var(--danger) !important; }

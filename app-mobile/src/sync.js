@@ -8,7 +8,7 @@ import {
 } from "./db.js";
 import {
   deviceCode, detectPlatform, loadActivePackage, saveActivePackage, sha256Hex, studentCode,
-  ROLLBACK_PACKAGE_KEY
+  ROLLBACK_PACKAGE_KEY, canonicalJson
 } from "./store.js";
 import { validateLesson } from "./core/protocol.js";
 
@@ -162,19 +162,19 @@ export function validatePackagePayload(payload) {
   const summary = payload.summary;
   if (!summary || typeof summary !== "object" || Array.isArray(summary)) errors.push("课程包缺少 summary");
   else if (typeof summary.formalItemCount !== "number") errors.push("summary.formalItemCount 必须是数字");
+  else if (summary.formalItemCount !== ["hanzi", "english_letter", "math"].reduce((sum, subject) => sum + (Array.isArray(catalog[subject]) ? catalog[subject].length : 0), 0)) errors.push("summary.formalItemCount 与目录条目数不一致");
 
   if (payload.lesson == null) errors.push("课程包缺少 lesson");
   else errors.push(...validateLesson(payload.lesson).map(issue => `课程：${issue}`));
 
   // 业务一致性：课程引用的 target 必须能在目录里找到，否则孩子会遇到无解题目。
-  if (payload.lesson?.tasks && catalog) {
-    const known = new Set();
-    for (const subject of ["hanzi", "english_letter", "math"]) {
-      for (const item of catalog[subject] || []) known.add(item.ref);
-    }
+  if (Array.isArray(payload.lesson?.tasks) && catalog) {
     for (const task of payload.lesson.tasks) {
       const ref = task?.target?.ref;
-      if (ref && !known.has(ref)) errors.push(`课程引用了目录中不存在的编号：${ref}`);
+      const items = Array.isArray(catalog[task?.subject]) ? catalog[task.subject] : [];
+      const item = items.find(candidate => candidate?.ref === ref);
+      if (ref && !item) errors.push(`课程引用了目录中不存在的编号：${ref}`);
+      else if (item && item.display !== task.target.display) errors.push(`课程编号与显示内容不一致：${ref}`);
     }
   }
   return errors;
@@ -207,7 +207,7 @@ export async function replaceActivePackage({ payload, version = 0, source = "par
   const errors = validatePackagePayload(payload);
   if (errors.length) throw new SyncError(`课程包未通过校验：${errors[0]}`, "invalid-payload");
   const previous = await loadActivePackage().catch(() => null);
-  const sha = await sha256Hex(JSON.stringify(payload));
+  const sha = await sha256Hex(canonicalJson(payload));
   if (previous?.key) {
     // 保留可回滚的上一版（同名 key，独立存储）。
     await putPackage(ROLLBACK_PACKAGE_KEY, {
@@ -219,7 +219,7 @@ export async function replaceActivePackage({ payload, version = 0, source = "par
       source: previous.source,
       title: previous.title || null,
       rolledBackAt: new Date().toISOString()
-    }).catch(() => { /* 回滚副本保存失败不阻塞主流程。 */ });
+    });
   }
   try {
     await saveActivePackage({
@@ -266,26 +266,21 @@ export async function updateCourse({ onProgress } = {}) {
   const local = await loadActivePackage();
   const localVersion = Number(local.version || 0);
 
-  if ((latest.payload_sha256 && latest.payload_sha256 === local.sha256) || (latest.version || 0) <= localVersion) {
-    return {
-      updated: false,
-      reason: "up-to-date",
-      version: latest.version,
-      title: latest.title,
-      publishedAt: latest.published_at,
-      message: `已是最新课程（第 ${latest.version} 版）。`
-    };
-  }
-
   const payload = latest.payload;
   const errors = validatePackagePayload(payload);
   if (errors.length) {
     throw new SyncError(`云端课程未通过校验，已继续使用原有课程：${errors[0]}`, "invalid-payload");
   }
 
-  const computed = await sha256Hex(JSON.stringify(payload));
-  if (latest.payload_sha256 && computed !== latest.payload_sha256) {
+  const computed = await sha256Hex(canonicalJson(payload));
+  const legacyComputed = await sha256Hex(JSON.stringify(payload));
+  if (!latest.payload_sha256 || (computed !== latest.payload_sha256 && legacyComputed !== latest.payload_sha256)) {
     throw new SyncError("云端课程内容与校验值不一致，已继续使用原有课程。", "hash-mismatch");
+  }
+
+  if (computed === await sha256Hex(canonicalJson(local.package)) && (latest.version || 0) === localVersion) {
+    return { updated: false, reason: "up-to-date", version: latest.version, title: latest.title,
+      publishedAt: latest.published_at, message: `已是最新课程（第 ${latest.version} 版）。` };
   }
 
   // 原子替换并保留回滚副本：写入失败自动回到原有课程。
@@ -322,7 +317,7 @@ export async function publishCoursePackage(payload, { source = "parent-web", stu
   if (errors.length) throw new SyncError(`课程包未通过校验：${errors[0]}`, "invalid-payload");
 
   const version = await nextPackageVersion();
-  const sha = await sha256Hex(JSON.stringify(payload));
+  const sha = await sha256Hex(canonicalJson(payload));
   await cloudApi.publishCourse({
     courseKey: FAMILY_PACKAGE_KEY,
     version,
@@ -353,9 +348,9 @@ export async function publishCoursePackage(payload, { source = "parent-web", stu
 
 /* ---------------- 记录导出（家长端 / ChatGPT Work） ---------------- */
 
-export async function fetchRemoteRecords({ since = null, limit = 500 } = {}) {
+export async function fetchRemoteRecords({ since = null, limit = null } = {}) {
   await requireSignedIn();
-  return cloudApi.listRemoteSessions({ since, limit });
+  return cloudApi.listRemoteSessions({ since, limit, studentCode: await studentCode() });
 }
 
 export async function fetchLocalRecords() {

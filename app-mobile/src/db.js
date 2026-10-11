@@ -92,15 +92,16 @@ export async function deleteMeta(key) {
 
 /* ---------------- sessions ---------------- */
 
-export async function putSession(record) {
+export async function putSession(record, { finalizeDraft = false } = {}) {
   const row = { ...record, uploadedFlag: record.uploaded ? 1 : 0 };
-  await runTransaction("sessions", "readwrite", transaction => {
+  await runTransaction(finalizeDraft ? ["sessions", "drafts"] : "sessions", "readwrite", transaction => {
     // 同一 sessionId 只写一次：本地已有则保留原始记录，不覆盖。
     const store = transaction.objectStore("sessions");
     const existing = store.get(row.sessionId);
     existing.onsuccess = () => {
       if (!existing.result) store.put(row);
     };
+    if (finalizeDraft) transaction.objectStore("drafts").delete(row.sessionId);
   });
   return row;
 }

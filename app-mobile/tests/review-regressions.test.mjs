@@ -318,7 +318,7 @@ test("R09 只有预缓存就绪后才提示可离线", async () => {
 test("R10 cancelled 不回退到设备语音，仅 unavailable 才回退", async () => {
   const voice = await read("src/voice.js");
   assert.match(voice, /let activeGeneration = 0/, "应有语音请求代次");
-  const speak = voice.slice(voice.indexOf("export async function speak"), voice.indexOf("export function cancelSpeech"));
+  const speak = voice.slice(voice.indexOf("export async function speak"), voice.indexOf("export async function prepareOfflineVoices"));
   assert.match(speak, /result === "cancelled" \|\| !fresh\(\)/, "取消应立即结束");
   assert.match(speak, /if \(result !== "unavailable"\) return result/, "只有 unavailable 才回退");
   const cancel = voice.slice(voice.indexOf("export function cancelSpeech"));

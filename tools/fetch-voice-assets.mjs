@@ -24,7 +24,15 @@ async function worker() {
       if (current.length === expected.bytes && digest(current) === expected.sha256) { completed++; continue; }
     } catch (error) { if (error.code !== "ENOENT") throw error; }
     let bytes;
-    if (from) {
+    // Small additions are checked into source so a new release can build
+    // before those files have been deployed to the original hosting service.
+    const extra = await readFile(path.join(root, "tools", "voice-extra", name)).catch(error => {
+      if (error.code !== "ENOENT") throw error;
+      return null;
+    });
+    if (extra) {
+      bytes = extra;
+    } else if (from) {
       bytes = await readFile(path.join(path.resolve(from), name));
     } else {
       for (let attempt = 0; attempt < 8; attempt++) {

@@ -16,7 +16,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const outDir = path.resolve(here, "..", "..", "output", "work-20261010-0930-mobile-bugfix");
+const outDir = process.env.XIAOYA_VERIFY_OUT || path.resolve(here, "..", "..", "output", "work-20261010-0930-mobile-bugfix");
 const baseUrl = process.argv[2] || "http://127.0.0.1:5199/";
 
 const EXECUTABLES = [

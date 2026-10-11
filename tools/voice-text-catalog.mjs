@@ -3,11 +3,11 @@
 // （app-mobile/scripts/verify-voice-coverage.mjs、app-mobile/tests/voice-coverage.test.mjs）
 // 必须使用同一份枚举，避免「构建时收录的句子」与「运行时真正会朗读的句子」出现漂移。
 import { buildPracticeTasks, buildPreviewTasks, buildTestTasks } from "../app-mobile/src/core/test-mode.js";
-import { demonstrationSpeechText, hintSpeechText, questionSpeechText, reinforcementSpeechText } from "../app-mobile/src/core/voice-text.js";
+import { hintSpeechText } from "../app-mobile/src/core/voice-text.js";
 import { taskHintVariants } from "../app-mobile/src/core/targeted-hints.js";
 import { buildAllMathVoiceTasks } from "../app-mobile/src/core/math-mode.js";
-import { compositionInstructions, isCompositionModel } from "../app-mobile/src/core/composition-board.js";
 import { childFacingAudienceIssue } from "../app-mobile/src/core/protocol.js";
+import { taskVoiceTexts } from "../app-mobile/src/task-voice.js";
 
 // 数学按「离常用阶段越近越优先」排序，保证默认阶段一定拿到自然语音。
 export const STAGE_PRIORITY = [6, 5, 4, 3, 2, 1];
@@ -42,16 +42,7 @@ export function collectVoiceTexts({ lesson, catalog }) {
     if (audienceIssue) {
       throw new Error(`儿童语音口吻检查失败：${task.taskId || "未知题目"} 的 ${audienceIssue.field}：${audienceIssue.text}`);
     }
-    const prompt = questionSpeechText(task);
-    add(prompt, tier);
-    if (isCompositionModel(task)) {
-      for (const text of Object.values(compositionInstructions(task.composition))) {
-        if (text !== prompt) add(text, tier);
-      }
-    }
-    add(reinforcementSpeechText(task, studyMode), tier);
-    for (const hint of taskHintVariants(task)) add(hintSpeechText(task, hint), tier);
-    add(demonstrationSpeechText(task), tier);
+    for (const text of taskVoiceTexts(task, studyMode)) add(text, tier);
   }
 
   // 第一优先级：答对/答错的固定反馈语
@@ -98,6 +89,9 @@ export function collectVoiceTexts({ lesson, catalog }) {
   // 第六优先级：全词库提示（任意随机选项都可能触发的易混提示）
   for (const subject of ["hanzi", "english_letter"]) {
     for (const item of catalog[subject] || []) {
+      // Any catalog entry can become next lesson's preview, even when the
+      // bundled bootstrap only previews four entries. Include all variants.
+      for (const task of buildPreviewTasks(subject, [], catalog, [item.ref], 1)) addTaskClips(task, "preview", 5);
       for (const questionType of ["recognition", "choice"]) {
         const task = { subject, questionType, target: { display: item.display }, correctAnswer: item.optionDisplay, options: [item.optionDisplay] };
         for (const hint of taskHintVariants(task)) add(hintSpeechText(task, hint), 5);

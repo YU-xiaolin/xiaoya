@@ -13,8 +13,9 @@ import { APP_VERSION, DEFAULT_STUDENT_CODE, PROTOCOLS } from "./config.js";
 import { listLogs } from "./db.js";
 import { deviceCode, packageInfo, setStudentCode, studentCode, sha256Hex } from "./store.js";
 import { clearAccountCaches } from "./sw-bridge.js";
-import { voiceStatus, onVoiceStatusChange } from "./voice.js";
+import { voiceStatus, onVoiceStatusChange, prepareOfflineVoices } from "./voice.js";
 import { captureFocus, restoreFocus } from "./focus-keep.js";
+import { validateSessionPayload } from "./session-validation.js";
 
 // 登录门禁的输入框：重绘后据此把焦点与光标交还给同一个输入框。
 const LOGIN_INPUT_ATTRS = [
@@ -71,7 +72,7 @@ function pickJsonFile() {
   });
 }
 
-export function createParentApp({ root, toast, getPackage, reload, onExit, onSetParentPin, onClearParentPin }) {
+export function createParentApp({ root, toast, getPackage, reload, onExit, onSetParentPin, onClearParentPin, onLocalCleared }) {
   const state = {
     view: "home",
     // 门禁状态：只有 main.js 通过统一入口解锁后才会置为 true。
@@ -87,6 +88,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
     localRecords: [],
     versions: [],
     voice: { source: "device", clipCount: 0 },
+    voiceDownloadProgress: "",
     pendingOtp: null,
     pendingEmail: null,
     loginTab: "phone",
@@ -137,7 +139,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
   // 语音状态回调可能在 createParentApp 内同步触发，因此这两个变量必须先声明，
   // 且只有界面真正渲染过之后才安排重绘，避免启动时覆盖孩子的首页。
   function scheduleRerender() {
-    if (!hasRendered || rerenderQueued) return;
+    if (!hasRendered || !state.unlocked || !isVisible() || rerenderQueued) return;
     rerenderQueued = true;
     queueMicrotask(() => { rerenderQueued = false; render(); });
   }
@@ -224,6 +226,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
     const lastUpload = counts.uploaded
       ? (await lastUploadTime())
       : null;
+    if (!canRender("home")) return;
     root.innerHTML = `
       <main class="shell">
         <header class="topbar">
@@ -286,6 +289,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
     const analysis = analyzeSessions(local);
     const trend = dailyTrend(analysis);
     const records = state.remoteRecords.length ? state.remoteRecords : local;
+    if (!canRender("records")) return;
     root.innerHTML = `
       <main class="shell">
         <header class="topbar">
@@ -334,6 +338,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
     // 掌握进度由本机真实作答记录推导，不来自公开课程包。
     const observed = subject => catalog[subject].filter(item => item.observed).length;
     const stable = catalog.hanzi.filter(item => item.observed?.stableByRule).length;
+    if (!canRender("mastery")) return;
     root.innerHTML = `
       <main class="shell">
         <header class="topbar">
@@ -366,6 +371,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
       try { state.versions = await listCourseVersions(FAMILY_PACKAGE_KEY, 20); } catch { state.versions = []; }
     }
     const info = await packageInfo();
+    if (!canRender("course")) return;
     root.innerHTML = `
       <main class="shell">
         <header class="topbar">
@@ -400,6 +406,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
     const device = await deviceCode();
     const info = await packageInfo();
     const logs = await listLogs(20);
+    if (!canRender("settings")) return;
     root.innerHTML = `
       <main class="shell">
         <header class="topbar">
@@ -422,7 +429,9 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
           </div>
         </section>
         <section class="sync-card">
-          <div class="sync-head"><span>🔊</span><div><strong>语音来源</strong><p>${state.voice.source === "pack" ? `已使用随应用发布的晓伊自然语音（${state.voice.clipCount} 条），课程、提示、示范与测试题都使用自然语音，不会回退成系统机器音。` : "当前使用手机自带的中文语音；未随应用发布自然语音包。"}</p></div></div>
+          <div class="sync-head"><span>🔊</span><div><strong>学习语音</strong><p>${state.voice.source === "pack" ? `已载入晓伊自然语音清单（${state.voice.clipCount} 条）。当前课程语音会自动准备；首次下载全部语音约 120 MB，建议联网时完成。播放失败时，题目下方会显示重试按钮。` : "自然语音清单暂时不可用，播放时会尝试手机中文语音；可联网后重新打开。"}</p></div></div>
+          <button class="button secondary" data-action="download-voices" ${state.busy ? "disabled" : ""}>下载全部离线语音</button>
+          <p class="hint-text" data-voice-progress role="status">${escapeHtml(state.voiceDownloadProgress)}</p>
         </section>
         <section class="sync-card">
           <div class="sync-head"><span>💾</span><div><strong>原始数据备份</strong><p>导出手机上的全部原始记录，可在换手机后恢复。</p></div></div>
@@ -459,11 +468,18 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
   // 家长界面是否正显示在屏幕上：用于判断「已解锁」是否仍然有效。
   // 一旦界面被孩子界面覆盖（例如孩子点了返回首页），解锁状态立即作废。
   function isVisible() {
-    return Boolean(root.querySelector("[data-parent-view]"));
+    return root.dataset.appMode === "parent";
+  }
+
+  function canRender(view) {
+    return state.unlocked && isVisible() && state.view === view;
   }
 
   async function render() {
+    if (!state.unlocked) return;
+    root.dataset.appMode = "parent";
     await refreshSession();
+    if (!state.unlocked || !isVisible()) return;
     hasRendered = true;
     if (!state.session) return renderGate();
     switch (state.view) {
@@ -476,6 +492,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
   }
 
   async function guard(work) {
+    if (state.busy) return;
     state.busy = true;
     state.error = null;
     state.notice = null;
@@ -795,7 +812,10 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
           studentCode: await studentCode(),
           deviceCode: await deviceCode(),
           package: (await getPackage())?.package || null,
-          sessions: local.map(row => row.payload || row)
+          packageVersion: (await getPackage())?.version ?? 0,
+          packageSource: (await getPackage())?.source || null,
+          sessions: local.map(row => row.payload || row),
+          sessionMetadata: Object.fromEntries(local.map(row => [row.sessionId, { studentCode: row.studentCode, deviceCode: row.deviceCode, platform: row.platform }]))
         });
         state.notice = "备份已导出。";
         render();
@@ -812,7 +832,13 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
             throw new SyncError("备份文件不是有效的 JSON。", "invalid-file");
           }
           const sessions = Array.isArray(parsed?.sessions) ? parsed.sessions : [];
-          if (!sessions.length) throw new SyncError("备份文件里没有可恢复的学习记录。", "empty-backup");
+          if (parsed?.protocol !== PROTOCOLS.recordBundle || parsed.schemaVersion !== 1) throw new SyncError("备份文件协议或版本不正确。", "invalid-backup");
+          if (!sessions.length && !parsed?.package) throw new SyncError("备份文件里没有可恢复的内容。", "empty-backup");
+          for (const [index, payload] of sessions.entries()) {
+            const issues = validateSessionPayload(payload);
+            if (issues.length) throw new SyncError(`第 ${index + 1} 份记录未通过校验：${issues[0]}。本次未恢复任何记录。`, "invalid-session");
+          }
+          if (parsed.package && !inspectPackagePayload(parsed.package).ok) throw new SyncError("备份里的课程包未通过校验，本次未恢复。", "invalid-payload");
           const currentStudent = await studentCode();
           const currentDevice = await deviceCode();
           // 恢复记录保留原始归属的 studentCode：不能把别人/别的孩子的记录改写成本机编号。
@@ -822,12 +848,13 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
           for (const payload of sessions) {
             if (!payload?.sessionId) { skipped += 1; continue; }
             const sha = await sha256Hex(payload);
+            const metadata = parsed.sessionMetadata?.[payload.sessionId] || {};
             const { putSession } = await import("./db.js");
             const before = await localSessionCount();
             await putSession({
               sessionId: payload.sessionId,
-              studentCode: payload.studentCode || backupStudent,
-              deviceCode: payload.deviceCode || currentDevice,
+              studentCode: metadata.studentCode || backupStudent,
+              deviceCode: metadata.deviceCode || currentDevice,
               platform: "import",
               startedAt: payload.startedAt,
               endedAt: payload.endedAt,
@@ -840,7 +867,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
             if (after.total > before.total) restored += 1;
             else skipped += 1;
           }
-          // 备份里如果带了课程包，一并按同一套校验恢复，失败不阻断记录恢复。
+          // 课程与记录已全部预检；恢复课程时仍保留上一版以供回滚。
           let packageRestored = false;
           if (parsed?.package) {
             const check = inspectPackagePayload(parsed.package);
@@ -849,6 +876,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
               packageRestored = true;
             }
           }
+          await reload?.();
           state.notice = `已从备份恢复 ${restored} 份记录${skipped ? `（${skipped} 份已存在或无效，未覆盖）` : ""}${packageRestored ? "，并恢复了课程包。" : "。"}`;
         });
         break;
@@ -857,15 +885,32 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
         if (!confirm("将删除这台手机上的全部学习记录（云端不受影响）。确定继续吗？")) break;
         if (!confirm("再次确认：删除后无法从本机恢复，请先导出备份。仍然继续吗？")) break;
         await guard(async () => {
+          await onLocalCleared?.();
           const { openDatabase } = await import("./db.js");
           const db = await openDatabase();
           await new Promise((resolve, reject) => {
-            const transaction = db.transaction("sessions", "readwrite");
+            const transaction = db.transaction(["sessions", "drafts"], "readwrite");
             transaction.objectStore("sessions").clear();
+            transaction.objectStore("drafts").clear();
             transaction.oncomplete = resolve;
             transaction.onerror = () => reject(transaction.error);
           });
+          await reload?.();
           state.notice = "本机记录已清空。";
+        });
+        break;
+      }
+      case "download-voices": {
+        await guard(async () => {
+          state.voiceDownloadProgress = "正在准备离线语音…";
+          const result = await prepareOfflineVoices({ onProgress: progress => {
+            state.voiceDownloadProgress = `已准备 ${progress.done} / ${progress.total} 条${progress.failed ? `，${progress.failed} 条待重试` : ""}`;
+            const node = root.querySelector("[data-voice-progress]");
+            if (node) node.textContent = state.voiceDownloadProgress;
+          } });
+          state.notice = result.failed
+            ? `已保存 ${result.done} 条语音，${result.failed} 条未下载成功。再次点击会接着下载。`
+            : `全部 ${result.done} 条语音已准备好，可以离线播放。`;
         });
         break;
       }
@@ -885,13 +930,16 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
         });
         break;
       case "sign-out":
-        await cloudApi.signOut();
-        // 退出登录必须清理账号关联缓存，避免下一个账号看到上一个账号的缓存数据。
-        clearAccountCaches();
-        state.session = null;
-        state.view = "home";
-        state.notice = "已退出登录。";
-        render();
+        await guard(async () => {
+          await cloudApi.signOut();
+          await clearAccountCaches();
+          state.session = null;
+          state.remoteRecords = [];
+          state.versions = [];
+          state.uploadResult = state.courseResult = null;
+          state.view = "home";
+          state.notice = "已退出登录。";
+        });
         break;
       default: break;
     }

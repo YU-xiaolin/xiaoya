@@ -41,6 +41,7 @@ export async function clearParentPin() {
 
 // 家长模式的本地门禁：只用于防止孩子误操作；真正的数据权限仍由云端账号与 RLS 校验。
 function askParentPin() {
+  root.dataset.appMode = "pin";
   return new Promise(resolve => {
     let value = "";
     let error = "";
@@ -132,6 +133,7 @@ async function reloadPackage() {
 // 避免孩子界面上的其它点击处理器绕过 PIN。
 async function openParent() {
   if (!parentApp) return;
+  parentApp.lock();
   if (await parentPinSet()) {
     const ok = await askParentPin();
     if (!ok) return childApp.renderHome();
@@ -224,7 +226,8 @@ async function main() {
     reload: reloadPackage,
     onExit: () => childApp.renderHome(),
     onSetParentPin: pin => saveParentPin(pin),
-    onClearParentPin: () => clearParentPin()
+    onClearParentPin: () => clearParentPin(),
+    onLocalCleared: () => childApp.resetLocalProgress()
   });
 
   window.xiaoya = { version: APP_VERSION, childApp, parentApp, openParent };
