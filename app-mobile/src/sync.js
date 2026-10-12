@@ -43,7 +43,9 @@ const OAUTH_PROVIDER_LABELS = Object.freeze({
 });
 
 function maskPhone(phone) {
-  const digits = String(phone).replace(/\D/g, "");
+  let digits = String(phone).replace(/\D/g, "");
+  // getUser() 返回的手机号带国际区号（如 "+86 13675519415"），先去掉区号再脱敏。
+  if (digits.length === 13 && digits.startsWith("86")) digits = digits.slice(2);
   if (digits.length < 7) return String(phone);
   return `${digits.slice(0, 3)}****${digits.slice(-4)}`;
 }
@@ -56,16 +58,24 @@ function maskEmail(email) {
 }
 
 // 返回字符串，但内部区分了"用什么方式登录"：
-//   手机号 138****1234 / 邮箱 a***@b.com / 微信账号（未绑定手机号）/ WorkBuddy 账号（未绑定手机号）/ 已登录（未绑定手机号）
-export function accountLabel(session) {
-  const user = session?.user || {};
-  const provider = String(user.provider || "").toLowerCase();
+//   手机号 136****9415 / 邮箱 a***@b.com / 微信账号（未绑定手机号）/ 昵称（未绑定手机号）/ 已登录（未绑定手机号）
+// 注意：会话对象里的 user 只有 {id, isAnonymous, raw}，不含手机号、邮箱与昵称；
+// 身份必须来自 getUser()（identity）。拿不到身份信息时显示中性的"已登录"，
+// 不冒充"已绑定/未绑定"，避免把账号问题指错方向。
+export function accountLabel(session, identity = null) {
+  const sessionUser = session?.user || {};
+  const identityUser = identity || {};
+  const phone = identityUser.phone || sessionUser.phone || null;
+  const email = identityUser.email || sessionUser.email || null;
+  const nickname = identityUser.name || sessionUser.nickname || null;
+  const provider = String(sessionUser.provider || "").toLowerCase();
   const providerLabel = OAUTH_PROVIDER_LABELS[provider] || null;
-  if (user.phone) return `手机号 ${maskPhone(user.phone)}`;
-  if (user.email) return `邮箱 ${maskEmail(user.email)}`;
+  if (phone) return `手机号 ${maskPhone(phone)}`;
+  if (email) return `邮箱 ${maskEmail(email)}`;
   if (providerLabel) return `${providerLabel}（未绑定手机号）`;
-  if (user.name) return `${user.name}（未绑定手机号）`;
-  return "已登录（未绑定手机号）";
+  if (nickname && /[\u4e00-\u9fa5A-Za-z]/.test(String(nickname))) return `${nickname}（未绑定手机号）`;
+  if (identity) return "已登录（未绑定手机号）";
+  return "已登录";
 }
 
 // 会话对象非空 ≠ 会话还能用。服务端对被判为"未登录"的请求是「返回 0 行、不报错」，
@@ -93,7 +103,7 @@ async function describeMissingCloudCourse() {
   const provider = String(user?.provider || "").toLowerCase();
   const providerLabel = OAUTH_PROVIDER_LABELS[provider] || null;
   if (providerLabel || (!user?.phone && !user?.email)) {
-    const who = providerLabel ? `当前登录的是${providerLabel}` : "当前账号没有绑定手机号或邮箱";
+    const who = providerLabel ? `当前登录的是${providerLabel}` : "当前账号没有绑定手机号或邮箱（通常是微信 / WorkBuddy 授权登录创建的独立账号）";
     return {
       updated: false,
       reason: "wrong-account",
@@ -103,7 +113,7 @@ async function describeMissingCloudCourse() {
   return {
     updated: false,
     reason: "cloud-empty",
-    message: `这个家庭账号（${accountLabel({ user })}）在云端还没有生效的课程包。请在已登录同一账号的设备上打开「导入并发布新课程 → 把当前课程发布为新版本」，再回到这台手机点一次。`
+    message: `这个家庭账号（${accountLabel(null, user)}）在云端还没有生效的课程包。请在已登录同一账号的设备上打开「导入并发布新课程 → 把当前课程发布为新版本」，再回到这台手机点一次。`
   };
 }
 
