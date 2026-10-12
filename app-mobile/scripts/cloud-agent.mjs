@@ -12,13 +12,14 @@
 //   node app-mobile/scripts/cloud-agent.mjs --login --phone 13800001234
 //   node app-mobile/scripts/cloud-agent.mjs --login --code 123456
 //   node app-mobile/scripts/cloud-agent.mjs --status
-//   node app-mobile/scripts/cloud-agent.mjs --pull-records [--since=YYYY-MM-DD]
+//   node app-mobile/scripts/cloud-agent.mjs --pull-records [--since=YYYY-MM-DD] [--no-import]
 //   node app-mobile/scripts/cloud-agent.mjs --push-course
 //   node app-mobile/scripts/cloud-agent.mjs --logout
 //
 // 会话文件默认 %USERPROFILE%\.xiaoya\cloud-session.json（600 权限），
-// 可用环境变量 XIAOYA_SESSION_FILE 覆盖。正式数据只读：本脚本不会写入
-// data/raw/sessions（该目录只由小芽软件追加），也不会修改 learning-state.json。
+// 可用环境变量 XIAOYA_SESSION_FILE 覆盖。正式数据：--pull-records 会把新记录
+// 以「只追加」方式归档到 data/raw/sessions（同名文件绝不覆盖，写入前做结构与
+// 摘要双重校验），--no-import 可跳过归档；不修改 learning-state.json。
 import { mkdirSync, readFileSync, writeFileSync, rmSync, existsSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
@@ -233,7 +234,111 @@ async function pullRecords() {
   console.log(`已下载云端 ${rows.length} 份学习记录。`);
   console.log(`记录包：${path.join(dir, "records.json")}`);
   console.log(`来源设备分布：${JSON.stringify(byDevice)}`);
-  console.log("注意：没有写入 data/raw/sessions（该目录只由小芽软件追加）。");
+
+  if (process.argv.includes("--no-import")) {
+    console.log("（已按 --no-import 跳过原始记录归档）");
+    return;
+  }
+  await importRecords(rows, dir);
+}
+
+/* ---------------- 原始记录归档（只追加到 data/raw/sessions） ---------------- */
+
+// 手机端在上传前对完整会话计算过 SHA-256（JSON.stringify 后取摘要）。云端 JSONB
+// 会重排对象键，因此这里按两端一致的构造顺序还原键序后复算摘要；复现成功说明
+// 归档内容与手机上传时逐字节一致（仅格式化为 2 空格缩进）。
+const SESSION_KEY_ORDER = ["protocol", "schemaVersion", "sessionId", "lessonId", "basedOnLessonGeneratedAt", "startedAt", "endedAt", "completed", "stopReason", "events", "lessonTitle", "activityMode", "lessonProtocol", "lessonTaskCount", "plannedNewHanziRefs", "plannedNewLetterRefs", "plannedNewMathRefs", "plannedNextPreviewHanziRefs", "executedTaskCount"];
+const EVENT_KEY_ORDER = ["eventId", "recordedAt", "taskId", "originalTaskId", "subject", "targetRef", "targetDisplay", "questionType", "evidenceType", "attempt", "result", "independent", "hintUsed", "responseTimeMs", "childAnswer", "correctAnswer"];
+
+function reorderKeys(object, order) {
+  const out = {};
+  for (const key of order) if (Object.prototype.hasOwnProperty.call(object, key)) out[key] = object[key];
+  for (const key of Object.keys(object)) if (!(key in out)) out[key] = object[key];
+  return out;
+}
+
+function rebuildPhoneOrder(payload) {
+  const session = reorderKeys(payload, SESSION_KEY_ORDER);
+  if (Array.isArray(session.events)) {
+    session.events = session.events.map(event => (event && typeof event === "object" ? reorderKeys(event, EVENT_KEY_ORDER) : event));
+  }
+  return session;
+}
+
+function sortForCompare(value) {
+  if (Array.isArray(value)) return value.map(sortForCompare);
+  if (value && typeof value === "object") return Object.fromEntries(Object.keys(value).sort().map(key => [key, sortForCompare(value[key])]));
+  return value;
+}
+
+function sessionIssues(payload, state) {
+  const issues = [];
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) return ["payload 不是有效对象"];
+  if (payload.protocol !== "FAMILY_LEARNING_SESSION_V1") issues.push("protocol 必须为 FAMILY_LEARNING_SESSION_V1");
+  if (payload.schemaVersion !== 1) issues.push("schemaVersion 必须为 1");
+  if (typeof payload.sessionId !== "string" || !/^[A-Za-z0-9_-]+$/.test(payload.sessionId)) issues.push("sessionId 缺失或包含不安全字符");
+  if (!payload.endedAt) issues.push("缺少 endedAt");
+  if (!Array.isArray(payload.events)) {
+    issues.push("events 必须是数组");
+    return issues;
+  }
+  for (const [index, event] of payload.events.entries()) {
+    if (!event || typeof event !== "object") { issues.push(`第 ${index + 1} 条事件不是对象`); continue; }
+    if (!["hanzi", "english_letter", "math"].includes(event.subject)) issues.push(`第 ${index + 1} 条事件 subject 不受支持`);
+    else if (!state.items?.[event.subject]?.[event.targetRef]) issues.push(`第 ${index + 1} 条事件引用了不存在的学习项：${event.targetRef}`);
+    if (event.questionType !== "recognition" && event.questionType !== "choice") issues.push(`第 ${index + 1} 条事件题型不受支持`);
+    if (!["correct", "incorrect", "hint_shown", "demonstrated"].includes(event.result)) issues.push(`第 ${index + 1} 条事件结果不受支持`);
+  }
+  return issues;
+}
+
+async function importRecords(rows, dir) {
+  const rawDir = path.join(dataDir, "raw", "sessions");
+  const statePath = path.join(dataDir, "state", "learning-state.json");
+  if (!existsSync(statePath)) throw new Error(`找不到正式状态文件：${statePath}`);
+  mkdirSync(rawDir, { recursive: true });
+  const state = JSON.parse(readFileSync(statePath, "utf8"));
+  const report = { rawDir, imported: 0, alreadyPresent: 0, conflicts: 0, invalid: 0, sessions: [] };
+  for (const row of rows) {
+    const payload = row.payload;
+    const sessionId = payload?.sessionId || row.session_id || "(unknown)";
+    const issues = sessionIssues(payload, state);
+    if (issues.length) {
+      report.invalid += 1;
+      report.sessions.push({ sessionId, status: "invalid", issues });
+      continue;
+    }
+    const digest = createHash("sha256").update(JSON.stringify(rebuildPhoneOrder(payload))).digest("hex").toUpperCase();
+    const digestStatus = row.payload_sha256
+      ? (digest === String(row.payload_sha256).toUpperCase() ? "verified" : "not-reproduced")
+      : "no-cloud-digest";
+    const file = path.join(rawDir, `${sessionId}.json`);
+    if (existsSync(file)) {
+      const same = JSON.stringify(sortForCompare(JSON.parse(readFileSync(file, "utf8")))) === JSON.stringify(sortForCompare(payload));
+      if (same) { report.alreadyPresent += 1; report.sessions.push({ sessionId, status: "already-present", digestStatus }); }
+      else { report.conflicts += 1; report.sessions.push({ sessionId, status: "conflict-kept-original", digestStatus }); }
+      continue;
+    }
+    // 只追加：同名文件不存在才写入；绝不覆盖既有原始记录。
+    writeFileSync(file, JSON.stringify(rebuildPhoneOrder(payload), null, 2), "utf8");
+    report.imported += 1;
+    report.sessions.push({ sessionId, status: "imported", digestStatus, digest, cloudDigest: row.payload_sha256 || null });
+  }
+  await writeFile(path.join(dir, "import-report.json"), `${JSON.stringify(report, null, 2)}\n`, "utf8");
+  console.log(`原始记录归档：新增 ${report.imported} 份、已存在 ${report.alreadyPresent} 份、冲突 ${report.conflicts} 份、无效 ${report.invalid} 份。`);
+  console.log(`归档位置：${rawDir}（只追加，已存在的文件绝不覆盖）`);
+  for (const entry of report.sessions) {
+    const label = entry.status === "imported"
+      ? (entry.digestStatus === "verified" ? "已归档，并复现手机上传摘要一致" : `已归档（摘要${entry.digestStatus === "not-reproduced" ? "未能按已知键序复现" : "不可用"}）`)
+      : entry.status === "already-present" ? "已存在，跳过"
+      : entry.status === "conflict-kept-original" ? "同名但内容不同：保留原文件并报告"
+      : "未通过结构校验，未归档";
+    console.log(`  - ${entry.sessionId}：${label}`);
+    if (entry.issues) for (const issue of entry.issues) console.log(`      ${issue}`);
+  }
+  if (report.imported || report.alreadyPresent) {
+    console.log("下一步：在小芽家庭学习里点击「检查 AI 新内容」，软件会把原始记录与 AI 文件一起校验并应用。");
+  }
 }
 
 async function pushCourse() {
@@ -322,7 +427,8 @@ async function main() {
     console.log("  --login --phone <手机号>     发送短信验证码");
     console.log("  --login --code <验证码>      完成登录并保存会话");
     console.log("  --status                     查看当前登录状态与云端记录概况");
-    console.log("  --pull-records [--since=YYYY-MM-DD]   下载云端学习记录");
+    console.log("  --pull-records [--since=YYYY-MM-DD] [--no-import]");
+    console.log("                               下载云端学习记录，并把新记录归档到 data/raw/sessions（只追加）");
     console.log("  --push-course                把正式状态与最新课程发布为云端新版本");
     console.log("  --logout                     退出登录并清除本地会话");
     console.log(`会话文件：${SESSION_FILE}${existsSync(SESSION_FILE) ? "（已存在）" : "（尚未创建）"}`);
