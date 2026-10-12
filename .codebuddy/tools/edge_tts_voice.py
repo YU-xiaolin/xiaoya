@@ -61,6 +61,24 @@ def deterministic_name(text: str, profile: dict[str, str]) -> str:
     return f"{hashlib.sha256(payload).hexdigest()[:24]}.mp3"
 
 
+def migrate_legacy_endpoint(error: Exception) -> None:
+    """Use Edge's current synthesis host after a legacy-host HTTP 403."""
+    if getattr(error, "status", None) != 403:
+        return
+    from edge_tts import communicate
+    from edge_tts.constants import TRUSTED_CLIENT_TOKEN
+
+    if not communicate.WSS_URL.startswith("wss://speech.platform.bing.com/"):
+        return
+    # Compatibility for edge-tts 7.2.8; preserve TLS checks and voice settings.
+    # https://github.com/rany2/edge-tts/pull/491
+    communicate.WSS_URL = (
+        "wss://api.msedgeservices.com/tts/cognitiveservices/websocket/v1"
+        f"?Ocp-Apim-Subscription-Key={TRUSTED_CLIENT_TOKEN}"
+    )
+    print("旧版语音接口返回 403，已切换到 Edge 当前语音接口重试。", file=sys.stderr)
+
+
 async def synthesize(
     text: str,
     destination: Path,
@@ -91,6 +109,7 @@ async def synthesize(
             return
         except Exception as error:  # Network and service errors vary by version.
             last_error = error
+            migrate_legacy_endpoint(error)
             if temporary.exists():
                 temporary.unlink()
             if attempt < 2:
