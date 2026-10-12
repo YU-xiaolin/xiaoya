@@ -6,7 +6,7 @@
 
 1. 读取 `rules/PROTOCOL_V1.md` 与 `schemas/` 中三个输入输出协议。
 2. 读取 `state/learning-state.json`，它是软件当前正式状态；不要直接修改。
-3. 按文件名时间顺序读取 `raw/sessions/*.json`，找到 `state.appliedSessionIds` 尚未覆盖的最新记录，并读取当前 `ai/next-lesson.json` 核对这次课程原计划的新学与预习编号。`raw/` 只读，严禁修改、重命名或删除。
+3. 按文件名时间顺序读取 `raw/sessions/*.json`，找到 `state.appliedSessionIds` 尚未覆盖的最新记录，并读取当前 `ai/next-lesson.json` 核对这次课程原计划的新学与预习编号。`raw/` 只读，严禁修改、重命名或删除。手机端上传到云端的记录由电脑端 `app-mobile/scripts/cloud-agent.mjs --pull-records` 以只追加方式归档到 `raw/sessions`（同名文件绝不覆盖，写入前做结构与上传摘要双重校验；摘要复现失败会如实标注）；归档后按前述顺序继续处理。
 4. 仅根据原始事件分析独立答对、提示后答对、两次错误、示范、反应时间与题型；不要把“展示过”写成“已经会”。
    - 如果确认某些历史题目在可见题干中泄露了正确答案，把对应原始事件的 `eventId` 写入 `state-update.json.ignoredEventIds`。原始记录仍不得修改；软件会持久排除这些无效证据，且这些事件不得支持升级或“稳定掌握”。
 5. 覆盖生成以下三个文件：
@@ -14,7 +14,7 @@
    - `ai/next-lesson.json`
    - `ai/parent-report.md`
 6. 生成后自行按 `schemas/` 检查字段、枚举、数量和引用；不要直接改 `state/learning-state.json`。
-7. 在 `app-source/` 运行 `npm run voice-pack`，为当前课程、巩固练习、预习和已学内容测试生成晓伊自然语音；再运行 `npm run voice-pack:audit`，必须确认所有运行时朗读文本都有非空 MP3。若语音生成或覆盖检查失败，不得用 Windows 系统机械音冒充完成，须明确告诉家长语音包尚未更新成功。
+7. 从唯一源码仓库 `https://github.com/YU-xiaolin/xiaoya` 临时取得指定提交，在临时源码的 `app-source/` 运行 `npm run voice-pack`，再运行 `npm run voice-pack:audit`；两步都必须显式设置 `FAMILY_LEARNING_DATA_DIR=C:\codex\AI家庭学习\data`，并使用仓库内 `.codebuddy/tools/edge_tts_voice.py`。为当前课程、巩固练习、预习和已学内容测试生成晓伊自然语音，确认所有运行时朗读文本都有非空 MP3；完成后清理临时源码，不恢复本地长期源码副本。若生成或覆盖检查失败，不得用 Windows 系统机械音冒充完成，须明确告诉家长语音包尚未更新成功。
 
 ## 状态更新硬边界
 

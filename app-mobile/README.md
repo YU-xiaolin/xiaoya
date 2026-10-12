@@ -14,7 +14,8 @@ Windows 桌面版「小芽家庭学习.exe」的手机端同伴出现。手机�
    `app-mobile/src/core/` 并写入哈希清单。改动只发生在 `app-source/src`，两端行为天然一致。
 2. **不动 Windows**。手机版不使用 Tauri，不修改 `app-source` 的任何文件，也不碰 EXE。
 3. **正式学习数据只读**。构建脚本只读取 `data/state`、`data/ai`、`data/catalog`，
-   不写、不覆盖；`data/raw/sessions` 只由小芽软件追加。
+   不写、不覆盖；`data/raw/sessions` 由小芽软件与本仓库的归档工具（`cloud-agent --pull-records`）
+   以只追加方式维护，已存在的原始记录绝不被覆盖。
 4. **记录先本地、后云端**。IndexedDB 保存原始作答，只有点击「上传学习记录」才写入云端，
    服务端按 `session_id` 去重，重复点击不会产生重复数据。
 
@@ -49,7 +50,8 @@ app-mobile/
     verify-live.mjs          线上真实浏览器验证
     probe-cloud.mjs          云端只读探针（权限边界 + 认证通道）
     cloud-sync.mjs           PC 端云同步助手（邮箱 + 密码登录；推课程 / 拉记录）
-    cloud-agent.mjs          PC/AI 云端访问（手机号 + 验证码登录，会话持久化后免登录）
+    cloud-agent.mjs          PC/AI 云端访问（手机号 + 验证码登录，会话持久化后免登录；
+                             --pull-records 下载记录并只追加归档到 data/raw/sessions）
   tests/                     node --test 单元测试
   docs/                      安装教程、ChatGPT Work 说明、云端与安全说明
 ```
@@ -82,6 +84,7 @@ node scripts/verify-live.mjs https://xiaoya-learning.app.workbuddy.host/
 node scripts/probe-cloud.mjs
 
 # 6. 电脑/AI 取手机上传的记录、把新课程发回手机（手机号 + 验证码，登录一次后免登录）
+# --pull-records 会同时把云端新记录只追加归档到 data/raw/sessions（同名文件绝不覆盖）
 node scripts/cloud-agent.mjs --login --phone 13800001234
 node scripts/cloud-agent.mjs --login --code 123456
 node scripts/cloud-agent.mjs --pull-records
