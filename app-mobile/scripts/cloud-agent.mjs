@@ -1,25 +1,33 @@
 // 小芽家庭学习 · 电脑/AI 云端访问工具
 //
-// 与 cloud-sync.mjs 的区别：那个脚本只支持「邮箱 + 密码」，而家庭账号是
-// 「手机号 + 短信验证码」，所以命令行一直用不了。本脚本补上这条路：
+// 两种登录方式：
+//   A. 密码登录（推荐，长期自动）：`--login --email <邮箱> --password <密码>`
+//      密码是长期凭据，会被保存到本地 600 权限文件里；之后会话一旦过期，脚本会
+//      自己用密码重新登录，无需任何人再输入验证码。
+//   B. 手机号 + 验证码（一次性）：`--login --phone <手机号>` → `--login --code <验证码>`
+//      验证码是短期凭据，会话过期后**必须重新发码**——所以只在临时诊断时用。
 //
-//   1. 用手机号 + 验证码登录一次，把会话（含刷新句柄）持久化到本地文件；
-//   2. 之后 --pull-records / --push-course 直接复用会话，不再需要任何交互，
-//      SDK 会在需要时自动续期；
-//   3. 会话失效时（长时间未用、被登出）重新执行一次 --login 即可。
+// 为什么必须用密码：云端会话有有效期（实测 access token 2 小时；刷新句柄也会被服务端
+// 拒绝 invalid_grant）。一旦被拒，SDK 会主动清空本地会话，`getSession()` 又会返回
+// 空结果而不报错，所以表象和"从未登录"一样。"登录一次永久免登录"对验证码并不成立。
 //
 // 用法：
-//   node app-mobile/scripts/cloud-agent.mjs --login --phone 13800001234
-//   node app-mobile/scripts/cloud-agent.mjs --login --code 123456
+//   node app-mobile/scripts/cloud-agent.mjs --login --email you@example.com --password 你的密码
+//   node app-mobile/scripts/cloud-agent.mjs --login --phone 13800001234          # 发送短信验证码
+//   node app-mobile/scripts/cloud-agent.mjs --login --code 123456                # 完成验证码登录
 //   node app-mobile/scripts/cloud-agent.mjs --status
 //   node app-mobile/scripts/cloud-agent.mjs --pull-records [--since=YYYY-MM-DD] [--no-import]
 //   node app-mobile/scripts/cloud-agent.mjs --push-course
 //   node app-mobile/scripts/cloud-agent.mjs --logout
 //
-// 会话文件默认 %USERPROFILE%\.xiaoya\cloud-session.json（600 权限），
-// 可用环境变量 XIAOYA_SESSION_FILE 覆盖。正式数据：--pull-records 会把新记录
-// 以「只追加」方式归档到 data/raw/sessions（同名文件绝不覆盖，写入前做结构与
-// 摘要双重校验），--no-import 可跳过归档；不修改 learning-state.json。
+// 本地文件都放在 %USERPROFILE%\.xiaoya\ 下（600 权限），可用环境变量
+// XIAOYA_SESSION_FILE 整体改路径：
+//   cloud-session.json            会话（含令牌）
+//   cloud-session.json.credentials.json  密码登录凭据（自动重登用；--logout 会删除）
+//   cloud-session.json.identity.json     脱敏台账（仅账号与时间，无令牌）
+// 正式数据：--pull-records 会把新记录以「只追加」方式归档到 data/raw/sessions
+// （同名文件绝不覆盖，写入前做结构与摘要双重校验），--no-import 可跳过归档；
+// 不修改 learning-state.json。
 import { mkdirSync, readFileSync, writeFileSync, rmSync, existsSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
@@ -43,6 +51,10 @@ const STUDENT_CODE = process.env.XIAOYA_STUDENT_CODE || "student-01";
 
 const SESSION_FILE = process.env.XIAOYA_SESSION_FILE || path.join(os.homedir(), ".xiaoya", "cloud-session.json");
 const PENDING_FILE = `${SESSION_FILE}.pending.json`;
+// 会话台账（脱敏，不含令牌）：只为在会话被清空后仍能区分"从未登录"和"登录已失效"。
+const IDENTITY_FILE = `${SESSION_FILE}.identity.json`;
+// 密码登录凭据（明文，600 权限，仅本机）：会话过期后用它自动重登，从此不再需要验证码。
+const CREDENTIALS_FILE = `${SESSION_FILE}.credentials.json`;
 
 /* ---------------- 会话持久化 ---------------- */
 
@@ -60,7 +72,25 @@ function createFileStorage(file) {
   const persist = () => writeJsonFile(file, store);
   return {
     getItem: key => (typeof store[key] === "string" ? store[key] : null),
-    setItem: (key, value) => { store[key] = String(value); persist(); },
+    setItem: (key, value) => {
+      store[key] = String(value);
+      persist();
+      // 顺带更新会话台账：SDK 在续期被拒时会直接清空会话且不报错，届时只有这份
+      // 台账能把"登录过但已失效"与"从未登录"区分开。
+      try {
+        const session = JSON.parse(String(value));
+        if (session && typeof session === "object" && typeof session.expiresAt === "number") {
+          const previous = readJsonFile(IDENTITY_FILE) || {};
+          writeJsonFile(IDENTITY_FILE, {
+            phone: session.user?.phone || previous.phone || null,
+            firstLoginAt: previous.firstLoginAt || new Date().toISOString(),
+            lastSessionAt: new Date().toISOString(),
+            expiresAt: session.expiresAt,
+            sessionWrites: (previous.sessionWrites || 0) + 1
+          });
+        }
+      } catch { /* 台账写入失败不影响登录本身。 */ }
+    },
     removeItem: key => { delete store[key]; persist(); }
   };
 }
@@ -93,26 +123,74 @@ function describeUser(user) {
   return user.name ? `${user.name}（未绑定手机号）` : "已登录（未绑定手机号）";
 }
 
+// getSession() 在"会话被服务端拒绝并已清空"与"从未登录"两种情况下都返回 null
+// 且不带 error，只看返回值无法区分；因此同时读会话台账来做判断。
+// 若本地存有密码凭据，则先用它自动重新登录——这是"再也不需要验证码"的关键一步。
+async function recoverWithPassword() {
+  const credentials = readJsonFile(CREDENTIALS_FILE);
+  if (!credentials?.password || (!credentials.email && !credentials.phone)) return null;
+  const payload = credentials.email
+    ? { email: credentials.email, password: credentials.password }
+    : { phone: credentials.phone, password: credentials.password };
+  try {
+    const signed = await cloud.auth.signInWithPassword(payload);
+    if (signed?.error) {
+      console.log(`（已保存的密码自动重登失败：${signed.error.message || signed.error}）`);
+      return null;
+    }
+    console.log(`（已用保存的密码自动重新登录：${describeUser(signed?.data?.user || null)}）`);
+    return signed?.data || null;
+  } catch (error) {
+    console.log(`（已保存的密码自动重登失败：${error?.message || error}）`);
+    return null;
+  }
+}
+
 async function currentIdentity() {
   const { data, error } = await cloud.auth.getSession();
   if (error) throw new Error(`读取会话失败：${error.message || error}`);
   const session = data || null;
-  if (!session) return { session: null, user: null };
+  if (!session) {
+    const restored = await recoverWithPassword();
+    if (restored) return { session: restored, user: restored.user || null, recovered: true };
+    const lastKnown = readJsonFile(IDENTITY_FILE);
+    return { session: null, user: null, expired: Boolean(lastKnown), lastKnown };
+  }
   const expiry = Number(session.expiresAt || 0);
   if (expiry && expiry <= Date.now()) {
-    // 会话过期时先续期，续期失败才算失效。
+    // 会话过期时先续期，续期失败再退回"用保存的密码重登"。
     const refreshed = await cloud.auth.refreshSession();
-    if (refreshed?.error || !refreshed?.data) return { session: null, user: null, expired: true };
+    if (refreshed?.error || !refreshed?.data) {
+      const restored = await recoverWithPassword();
+      if (restored) return { session: restored, user: restored.user || null, recovered: true };
+      return { session: null, user: null, expired: true, lastKnown: readJsonFile(IDENTITY_FILE) };
+    }
     return { session: refreshed.data, user: refreshed.data.user || null };
   }
   return { session, user: session.user || null };
 }
 
+function describeLastKnown(lastKnown) {
+  if (!lastKnown) return "";
+  const who = lastKnown.phone
+    ? `手机号 ${String(lastKnown.phone).replace(/\D/g, "").replace(/^(\d{3})\d*(\d{4})$/, "$1****$2")}`
+    : "未知账号";
+  const login = lastKnown.firstLoginAt ? lastKnown.firstLoginAt.replace("T", " ").slice(0, 19) : "?";
+  const expiry = lastKnown.expiresAt ? new Date(Number(lastKnown.expiresAt)).toISOString().replace("T", " ").slice(0, 19) : "?";
+  return `上次登录：${who}（登录于 ${login} UTC，最后一次凭据到期 ${expiry} UTC）`;
+}
+
 async function requireSignedIn() {
-  const { session, user, expired } = await currentIdentity();
+  const { session, user, expired, lastKnown } = await currentIdentity();
   if (!session) {
-    if (expired) throw new Error(`登录会话已失效，请重新执行：\n  node app-mobile/scripts/cloud-agent.mjs --login --phone <手机号>`);
-    throw new Error(`还没有登录过。请先执行：\n  node app-mobile/scripts/cloud-agent.mjs --login --phone <手机号>`);
+    const hasCredentials = Boolean(readJsonFile(CREDENTIALS_FILE)?.password);
+    if (hasCredentials) {
+      throw new Error("已保存的密码无法登录（密码可能被改过，或该账号还没有密码）。请用当前密码重新执行：\n  node app-mobile/scripts/cloud-agent.mjs --login --email <邮箱> --password <密码>");
+    }
+    if (expired) {
+      throw new Error(`登录会话已失效（${describeLastKnown(lastKnown)}）——凭据到期后服务端拒绝了续期，本地会话已被清空。请重新登录：\n  node app-mobile/scripts/cloud-agent.mjs --login --phone <手机号>`);
+    }
+    throw new Error(`还没有登录过。请先执行：\n  node app-mobile/scripts/cloud-agent.mjs --login --email <邮箱> --password <密码>`);
   }
   return { session, user };
 }
@@ -121,8 +199,27 @@ async function requireSignedIn() {
 
 async function login() {
   const args = process.argv.slice(2);
-  const phoneArg = args.indexOf("--phone") >= 0 ? args[args.indexOf("--phone") + 1] : null;
-  const codeArg = args.indexOf("--code") >= 0 ? args[args.indexOf("--code") + 1] : null;
+  const value = flag => (args.indexOf(flag) >= 0 ? args[args.indexOf(flag) + 1] : null);
+  const phoneArg = value("--phone");
+  const codeArg = value("--code");
+  const emailArg = value("--email");
+  const passwordArg = value("--password");
+
+  // 密码登录：长期凭据。凭据落盘后，会话过期时脚本能自己重登，不再需要验证码。
+  if (passwordArg && (emailArg || phoneArg)) {
+    const credentials = emailArg
+      ? { email: String(emailArg).trim(), password: String(passwordArg) }
+      : { phone: String(phoneArg).trim(), password: String(passwordArg) };
+    const signed = await cloud.auth.signInWithPassword(credentials);
+    if (signed?.error) throw new Error(`密码登录失败：${signed.error.message || signed.error}`);
+    writeJsonFile(CREDENTIALS_FILE, credentials);
+    const user = signed?.data?.user || null;
+    const expiry = Number(signed?.data?.expiresAt || 0);
+    console.log(`登录成功：${describeUser(user)}`);
+    console.log(`凭据已保存到 ${CREDENTIALS_FILE}（600 权限，仅本机）；会话过期时会自动重新登录。`);
+    if (expiry) console.log(`当前凭据有效期至 ${new Date(expiry).toISOString()}（到期自动续期/重登）。`);
+    return;
+  }
 
   if (phoneArg) {
     const sent = await cloud.auth.sendOtp({ phone: String(phoneArg).trim() });
@@ -151,8 +248,14 @@ async function login() {
     if (verified?.error) throw new Error(`验证码校验失败：${verified.error.message || verified.error}`);
     rmSync(PENDING_FILE, { force: true });
     const user = verified?.data?.user || null;
+    const expiry = Number(verified?.data?.session?.expiresAt || verified?.data?.expiresAt || 0);
     console.log(`登录成功：${describeUser(user)}`);
-    console.log(`会话已保存到 ${SESSION_FILE}；之后可直接执行 --pull-records / --push-course，无需再次登录。`);
+    if (expiry) {
+      const minutes = Math.max(0, Math.round((expiry - Date.now()) / 60000));
+      console.log(`本次凭据有效期至 ${new Date(expiry).toISOString()}（约 ${minutes} 分钟）。`);
+    }
+    console.log(`会话已保存到 ${SESSION_FILE}；在有效期内可直接执行 --pull-records / --push-course。`);
+    console.log("凭据到期后需要重新执行 --login（请用 --status 随时查看当前状态）。");
     return;
   }
 
@@ -160,15 +263,38 @@ async function login() {
 }
 
 async function status() {
-  const { session, user, expired } = await currentIdentity();
+  const { session, user, expired, lastKnown } = await currentIdentity();
   if (!session) {
-    console.log(expired ? "会话已失效，需要重新登录。" : "尚未登录。");
+    if (expired) {
+      console.log(`登录会话已失效（${describeLastKnown(lastKnown)}）。`);
+      console.log("凭据到期后服务端拒绝续期，SDK 已清空本地会话，需要重新登录：");
+      console.log("  node app-mobile/scripts/cloud-agent.mjs --login --phone <手机号>");
+    } else {
+      console.log("尚未登录。");
+    }
+    const stored = readJsonFile(CREDENTIALS_FILE);
+    console.log(stored?.password
+      ? `密码凭据：已保存（${stored.email ? "邮箱 " + String(stored.email).replace(/^(.).*(@.*)$/, "$1***$2") : "手机号 " + String(stored.phone || "").replace(/^(\d{3})\d*(\d{4})$/, "$1****$2")}），但用它重登失败——密码可能已变更，请重新执行带 --password 的 --login。`
+      : "密码凭据：未保存（会话过期后需要重新登录；用 --login --email … --password … 保存一次即可长期自动）。");
     console.log(`会话文件：${SESSION_FILE}`);
     return;
   }
   console.log(`已登录：${describeUser(user)}`);
+  // 会话对象里的 user 只有 {id, isAnonymous, raw}，不含手机号/邮箱；账号到底绑定了
+  // 什么必须查 /v1/user/me。是否可改密码完全取决于这里邮箱有没有绑定。
+  const me = await cloud.auth.getUser();
+  if (me?.data) {
+    const bound = value => (value ? "已绑定" : "未绑定");
+    const shownEmail = me.data.email ? `（${String(me.data.email).replace(/^(.).*(@.*)$/, "$1***$2")}）` : "";
+    console.log(`账号绑定：手机号 ${bound(me.data.phone)}、邮箱 ${bound(me.data.email)}${shownEmail}`);
+    console.log(`账号标识：${describeUser(me.data)}`);
+  } else if (me?.error) {
+    console.log(`账号绑定：查询失败（${me.error.message || me.error}）`);
+  }
   const expiry = Number(session.expiresAt || 0);
   console.log(`当前凭据有效期至：${expiry ? new Date(expiry).toISOString() : "未知（将自动续期）"}`);
+  if (lastKnown?.firstLoginAt) console.log(`本次凭据首次登录于：${lastKnown.firstLoginAt}`);
+  console.log(`密码凭据：${readJsonFile(CREDENTIALS_FILE)?.password ? "已保存（会话过期会自动重登，无需验证码）" : "未保存（会话过期后需重新登录）"}`);
   console.log(`会话文件：${SESSION_FILE}`);
 
   const rows = await cloud.database.from("xiaoya_sessions").select("session_id,uploaded_at").order("uploaded_at", { ascending: false }).limit(5);
@@ -408,7 +534,9 @@ async function logout() {
   try { await cloud.auth.signOut(); } catch { /* 已经失效时忽略。 */ }
   rmSync(SESSION_FILE, { force: true });
   rmSync(PENDING_FILE, { force: true });
-  console.log("已退出登录并清除本地会话。");
+  rmSync(IDENTITY_FILE, { force: true });
+  rmSync(CREDENTIALS_FILE, { force: true });
+  console.log("已退出登录，并清除本地会话、台账与密码凭据。");
 }
 
 /* ---------------- 入口 ---------------- */
@@ -424,13 +552,15 @@ async function main() {
 
   if (!wantsLogin && !wantsStatus && !wantsPull && !wantsPush && !wantsLogout) {
     console.log("用法：");
-    console.log("  --login --phone <手机号>     发送短信验证码");
-    console.log("  --login --code <验证码>      完成登录并保存会话");
+    console.log("  --login --email <邮箱> --password <密码>   密码登录（推荐：保存后长期免验证码）");
+    console.log("  --login --phone <手机号> --password <密码> 手机号密码登录（同样会保存凭据）");
+    console.log("  --login --phone <手机号>     发送短信验证码（临时诊断用）");
+    console.log("  --login --code <验证码>      完成验证码登录并保存会话");
     console.log("  --status                     查看当前登录状态与云端记录概况");
     console.log("  --pull-records [--since=YYYY-MM-DD] [--no-import]");
     console.log("                               下载云端学习记录，并把新记录归档到 data/raw/sessions（只追加）");
     console.log("  --push-course                把正式状态与最新课程发布为云端新版本");
-    console.log("  --logout                     退出登录并清除本地会话");
+    console.log("  --logout                     退出登录并清除本地会话、台账与密码凭据");
     console.log(`会话文件：${SESSION_FILE}${existsSync(SESSION_FILE) ? "（已存在）" : "（尚未创建）"}`);
     return;
   }
