@@ -34,13 +34,78 @@ export async function requireSignedIn() {
   return session;
 }
 
-function accountLabel(session) {
-  const user = session?.user || {};
-  // 只用于界面展示，不落库、不写日志。
-  return user.phone || user.email || user.nickname || user.name || "已登录";
+// 登录方式与账号标识：只用于界面展示，不落库、不写日志。
+// 云端 5 张表按账号隔离（RLS：只能读写自己账号的行），不同登录方式会建成不同账号，
+// 所以界面必须让家长一眼看出"现在登的是哪个账号、用哪种方式登的"。
+const OAUTH_PROVIDER_LABELS = Object.freeze({
+  wechat: "微信账号",
+  workbuddy: "WorkBuddy 账号"
+});
+
+function maskPhone(phone) {
+  const digits = String(phone).replace(/\D/g, "");
+  if (digits.length < 7) return String(phone);
+  return `${digits.slice(0, 3)}****${digits.slice(-4)}`;
 }
 
-export { accountLabel };
+function maskEmail(email) {
+  const text = String(email);
+  const at = text.lastIndexOf("@");
+  if (at <= 0) return text;
+  return `${text.slice(0, 1)}***${text.slice(at)}`;
+}
+
+// 返回字符串，但内部区分了"用什么方式登录"：
+//   手机号 138****1234 / 邮箱 a***@b.com / 微信账号（未绑定手机号）/ WorkBuddy 账号（未绑定手机号）/ 已登录（未绑定手机号）
+export function accountLabel(session) {
+  const user = session?.user || {};
+  const provider = String(user.provider || "").toLowerCase();
+  const providerLabel = OAUTH_PROVIDER_LABELS[provider] || null;
+  if (user.phone) return `手机号 ${maskPhone(user.phone)}`;
+  if (user.email) return `邮箱 ${maskEmail(user.email)}`;
+  if (providerLabel) return `${providerLabel}（未绑定手机号）`;
+  if (user.name) return `${user.name}（未绑定手机号）`;
+  return "已登录（未绑定手机号）";
+}
+
+// 会话对象非空 ≠ 会话还能用。服务端对被判为"未登录"的请求是「返回 0 行、不报错」，
+// 所以"读不到云端数据"必须回头确认登录态，不能直接当成"云端没有数据"。
+export async function sessionIsLive() {
+  try {
+    const { user, error } = await cloudApi.getUser();
+    if (error) return { live: false, user: null, error };
+    return { live: Boolean(user), user: user || null, error: null };
+  } catch (error) {
+    return { live: false, user: null, error };
+  }
+}
+
+// 云端读不到生效课程时，给出能直接照做的原因判断，而不是一律说"家长还没发布"。
+async function describeMissingCloudCourse() {
+  const { live, user } = await sessionIsLive();
+  if (!live) {
+    return {
+      updated: false,
+      reason: "session-expired",
+      message: "登录状态已经失效，所以读不到云端的课程。请到「设置与备份 → 退出登录」后，用手机号 + 短信验证码重新登录，再点一次「更新学习课程」。"
+    };
+  }
+  const provider = String(user?.provider || "").toLowerCase();
+  const providerLabel = OAUTH_PROVIDER_LABELS[provider] || null;
+  if (providerLabel || (!user?.phone && !user?.email)) {
+    const who = providerLabel ? `当前登录的是${providerLabel}` : "当前账号没有绑定手机号或邮箱";
+    return {
+      updated: false,
+      reason: "wrong-account",
+      message: `${who}，它与手机号账号的家庭数据互不相通，因此看不到家里已发布的课程。请「退出登录」，改用手机号 + 短信验证码登录发布课程的那个家庭账号。`
+    };
+  }
+  return {
+    updated: false,
+    reason: "cloud-empty",
+    message: `这个家庭账号（${accountLabel({ user })}）在云端还没有生效的课程包。请在已登录同一账号的设备上打开「导入并发布新课程 → 把当前课程发布为新版本」，再回到这台手机点一次。`
+  };
+}
 
 /* ---------------- 按钮一：上传学习记录 ---------------- */
 
@@ -256,11 +321,8 @@ export async function updateCourse({ onProgress } = {}) {
   onProgress?.({ stage: "query" });
   const active = (await cloudApi.listActiveCourses()).filter(row => row.course_key === FAMILY_PACKAGE_KEY);
   if (!active.length) {
-    return {
-      updated: false,
-      reason: "cloud-empty",
-      message: "云端还没有发布课程包；家长端导入课程后再点一次即可。"
-    };
+    // 不能一律说"云端还没有发布课程包"：登录态失效或登错了账号时，云端同样是 0 行。
+    return await describeMissingCloudCourse();
   }
   const latest = active.sort((left, right) => (right.version || 0) - (left.version || 0))[0];
   const local = await loadActivePackage();
