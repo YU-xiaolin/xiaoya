@@ -21,6 +21,11 @@
 登录方式任选：手机号验证码、邮箱+密码、邮箱验证码、WorkBuddy 账号、微信扫码。
 首次使用会创建家庭账号；同一账号下所有数据互相可见，其他账号一律看不到。
 
+> **家庭请统一固定使用「手机号 + 短信验证码」一个账号。**
+> WorkBuddy 账号登录与微信扫码登录各自是**独立的账号**，与手机号账号的学习记录、课程互不相通，
+> 也无法在应用内合并（云端只提供账号，不提供绑定/合并接口）。
+> 界面上，家长管理标题栏会显示当前是"手机号 138\*\*\*\*1234""邮箱 a\*\*\*@b.com"还是"微信账号（未绑定手机号）"，可据此确认登的是哪个账号。
+
 ---
 
 ## 一、读取学习记录（方式 A）
@@ -61,6 +66,26 @@ node app-mobile/scripts/cloud-sync.mjs --pull-records --since=2026-10-01
 
 结果写到 `output/cloud-pull-YYYYMMDD-HHMMSS/records.json` 和 `records.index.json`。
 **不会写入 `data/raw/sessions`**（该目录只由小芽软件追加，属于不可变事实源）。
+
+## 一·三、读取学习记录（方式 C：手机号 + 验证码，推荐给家庭账号）
+
+方式 B 只支持「邮箱 + 密码」。家庭账号是「手机号 + 短信验证码」，请改用 `cloud-agent.mjs`：
+它登录一次后会把会话持久化到本地文件，之后电脑/AI 可以随时免登录拉记录、发课程。
+
+```powershell
+cd C:\codex\AI家庭学习
+node app-mobile/scripts/cloud-agent.mjs --login --phone 13800001234   # 发送验证码
+node app-mobile/scripts/cloud-agent.mjs --login --code 123456         # 完成登录并保存会话
+node app-mobile/scripts/cloud-agent.mjs --status                     # 查看登录状态与云端记录概况
+node app-mobile/scripts/cloud-agent.mjs --pull-records               # 下载云端记录（可加 --since=YYYY-MM-DD）
+node app-mobile/scripts/cloud-agent.mjs --push-course                # 发布家庭私有课程包为新版本
+node app-mobile/scripts/cloud-agent.mjs --logout                     # 退出并清除本地会话
+```
+
+- 会话文件默认 `%USERPROFILE%\.xiaoya\cloud-session.json`（600 权限），可用 `XIAOYA_SESSION_FILE` 覆盖；SDK 会在需要时自动续期。
+- 只有第一次（或会话失效后）需要验证码，之后 `--pull-records` / `--push-course` 不再需要任何交互。
+- 同样**只读**正式数据：不写 `data/raw/sessions`，也不改 `learning-state.json`。
+- 手机端「上传学习记录」之后，电脑/AI 执行一次 `--pull-records` 就能拿到全部记录（含来源设备分布）。
 
 ---
 
@@ -146,16 +171,16 @@ node app-mobile/scripts/cloud-sync.mjs --push-course
 手机学习 → 本地 IndexedDB 保存
       ↓ 「上传学习记录」
 WorkBuddy 云数据库（按家庭账号隔离）
-      ↓ 家长管理页导出 JSON ／ cloud-sync --pull-records
+      ↓ 家长管理页导出 JSON ／ cloud-agent --pull-records
 ChatGPT Work 读取与分析
       ↓ 生成 next-lesson.json / 课程包
-家长管理页导入 → 「发布到云端」
+家长管理页导入 ／ cloud-agent --push-course
       ↓ 「更新学习课程」
 手机获取新课程，继续学习
 ```
 
-电脑端同样可以参与：`cloud-sync --push-course` 把电脑上的最新课程推上云端，
-`cloud-sync --pull-records` 把手机记录拉回电脑交给 ChatGPT Work。
+电脑端同样可以参与：`cloud-agent --push-course` 把电脑上的最新课程推上云端，
+`cloud-agent --pull-records` 把手机记录拉回电脑交给 ChatGPT Work。
 
 ---
 
@@ -166,7 +191,9 @@ ChatGPT Work 读取与分析
 | 点上传提示「请先登录」 | 登录会话已过期，重新登录家长账号即可。 |
 | 点上传提示「当前没有网络」 | 记录仍安全保存在手机上，联网后再点一次。 |
 | 提示「没有需要上传的新记录」 | 所有记录都已同步；重复点击不会产生重复数据。 |
-| 更新课程提示「云端还没有发布课程包」 | 先在家长管理页导入并发布一次课程。 |
+| 更新课程提示「云端还没有发布课程包」 | 先看家长管理标题栏显示的是哪个账号。若显示"微信账号（未绑定手机号）"之类，说明登的是独立账号，请改用手机号 + 验证码登录发布课程的那个家庭账号；若确认账号正确，再在家长管理页导入并发布一次课程。 |
+| 更新课程提示「登录状态已经失效」 | 退出登录后用手机号 + 短信验证码重新登录即可；记录仍安全保存在手机上。 |
+| 手机上传了记录，电脑却读不到 | 云端按账号隔离，需要主动拉取：执行 `node app-mobile/scripts/cloud-agent.mjs --pull-records`（首次先 `--login --phone`）；或走方式 A 在网页导出。 |
 | 更新课程提示「未通过校验」 | 课程 JSON 不符合 Schema，请按错误提示修正后重新导入。 |
 | 孩子答题没有声音 | 点击题目下方「播放声音」或「再听一次题目」；联网重开可取得最新录音清单。家长可在「设置与备份 → 下载全部离线语音」提前准备；若下载中断，再次点击会继续。自定义课程中未录制的句子会尝试手机中文语音。 |
 
