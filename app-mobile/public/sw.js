@@ -14,7 +14,7 @@
 */
 // 升级缓存版本会清掉旧版本的缓存：语音包从「按优先级裁剪的子集」改为「全量晓伊语音」后，
 // 必须让已安装的设备重新取到新的语音清单，而不是继续用旧清单。
-const VERSION = "xiaoya-mobile-v4";
+const VERSION = "xiaoya-mobile-v5";
 const SHELL_CACHE = `${VERSION}-shell`;
 const VOICE_CACHE = "xiaoya-voice-v1";
 
