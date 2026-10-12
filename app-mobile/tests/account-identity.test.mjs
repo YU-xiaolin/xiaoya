@@ -1,5 +1,9 @@
-// 「读不到云端课程」的原因必须说清楚：登录失效 / 登错账号 / 云端确实没有，三种提示要分开。
-// 同时校验家长管理标题栏的账号标识能区分登录方式（手机号 / 邮箱 / 微信 / WorkBuddy）。
+// 账号隔离与账号标识测试。
+//
+// 关键背景（2026-10-12 实测）：云端 SDK 的会话对象里 user 只有
+// {id, isAnonymous, raw}，不含手机号、邮箱与昵称；账号身份必须用 getUser()
+// （/v1/user/me）查询。此前误以为会话里带手机号，导致界面与提示都无法正确
+// 区分"手机号账号 / 微信账号"，本测试按真实形状覆盖。
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { accountLabel, updateCourse } from "../src/sync.js";
@@ -15,6 +19,9 @@ function withOnline(value, run) {
       else delete globalThis.navigator;
     });
 }
+
+// 真实会话形状：user 只有 {id, isAnonymous, raw}。
+const REAL_SESSION_USER = { id: "2108097100506988544", isAnonymous: false, raw: { sub: "2108097100506988544" } };
 
 // 让云端课程查询返回固定的行；同时把身份接口换成模拟值。
 // 注意 cloud.auth.getUser() 的返回形状是 { data: user, error }（cloud.js 会再包一层）。
@@ -41,18 +48,24 @@ function stubCloud({ rows, session, getUser }) {
   };
 }
 
-test("账号标识区分登录方式，并遮盖敏感信息", () => {
-  assert.equal(accountLabel({ user: { phone: "13800001234" } }), "手机号 138****1234");
-  assert.equal(accountLabel({ user: { email: "parent@example.com" } }), "邮箱 p***@example.com");
-  assert.equal(accountLabel({ user: { provider: "wechat", name: "小芽家长" } }), "微信账号（未绑定手机号）");
-  assert.equal(accountLabel({ user: { provider: "workbuddy" } }), "WorkBuddy 账号（未绑定手机号）");
-  assert.equal(accountLabel({ user: { name: "小芽家长" } }), "小芽家长（未绑定手机号）");
-  assert.equal(accountLabel(null), "已登录（未绑定手机号）");
-  assert.ok(!accountLabel({ user: { phone: "13800001234" } }).includes("13800001234"), "不应显示完整手机号");
+test("账号标识优先使用 getUser 的身份，并遮盖敏感信息", () => {
+  assert.equal(accountLabel({ user: REAL_SESSION_USER }, { phone: "+86 13675519415" }), "手机号 136****9415");
+  assert.equal(accountLabel(null, { phone: "13800001234" }), "手机号 138****1234");
+  assert.equal(accountLabel({ user: REAL_SESSION_USER }, { email: "parent@example.com" }), "邮箱 p***@example.com");
+  assert.equal(accountLabel(null, { name: "小芽家长" }), "小芽家长（未绑定手机号）");
+  assert.equal(accountLabel(null, { name: "13675519415" }), "已登录（未绑定手机号）", "纯数字昵称不当作账号标识");
+  assert.equal(accountLabel({ user: { provider: "wechat" } }), "微信账号（未绑定手机号）");
+  assert.equal(accountLabel({ user: REAL_SESSION_USER }), "已登录", "身份未加载时不冒充已绑定/未绑定");
+  assert.equal(accountLabel(null, {}), "已登录（未绑定手机号）");
+  assert.ok(!accountLabel(null, { phone: "+86 13675519415" }).includes("13675519415"), "不应显示完整手机号");
 });
 
-test("云端读不到课程且当前是微信账号：提示指向账号不互通", async () => {
-  const restore = stubCloud({ rows: [], session: { user: { provider: "wechat" } }, getUser: () => ({ data: { provider: "wechat" }, error: null }) });
+test("云端读不到课程且登的是微信账号：提示指向账号不互通", async () => {
+  const restore = stubCloud({
+    rows: [],
+    session: { user: REAL_SESSION_USER },
+    getUser: () => ({ data: { id: "x", provider: "wechat" }, error: null })
+  });
   try {
     await withOnline(true, async () => {
       const result = await updateCourse();
@@ -66,7 +79,11 @@ test("云端读不到课程且当前是微信账号：提示指向账号不互�
 });
 
 test("会话已失效：提示要求重新登录，而不是让家长去发布课程", async () => {
-  const restore = stubCloud({ rows: [], session: { user: { phone: "13800001234" } }, getUser: () => ({ data: null, error: new Error("unauthenticated") }) });
+  const restore = stubCloud({
+    rows: [],
+    session: { user: REAL_SESSION_USER },
+    getUser: () => ({ data: null, error: new Error("unauthenticated") })
+  });
   try {
     await withOnline(true, async () => {
       const result = await updateCourse();
@@ -77,12 +94,17 @@ test("会话已失效：提示要求重新登录，而不是让家长去发布�
   } finally { restore(); }
 });
 
-test("账号正确但云端确实没有课程：才提示去发布新版本", async () => {
-  const restore = stubCloud({ rows: [], session: { user: { phone: "13800001234" } }, getUser: () => ({ data: { phone: "13800001234" }, error: null }) });
+test("账号正确但云端确实没有课程：提示去发布，并显示脱敏手机号", async () => {
+  const restore = stubCloud({
+    rows: [],
+    session: { user: REAL_SESSION_USER },
+    getUser: () => ({ data: { id: "x", phone: "+86 13675519415" }, error: null })
+  });
   try {
     await withOnline(true, async () => {
       const result = await updateCourse();
       assert.equal(result.reason, "cloud-empty");
+      assert.match(result.message, /手机号 136\*\*\*\*9415/);
       assert.match(result.message, /发布为新版本/);
       assert.doesNotMatch(result.message, /微信/);
     });

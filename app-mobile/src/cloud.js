@@ -49,6 +49,18 @@ export async function getUser() {
   return { user: data || null, error: null };
 }
 
+// 会话对象里的 user 只有 {id, isAnonymous, raw}：不含手机号、邮箱与昵称。
+// 账号标识必须使用 /v1/user/me（getUser）的结果；失败时返回 null，界面降级为中性文案。
+export async function getIdentity() {
+  try {
+    const { data, error } = await cloud.auth.getUser();
+    if (error) return null;
+    return data || null;
+  } catch {
+    return null;
+  }
+}
+
 export function onAuthStateChange(callback) {
   return cloud.auth.onAuthStateChange(callback);
 }
