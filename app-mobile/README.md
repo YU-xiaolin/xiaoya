@@ -48,7 +48,8 @@ app-mobile/
     verify-ui.mjs            本地真实浏览器验证
     verify-live.mjs          线上真实浏览器验证
     probe-cloud.mjs          云端只读探针（权限边界 + 认证通道）
-    cloud-sync.mjs           PC 端云同步助手（推课程 / 拉记录）
+    cloud-sync.mjs           PC 端云同步助手（邮箱 + 密码登录；推课程 / 拉记录）
+    cloud-agent.mjs          PC/AI 云端访问（手机号 + 验证码登录，会话持久化后免登录）
   tests/                     node --test 单元测试
   docs/                      安装教程、ChatGPT Work 说明、云端与安全说明
 ```
@@ -79,6 +80,12 @@ node ../tools/serve-static.mjs dist 5199          # 另开一个终端
 node scripts/verify-ui.mjs http://127.0.0.1:5199/
 node scripts/verify-live.mjs https://xiaoya-learning.app.workbuddy.host/
 node scripts/probe-cloud.mjs
+
+# 6. 电脑/AI 取手机上传的记录、把新课程发回手机（手机号 + 验证码，登录一次后免登录）
+node scripts/cloud-agent.mjs --login --phone 13800001234
+node scripts/cloud-agent.mjs --login --code 123456
+node scripts/cloud-agent.mjs --pull-records
+node scripts/cloud-agent.mjs --push-course
 ```
 
 ## 语音策略（重要）
