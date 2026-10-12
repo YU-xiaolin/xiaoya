@@ -50,8 +50,8 @@ app-mobile/
     verify-live.mjs          线上真实浏览器验证
     probe-cloud.mjs          云端只读探针（权限边界 + 认证通道）
     cloud-sync.mjs           PC 端云同步助手（邮箱 + 密码登录；推课程 / 拉记录）
-    cloud-agent.mjs          PC/AI 云端访问（手机号 + 验证码登录，会话持久化后免登录；
-                             --pull-records 下载记录并只追加归档到 data/raw/sessions）
+    cloud-agent.mjs          PC/AI 云端访问（邮箱+密码 或 手机号+验证码登录；密码凭据保存后
+                             会话过期自动重登；--pull-records 下载记录并只追加归档到 data/raw/sessions）
   tests/                     node --test 单元测试
   docs/                      安装教程、ChatGPT Work 说明、云端与安全说明
 ```
@@ -83,12 +83,16 @@ node scripts/verify-ui.mjs http://127.0.0.1:5199/
 node scripts/verify-live.mjs https://xiaoya-learning.app.workbuddy.host/
 node scripts/probe-cloud.mjs
 
-# 6. 电脑/AI 取手机上传的记录、把新课程发回手机（手机号 + 验证码，登录一次后免登录）
+# 6. 电脑/AI 取手机上传的记录、把新课程发回手机
+#    推荐用「邮箱 + 密码」登录：密码是长期凭据，保存后会话过期会自动重登，无需再验证码
 # --pull-records 会同时把云端新记录只追加归档到 data/raw/sessions（同名文件绝不覆盖）
-node scripts/cloud-agent.mjs --login --phone 13800001234
-node scripts/cloud-agent.mjs --login --code 123456
+node scripts/cloud-agent.mjs --login --email you@example.com --password 你的密码
 node scripts/cloud-agent.mjs --pull-records
 node scripts/cloud-agent.mjs --push-course
+
+# 临时诊断才用手机号 + 验证码（验证码是短期凭据，过期后必须重新发码）
+node scripts/cloud-agent.mjs --login --phone 13800001234
+node scripts/cloud-agent.mjs --login --code 123456
 ```
 
 ## 语音策略（重要）

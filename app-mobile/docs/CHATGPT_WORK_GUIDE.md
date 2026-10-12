@@ -18,13 +18,13 @@
 | 课程协议 | `FAMILY_LEARNING_LESSON_V1`（课程包为 `XIAOYA_COURSE_PACKAGE_V1`） |
 | Schema 位置 | `app-mobile/schemas/` |
 
-登录方式任选：手机号验证码、邮箱+密码、邮箱验证码、WorkBuddy 账号、微信扫码。
+登录方式任选：邮箱+密码、邮箱验证码、手机号验证码、WorkBuddy 账号、微信扫码。
 首次使用会创建家庭账号；同一账号下所有数据互相可见，其他账号一律看不到。
 
-> **家庭请统一固定使用「手机号 + 短信验证码」一个账号。**
-> WorkBuddy 账号登录与微信扫码登录各自是**独立的账号**，与手机号账号的学习记录、课程互不相通，
-> 也无法在应用内合并（云端只提供账号，不提供绑定/合并接口）。
+> **家庭请统一固定使用一个账号，并优先使用「邮箱 + 密码」。**
+> 手机验证码、邮箱、微信扫码、WorkBuddy 登录会建成**互不相通的独立账号**，云端也没有绑定/合并接口，数据无法在账号之间搬运。
 > 界面上，家长管理标题栏会显示当前账号的身份（如"手机号 138\*\*\*\*1234""邮箱 a\*\*\*@b.com"；未绑定手机号的账号会显示"昵称（未绑定手机号）"或"已登录（未绑定手机号）"），可据此确认登的是哪个账号。
+> 只有「邮箱 + 密码」能做到长期免验证码：验证码是短期凭据，会话过期后必须重新发码（原因与方法见一·三）。
 
 ---
 
@@ -67,26 +67,36 @@ node app-mobile/scripts/cloud-sync.mjs --pull-records --since=2026-10-01
 结果写到 `output/cloud-pull-YYYYMMDD-HHMMSS/records.json` 和 `records.index.json`。
 本工具**不会写入** `data/raw/sessions`（原始记录归档由方式 C 的 `cloud-agent --pull-records` 以只追加方式完成）。
 
-## 一·三、读取学习记录（方式 C：手机号 + 验证码，推荐给家庭账号）
+## 一·三、读取学习记录（方式 C：推荐给家庭账号）
 
-方式 B 只支持「邮箱 + 密码」。家庭账号是「手机号 + 短信验证码」，请改用 `cloud-agent.mjs`：
-它登录一次后会把会话持久化到本地文件，之后电脑/AI 可以随时免登录拉记录、发课程。
+`cloud-sync.mjs`（方式 B）只做「邮箱 + 密码」，功能也少。请改用 `cloud-agent.mjs`：
 
 ```powershell
 cd C:\codex\AI家庭学习
-node app-mobile/scripts/cloud-agent.mjs --login --phone 13800001234   # 发送验证码
-node app-mobile/scripts/cloud-agent.mjs --login --code 123456         # 完成登录并保存会话
-node app-mobile/scripts/cloud-agent.mjs --status                     # 查看登录状态与云端记录概况
+
+# 推荐：邮箱 + 密码登录（密码是长期凭据，保存后会话过期会自动重登，之后无需任何验证码）
+node app-mobile/scripts/cloud-agent.mjs --login --email you@example.com --password 你的密码
+
+node app-mobile/scripts/cloud-agent.mjs --status                     # 登录状态、账号绑定情况、云端记录概况
 node app-mobile/scripts/cloud-agent.mjs --pull-records               # 下载云端记录（可加 --since=YYYY-MM-DD）
 node app-mobile/scripts/cloud-agent.mjs --push-course                # 发布家庭私有课程包为新版本
-node app-mobile/scripts/cloud-agent.mjs --logout                     # 退出并清除本地会话
+node app-mobile/scripts/cloud-agent.mjs --logout                     # 退出并清除本地会话、台账与密码凭据
+
+# 仅临时诊断用：手机号 + 验证码（验证码是短期凭据，会话过期后必须重新发码）
+node app-mobile/scripts/cloud-agent.mjs --login --phone 13800001234
+node app-mobile/scripts/cloud-agent.mjs --login --code 123456
 ```
 
-- 会话文件默认 `%USERPROFILE%\.xiaoya\cloud-session.json`（600 权限），可用 `XIAOYA_SESSION_FILE` 覆盖；SDK 会在需要时自动续期。
-- 只有第一次（或会话失效后）需要验证码，之后 `--pull-records` / `--push-course` 不再需要任何交互。
+- 本地文件在 `%USERPROFILE%\.xiaoya\`（600 权限），可用 `XIAOYA_SESSION_FILE` 整体改路径：`cloud-session.json`（会话）、`.credentials.json`（密码凭据，供自动重登）、`.identity.json`（脱敏台账）。
+- **为什么必须用密码**：云端会话有有效期（实测 access token 2 小时），刷新句柄也会被服务端拒绝；被拒后 SDK 会主动清空本地会话，而 `getSession()` 返回空结果且不报错。此时用密码可以静默重登，用验证码则必须重新发码。**「登录一次永久免登录」只对密码成立，对验证码不成立。**
 - `--pull-records` 会把云端的新记录以「只追加」方式**归档到 `data/raw/sessions`**（同名文件绝不覆盖；写入前做结构与上传摘要双重校验，摘要复现成功才标记为已核验）。归档后小芽软件才能在「检查 AI 新内容」时校验并应用 AI 状态更新；加 `--no-import` 可只下载记录包、不归档。
 - 不改 `learning-state.json`（正式状态只由小芽软件应用 AI 更新时写入）。
 - 手机端「上传学习记录」之后，电脑/AI 执行一次 `--pull-records` 就能拿到全部记录（含来源设备分布）并完成归档。
+
+### 账号与登录方式的硬约束
+
+- **家庭请统一固定使用一个账号。** 手机验证码、邮箱、微信扫码、WorkBuddy 登录会建成**互不相通的独立账号**，云端也没有绑定/合并接口，数据无法在账号之间搬运。
+- 手机号账号**无法在应用内设置密码**（上游只在注册路径支持设密码；「忘记密码」又要求账号已绑邮箱）。若要用长期密码，请**用邮箱注册一个新的家庭账号**（「邮箱验证码登录 / 注册」时填写密码即可），然后把手机重新登录到新账号并重新上传一次记录——手机本机记录与电脑正式数据都不会丢，只是旧账号云端数据不再可见。
 
 ---
 
@@ -153,7 +163,8 @@ node app-mobile/scripts/cloud-sync.mjs --push-course
 
 `tools/build-course-package.mjs` 的默认命令仍生成公开通用目录，不含家庭进度，不能替代家庭状态同步。
 家庭私有包不得放进 `app-mobile/public/` 或 `dist/`，不得作为静态网页发布。
-手机号验证码账号使用网页的「选择完整课程包文件」与「把当前课程发布为新版本」，无需在脚本中保存手机号或验证码。
+命令行发布用 `cloud-agent --push-course`（邮箱 + 密码登录，凭据只保存在本机 600 权限文件里，不写入仓库）。
+网页的「选择完整课程包文件」与「把当前课程发布为新版本」也可用，二者结果一致。
 
 ---
 
@@ -192,10 +203,11 @@ ChatGPT Work 读取与分析
 | 点上传提示「请先登录」 | 登录会话已过期，重新登录家长账号即可。 |
 | 点上传提示「当前没有网络」 | 记录仍安全保存在手机上，联网后再点一次。 |
 | 提示「没有需要上传的新记录」 | 所有记录都已同步；重复点击不会产生重复数据。 |
-| 更新课程提示「云端还没有发布课程包」 | 先看家长管理标题栏显示的是哪个账号。若显示"微信账号（未绑定手机号）"之类，说明登的是独立账号，请改用手机号 + 验证码登录发布课程的那个家庭账号；若确认账号正确，再在家长管理页导入并发布一次课程。 |
-| 更新课程提示「登录状态已经失效」 | 退出登录后用手机号 + 短信验证码重新登录即可；记录仍安全保存在手机上。 |
-| 手机上传了记录，电脑却读不到 | 云端按账号隔离，需要主动拉取：执行 `node app-mobile/scripts/cloud-agent.mjs --pull-records`（首次先 `--login --phone`）。该命令会同时把记录归档到 `data/raw/sessions`，之后点「检查 AI 新内容」软件才能校验并应用；或走方式 A 在网页导出。 |
+| 更新课程提示「云端还没有发布课程包」 | 先看家长管理标题栏显示的是哪个账号。若显示"微信账号（未绑定手机号）"之类，说明登的是独立账号，请退出登录并改用家庭统一账号登录；若确认账号正确，再在家长管理页导入并发布一次课程。 |
+| 更新课程提示「登录状态已经失效」 | 退出登录后用家庭账号重新登录即可；记录仍安全保存在手机上。 |
+| 手机上传了记录，电脑却读不到 | 云端按账号隔离，需要主动拉取：执行 `node app-mobile/scripts/cloud-agent.mjs --pull-records`（首次先 `--login --email … --password …` 或 `--login --phone`）。该命令会同时把记录归档到 `data/raw/sessions`，之后点「检查 AI 新内容」软件才能校验并应用；或走方式 A 在网页导出。 |
 | 「检查 AI 新内容」提示“找不到依据记录” | AI 状态更新引用的手机记录还没有归档到 `data/raw/sessions`。先执行 `node app-mobile/scripts/cloud-agent.mjs --pull-records` 完成归档，再点一次「检查 AI 新内容」。 |
+| 电脑端提示「登录会话已失效/还没有登录过」 | 会话过期后服务端拒绝续期、SDK 会清空本地会话。若已用 `--login --email … --password …` 保存过凭据，脚本会自动重登；否则请重新登录一次。 |
 | 更新课程提示「未通过校验」 | 课程 JSON 不符合 Schema，请按错误提示修正后重新导入。 |
 | 孩子答题没有声音 | 点击题目下方「播放声音」或「再听一次题目」；联网重开可取得最新录音清单。家长可在「设置与备份 → 下载全部离线语音」提前准备；若下载中断，再次点击会继续。自定义课程中未录制的句子会尝试手机中文语音。 |
 
