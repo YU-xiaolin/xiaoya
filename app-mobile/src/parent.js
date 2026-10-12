@@ -79,6 +79,10 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
     // 所有家长动作在 handler 里再次校验，防止另一个 root 监听器绕过 PIN 直接触发。
     unlocked: false,
     session: null,
+    // 账号身份（手机号/邮箱/昵称）：会话里的 user 只有 {id, isAnonymous, raw}，
+    // 必须用 getUser() 单独查询；identityUserId 用于按账号缓存，避免每次渲染都请求。
+    identity: null,
+    identityUserId: null,
     busy: false,
     notice: null,
     error: null,
@@ -151,6 +155,18 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
 
   async function refreshSession() {
     state.session = await currentSession();
+    if (!state.session) {
+      state.identity = null;
+      state.identityUserId = null;
+      return state.session;
+    }
+    const userId = state.session.user?.id || null;
+    if (userId && (state.identityUserId !== userId || !state.identity)) {
+      // 会话对象拿不到手机号/邮箱；账号标识改用 getUser() 查询。失败时不缓存结果，
+      // 下次渲染会重试；界面在拿到身份前降级显示中性的"已登录"。
+      state.identity = await cloudApi.getIdentity();
+      state.identityUserId = userId;
+    }
     return state.session;
   }
 
@@ -232,7 +248,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
       <main class="shell">
         <header class="topbar">
           <button class="icon-button" data-action="exit-parent" aria-label="返回">←</button>
-          <div class="topbar-title"><h1>家长管理</h1><p>${escapeHtml(accountLabel(session))} · 学生编号 ${escapeHtml(code)}</p></div>
+          <div class="topbar-title"><h1>家长管理</h1><p>${escapeHtml(accountLabel(session, state.identity))} · 学生编号 ${escapeHtml(code)}</p></div>
         </header>
         ${noticeHtml()}
         <section class="sync-card">
@@ -412,7 +428,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
       <main class="shell">
         <header class="topbar">
           <button class="icon-button" data-action="parent-home" aria-label="返回">←</button>
-          <div class="topbar-title"><h1>设置与备份</h1><p>${escapeHtml(accountLabel(state.session))}</p></div>
+          <div class="topbar-title"><h1>设置与备份</h1><p>${escapeHtml(accountLabel(state.session, state.identity))}</p></div>
         </header>
         ${noticeHtml()}
         <section class="sync-card">
@@ -935,6 +951,8 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
           await cloudApi.signOut();
           await clearAccountCaches();
           state.session = null;
+          state.identity = null;
+          state.identityUserId = null;
           state.remoteRecords = [];
           state.versions = [];
           state.uploadResult = state.courseResult = null;
