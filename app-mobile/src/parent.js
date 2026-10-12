@@ -211,6 +211,7 @@ export function createParentApp({ root, toast, getPackage, reload, onExit, onSet
           <p>也可以使用 WorkBuddy 账号登录（需要先打开过正式发布的网址）</p>
           <button class="button secondary" data-action="oauth-workbuddy" ${state.busy ? "disabled" : ""}>WorkBuddy 账号登录</button>
           <button class="button secondary" data-action="oauth-wechat" ${state.busy ? "disabled" : ""}>微信扫码登录</button>
+          <p class="hint-text">注意：WorkBuddy 账号 / 微信扫码登录会创建一个<b>独立的家庭账号</b>，与手机号账号的学习记录、课程<b>互不相通</b>，也无法合并。家里的账号请统一使用<b>手机号 + 验证码</b>登录。</p>
         </section>
       </main>`;
     restoreFocus(root, focusSnapshot);
