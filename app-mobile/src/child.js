@@ -81,6 +81,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     feedbackActive: false,
     feedbackAdvancePending: false,
     feedbackTimer: null,
+    feedbackResolve: null,
     feedbackToken: 0,
     questionTimer: null,
     testScope: "today",
@@ -670,19 +671,23 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     persistDraft();
     document.querySelectorAll("[data-answer], [data-choice]").forEach(node => { node.disabled = true; });
     document.querySelector(".stage")?.insertAdjacentHTML("beforeend", `
-      <div class="feedback" role="status"><div class="feedback-card"><div class="feedback-mark">👍</div><h2>${escapeHtml(title)}</h2><p>${escapeHtml(detail)}</p>
+      <div class="feedback" role="status"><div class="feedback-card"><button class="feedback-pause" data-action="lesson-back" aria-label="暂停学习">先暂停</button><div class="feedback-mark">👍</div><h2>${escapeHtml(title)}</h2><p>${escapeHtml(detail)}</p>
+      ${currentTask()?.subject === "hanzi" ? '<button class="button secondary" data-action="repeat-feedback">🔊 再听一遍</button>' : ""}
       <button class="button primary big" data-action="next-feedback">下一题 →</button></div></div>`);
     const minimum = new Promise(resolve => {
+      runtime.feedbackResolve = resolve;
       runtime.feedbackTimer = window.setTimeout(resolve, 1300);
     });
     await Promise.all([speak(voiceText), minimum]);
     if (!stillCurrent()) return;
+    runtime.feedbackResolve = null;
     if (followUp) {
       const heading = document.querySelector(".feedback h2");
       const paragraph = document.querySelector(".feedback p");
       if (heading) heading.textContent = "一起记一记";
       if (paragraph) paragraph.textContent = followUp;
-      await speak(followUp);
+      const status = await speak(followUp);
+      if (status !== "ended") return;
     }
     if (!stillCurrent()) return;
     runtime.feedbackActive = false;
@@ -693,6 +698,8 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
   function cancelFeedback() {
     runtime.feedbackToken += 1;
     clearTimeout(runtime.feedbackTimer);
+    runtime.feedbackResolve?.();
+    runtime.feedbackResolve = null;
     runtime.feedbackActive = false;
   }
 
@@ -704,14 +711,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     if (isCorrect) {
       runtime.answerLocked = true;
       recordEvent("correct", { childAnswer, correctAnswer: task.correctAnswer || task.target.display });
-      const independent = runtime.attempt === 1;
-      showFeedback(
-        independent ? "真棒，答对了！" : "太好了，找到了！",
-        task.composition ? `${task.composition.whole}＝${task.composition.left}＋${task.correctAnswer}` : `答案是“${task.correctAnswer || task.target.display}”`,
-        independent ? "真棒，答对了！" : "太好了，这次答对了！",
-        independent ? reinforcementSpeechText(task, runtime.studyMode) : "",
-        advance
-      );
+      showCorrectFeedback(task);
       return;
     }
     recordEvent("incorrect", { childAnswer, correctAnswer: task.correctAnswer || task.target.display });
@@ -739,6 +739,19 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     speak(demonstrationSpeechText(task));
     document.querySelectorAll("[data-answer], [data-choice]").forEach(node => { node.disabled = true; });
     persistDraft();
+  }
+
+  function showCorrectFeedback(task) {
+    const independent = runtime.attempt === 1;
+    const reinforcement = independent || task.subject === "hanzi" ? reinforcementSpeechText(task, runtime.studyMode) : "";
+    return showFeedback(
+      independent ? "真棒，答对了！" : "太好了，找到了！",
+      task.composition ? `${task.composition.whole}＝${task.composition.left}＋${task.correctAnswer}`
+        : task.subject === "hanzi" ? reinforcement : `答案是“${task.correctAnswer || task.target.display}”`,
+      independent ? "真棒，答对了！" : "太好了，这次答对了！",
+      reinforcement,
+      advance
+    );
   }
 
   function updateComposition(action) {
@@ -792,7 +805,10 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
     if (!hasPaused()) return;
     runtime.paused = false;
     preloadLessonVoices();
-    if (runtime.feedbackAdvancePending) advance();
+    if (runtime.feedbackAdvancePending && currentTask()?.subject === "hanzi") {
+      renderTask(currentTask().taskId);
+      showCorrectFeedback(currentTask());
+    } else if (runtime.feedbackAdvancePending) advance();
     else renderTask(currentTask()?.taskId || null);
     persistDraft();
   }
@@ -980,6 +996,7 @@ export function createChildApp({ root, toast, getPackage, onNeedParent, onSessio
       case "end-paused": await stopLesson(); break;
       case "paused-nav": toast("请先继续或结束当前学习"); break;
       case "next-feedback": if (runtime.feedbackActive) advance(); break;
+      case "repeat-feedback": if (runtime.feedbackActive) showCorrectFeedback(currentTask()); break;
       case "repeat-question": {
         const task = currentTask();
         if (!task || runtime.feedbackActive) break;

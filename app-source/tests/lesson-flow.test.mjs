@@ -21,7 +21,7 @@ function harness() {
     document: { querySelector: () => node, querySelectorAll: () => [], addEventListener: (name, fn) => listeners[name] = fn, createElement: () => node, body: { append() {} } },
     window: { setTimeout(fn, ms) { const id = nextTimer++; timers.set(id, { fn, ms }); return id; } },
     clearTimeout: id => timers.delete(id),
-    createSpeechPlayer: () => ({ cancel() { activeSpeech?.(); activeSpeech = null; }, speak(text) { speech.push(text); return new Promise(resolve => { activeSpeech = resolve; }); } }),
+    createSpeechPlayer: () => ({ cancel() { activeSpeech?.('cancelled'); activeSpeech = null; }, speak(text) { speech.push(text); return new Promise(resolve => { activeSpeech = resolve; }); } }),
     invoke: async () => { throw new Error('simulated save failure'); }
   });
   vm.runInContext(source + `
@@ -32,10 +32,10 @@ function harness() {
     runtime.activeLesson = { protocol:'FAMILY_LEARNING_LESSON_V1' };
     runtime.attempt = 1;
     runtime.taskShownAt = Date.now();
-    globalThis.api = { runtime, answer, pauseLesson, resumeLesson, advance, stopLesson, finishSession, renderLesson };
+    globalThis.api = { runtime, answer, pauseLesson, resumeLesson, advance, stopLesson, finishSession, renderLesson, showCorrectFeedback };
   `, context);
   const runTimers = ms => { for (const [id, timer] of [...timers]) if (timer.ms === ms) { timers.delete(id); timer.fn(); } };
-  return { ...context.api, context, speech, listeners, timers, runTimers, finishSpeech: () => { activeSpeech?.(); activeSpeech = null; } };
+  return { ...context.api, context, speech, listeners, timers, runTimers, finishSpeech: (status = 'ended') => { activeSpeech?.(status); activeSpeech = null; } };
 }
 
 test('答对后先完成鼓励再讲解，慢语音不会被固定计时器截断', async () => {
@@ -49,13 +49,14 @@ test('答对后先完成鼓励再讲解，慢语音不会被固定计时器截�
   await flush();
   assert.equal(h.runtime.queueIndex, 0);
   assert.equal(h.speech.length, 2);
+  assert.equal(h.speech[1], '木，木头、树木。');
   assert.ok(!h.speech[1].includes('先自己想'));
   h.finishSpeech();
   await flush();
   assert.equal(h.runtime.queueIndex, 1);
 });
 
-test('鼓励播放时可以立即暂停，恢复进入下一题且不重复记录', async () => {
+test('鼓励播放时可以立即暂停，恢复补读词语后再进入下一题且不重复记录', async () => {
   const h = harness();
   h.answer(true);
   h.pauseLesson();
@@ -63,9 +64,51 @@ test('鼓励播放时可以立即暂停，恢复进入下一题且不重复记�
   assert.equal(h.runtime.paused, true);
   assert.equal(h.runtime.queueIndex, 0);
   h.resumeLesson();
+  assert.equal(h.runtime.queueIndex, 0);
+  assert.equal(h.speech.length, 2);
+  h.runTimers(1400);
+  h.finishSpeech();
+  await flush();
+  assert.equal(h.speech[2], '木，木头、树木。');
+  h.finishSpeech();
+  await flush();
   assert.equal(h.runtime.queueIndex, 1);
   assert.equal(h.runtime.session.events.length, 1);
-  assert.equal(h.speech.length, 1);
+});
+
+test('组词播放失败保留答对卡片，重播成功后只前进一次', async () => {
+  const h = harness();
+  h.answer(true);
+  h.runTimers(1400);
+  h.finishSpeech();
+  await flush();
+  h.finishSpeech('unavailable');
+  await flush();
+  assert.equal(h.runtime.queueIndex, 0);
+  assert.equal(h.runtime.feedbackActive, true);
+  h.showCorrectFeedback(h.runtime.queue[0]);
+  h.runTimers(1400);
+  h.finishSpeech();
+  await flush();
+  h.finishSpeech();
+  await flush();
+  assert.equal(h.runtime.queueIndex, 1);
+  assert.equal(h.runtime.session.events.length, 1);
+});
+
+test('小测试提示后答对也读词语，作答事实仍标为非独立正确', async () => {
+  const h = harness();
+  h.runtime.studyMode = 'test';
+  h.answer(false);
+  h.answer(true);
+  h.runTimers(1400);
+  h.finishSpeech();
+  await flush();
+  assert.deepEqual(h.speech.slice(-2), ['太好了，这次答对了！', '木，木头、树木。']);
+  assert.equal(h.runtime.session.events.find(event => event.result === 'correct').independent, false);
+  h.finishSpeech();
+  await flush();
+  assert.equal(h.runtime.queueIndex, 1);
 });
 
 test('点击下一题后旧的反馈异步任务不会再次跳题', async () => {

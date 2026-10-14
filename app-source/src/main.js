@@ -590,7 +590,7 @@ async function showFeedback(title, detail, voiceText, followUpVoiceText, onDone)
   runtime.feedbackActive = true;
   runtime.feedbackAdvancePending = true;
   document.querySelectorAll("[data-answer], [data-choice], [data-action^='repeat-']").forEach(node => { node.disabled = true; });
-  stage.insertAdjacentHTML("beforeend", `<div class="feedback" role="status"><div class="feedback-card"><div class="feedback-mark"><span>👍</span><i></i><i></i><i></i></div><h2>${escapeHtml(title)}</h2><p>${escapeHtml(detail)}</p><button class="button secondary" data-action="next-feedback">下一题 →</button></div></div>`);
+  stage.insertAdjacentHTML("beforeend", `<div class="feedback" role="status"><div class="feedback-card"><div class="feedback-mark"><span>👍</span><i></i><i></i><i></i></div><h2>${escapeHtml(title)}</h2><p>${escapeHtml(detail)}</p>${currentTask()?.subject === "hanzi" ? '<button class="button secondary" data-action="repeat-feedback">🔊 再听一遍</button>' : ""}<button class="button secondary" data-action="next-feedback">下一题 →</button></div></div>`);
   playSuccessChime();
   const minimumDisplay = new Promise(resolve => {
     runtime.feedbackResolve = resolve;
@@ -602,7 +602,9 @@ async function showFeedback(title, detail, voiceText, followUpVoiceText, onDone)
   if (followUpVoiceText) {
     document.querySelector(".feedback h2").textContent = "一起记一记";
     document.querySelector(".feedback p").textContent = followUpVoiceText;
-    await speak(followUpVoiceText);
+    const status = await speak(followUpVoiceText);
+    // 保留词语和重播入口，声音失败时不能静默切到下一题。
+    if (status !== "ended") return;
   }
   if (!stillCurrent()) return;
   runtime.feedbackActive = false;
@@ -753,17 +755,7 @@ function answer(isCorrect, childAnswer = null) {
   if (isCorrect) {
     runtime.answerLocked = true;
     recordEvent("correct", { childAnswer, correctAnswer: task.correctAnswer || task.target.display });
-    const independent = runtime.attempt === 1;
-    const reinforcement = independent ? reinforcementSpeechText(task, runtime.studyMode) : "";
-    showFeedback(
-      independent ? "真棒，答对了！" : "太好了，找到了！",
-      task.composition
-        ? `${task.composition.whole}＝${task.composition.left}＋${task.correctAnswer}`
-        : `答案是“${task.correctAnswer || task.target.display}”`,
-      independent ? "真棒，答对了！" : "太好了，这次答对了！",
-      reinforcement,
-      advance
-    );
+    showCorrectFeedback(task);
     return;
   }
 
@@ -790,6 +782,19 @@ function answer(isCorrect, childAnswer = null) {
   support.scrollIntoView({ block: "nearest", behavior: "smooth" });
   speak(demonstrationSpeechText(task), { rate: 1.02, pitch: 1.06 });
   document.querySelectorAll("[data-answer], [data-choice]").forEach(node => { node.disabled = true; });
+}
+
+function showCorrectFeedback(task) {
+  const independent = runtime.attempt === 1;
+  const reinforcement = independent || task.subject === "hanzi" ? reinforcementSpeechText(task, runtime.studyMode) : "";
+  return showFeedback(
+    independent ? "真棒，答对了！" : "太好了，找到了！",
+    task.composition ? `${task.composition.whole}＝${task.composition.left}＋${task.correctAnswer}`
+      : task.subject === "hanzi" ? reinforcement : `答案是“${task.correctAnswer || task.target.display}”`,
+    independent ? "真棒，答对了！" : "太好了，这次答对了！",
+    reinforcement,
+    advance
+  );
 }
 
 function advance() {
@@ -821,7 +826,11 @@ function pauseLesson() {
 function resumeLesson() {
   if (!hasPausedLesson()) return;
   runtime.paused = false;
-  if (runtime.feedbackAdvancePending) advance();
+  if (runtime.feedbackAdvancePending && currentTask()?.subject === "hanzi") {
+    renderLesson(false);
+    runtime.answerLocked = true;
+    showCorrectFeedback(currentTask());
+  } else if (runtime.feedbackAdvancePending) advance();
   else renderLesson(false);
 }
 
@@ -1034,6 +1043,7 @@ document.addEventListener("click", async event => {
   if (action === "end-paused") await stopLesson();
   if (action === "paused-navigation") toast("请先继续或结束当前学习");
   if (action === "next-feedback" && runtime.feedbackActive) advance();
+  if (action === "repeat-feedback" && runtime.feedbackActive) showCorrectFeedback(currentTask());
   if (action === "repeat-question" && !runtime.feedbackActive) {
     const task = currentTask();
     const instruction = isCompositionModel(task)

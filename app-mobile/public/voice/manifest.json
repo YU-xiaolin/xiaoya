@@ -3,8 +3,8 @@
   "provider": "Microsoft Edge Online TTS (edge-tts)",
   "source": "小芽家庭学习 手机版语音包",
   "note": "覆盖内置课程、全部汉字与字母测试、预习及六阶段数学变体；离线前可在家长管理下载语音。自定义课程缺少音频时会提示重试。",
-  "generatedAt": "2026-10-11T11:47:49.021Z",
-  "clipCount": 4318,
+  "generatedAt": "2026-10-14T03:24:01.069Z",
+  "clipCount": 5318,
   "clips": {
     "真棒，答对了！": {
       "fileName": "de48a4340cfb7fa0bd20d519.mp3",
@@ -30231,6 +30231,7006 @@
       "rate": "+14%",
       "volume": "+0%",
       "pitch": "+6Hz"
+    },
+    "人，人们、大人。": {
+      "fileName": "d6f93761e6846b1cf6cd746f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "冲，冲洗、冲出。": {
+      "fileName": "cb8fe30b19ba1a3bd33804ee.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "事，事情、故事。": {
+      "fileName": "c69bd72e3e947ac6549f86e3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "供，供水、供应。": {
+      "fileName": "dccbd9723b62dc04877fc657.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "落，落叶、落下。": {
+      "fileName": "33af70e0b1f448809cf4cf72.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "爱，爱心、可爱。": {
+      "fileName": "0fdec15420b8af37588a78b1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "的，我的、你的。": {
+      "fileName": "e93cae8015152748907b2268.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "号，号码、口号。": {
+      "fileName": "7dae3e7043f3fe2a4355d91a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "台，台灯、舞台。": {
+      "fileName": "66dc945426c3de28f80e4bb8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "算，计算、算数。": {
+      "fileName": "7fa16917b1c9fbb50ec7c6b5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "尽，尽力、用尽。": {
+      "fileName": "d97d4e7e2f55363b25318bc4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "托，托起、拜托。": {
+      "fileName": "01e66a0c0ee5decad2c6d13f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "急，着急、急忙。": {
+      "fileName": "a123823d603ff0e4e1626fc3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "创，创造、创新。": {
+      "fileName": "3515de7e5acee4fe825c5169.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "然，然后、自然。": {
+      "fileName": "ef49f5a1850c92565488f5d7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "上，上面、早上。": {
+      "fileName": "bfbb3d857cb10abe58201b16.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "说，说话、说明。": {
+      "fileName": "53a80ea0d44e266cc20f6cb0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "开，开门、开花。": {
+      "fileName": "8a8167908fb7ccedb9ef0fc1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "想，想法、想念。": {
+      "fileName": "934b1ec7bfeb73996e10f483.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "新，新年、新书。": {
+      "fileName": "d98ff9665e355862f829c0e0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "难，困难、难题。": {
+      "fileName": "0a177f3c61288519f99e3da3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "市，城市、超市。": {
+      "fileName": "e4ded74a45bab1def1214988.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "节，节日、过节。": {
+      "fileName": "4ad923efc3dcd4396be98274.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "那，那里、那个。": {
+      "fileName": "d5c5e561fb5ace721a5876e1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "而，而且、然而。": {
+      "fileName": "cb262aeb983e17a2e3533f3a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "更，更加、更好。": {
+      "fileName": "8af2adb895f4ef7f682b2563.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "大，大象、大小。": {
+      "fileName": "a2593bb065df72e1b6d32403.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "岁，岁数、周岁。": {
+      "fileName": "a162eddb230169182f742882.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "即，立即、即使。": {
+      "fileName": "1bc53178008945b25ef0789c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "每，每天、每个。": {
+      "fileName": "37872b8173ba4f745460e67e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "占，占用、占领。": {
+      "fileName": "1261fae8300f280b49e8a535.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "期，星期、学期。": {
+      "fileName": "4806539bfdd13f5c4ab99288.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "若，若是、假若。": {
+      "fileName": "2720e4c12fd2742862a66e88.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "抓，抓住、抓紧。": {
+      "fileName": "40e117fa570a9a46dfba99b8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "提，提问、提高。": {
+      "fileName": "bd9b0df0b27d8e10a7daa4ac.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "入，入口、进入。": {
+      "fileName": "42287ef918a119e847937831.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "州，广州、苏州。": {
+      "fileName": "2c27c4734f9d61b8e98ba039.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "随，随后、随时。": {
+      "fileName": "bd7b98df1d9668334552685e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "兼，兼顾、兼职。": {
+      "fileName": "2179d778c69e89a5855f4208.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "驻，驻地、驻足。": {
+      "fileName": "38f45fab50eb20997e97dd7b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "取，取出、争取。": {
+      "fileName": "7a5fb7f147a3d0b14f22734f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "收，收好、收获。": {
+      "fileName": "75e37ef64c488ced6118430c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "小，小猫、小手。": {
+      "fileName": "1200bf60a4fbad0092bc4241.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "轮，车轮、轮船。": {
+      "fileName": "d4c403beb63116304454d243.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "业，作业、毕业。": {
+      "fileName": "b7759c9e5d4dad0ff4ce08a5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "基，基础、地基。": {
+      "fileName": "d45e9d92fe087a3ef229af72.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "戴，戴帽、爱戴。": {
+      "fileName": "4047e52b3941ffa910a99625.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "停，停车、停下。": {
+      "fileName": "a8f432cecf57d5ec2be911ce.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "质，质量、本质。": {
+      "fileName": "18cf5761a49a863c66937833.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "章，文章、印章。": {
+      "fileName": "4f5012be01420da490cc3a00.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "尼，尼龙。": {
+      "fileName": "6f7710446ada453fbb454262.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "升，升起、升高。": {
+      "fileName": "ec524a833fe62f8d2d6e285e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "伊，伊始。": {
+      "fileName": "c3b323f642ecbadc099c5e79.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "术，手术、美术。": {
+      "fileName": "61398c216b4c548bc788db85.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "何，何时、如何。": {
+      "fileName": "385c09a6d8e00092b082f4ea.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "配，配合、分配。": {
+      "fileName": "f6178afe815001af935f328c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "魔，魔术、魔法。": {
+      "fileName": "7749b17e684a71b2f36f1813.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "批，批评、批改。": {
+      "fileName": "dc6af319c5fcd0c9e7978483.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "山，高山、山羊。": {
+      "fileName": "383d49a36716014ec995419a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "坑，水坑、土坑。": {
+      "fileName": "0131cdc33ec69144eb80afe4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "福，幸福、祝福。": {
+      "fileName": "b15406f68ee57e81d06e169c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "舞，跳舞、舞台。": {
+      "fileName": "026849f234c3da4434cf1e39.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "右，右边、右手。": {
+      "fileName": "a75edec1cb0b935a7f251825.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "东，东方、东西。": {
+      "fileName": "26ae4c5fb00e408a86742ae4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "旁，旁边、两旁。": {
+      "fileName": "72e3004c08e8565dcf3f0fbe.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "先，先后、先生。": {
+      "fileName": "64549fe329932b2ae99b5a1c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "听，听见、听说。": {
+      "fileName": "4be451206dcebb017b883c1a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "跳，跳绳、跳舞。": {
+      "fileName": "e862ef682f30be807b007560.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "站，站立、车站。": {
+      "fileName": "9762a2f9d2aab17f6341308a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "哭，哭声、哭泣。": {
+      "fileName": "02e161d621fa59fbf9ee0cb9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "答，回答、答案。": {
+      "fileName": "ae3b1fb6a0a6f1404a720f7c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "回，回家、回来。": {
+      "fileName": "23c5c6af4d7ed759ed780b9e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "放，放下、放心。": {
+      "fileName": "5804e9b80dc330b05daa11d0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "穿，穿衣、穿过。": {
+      "fileName": "43cfa97d239f8332de94b545.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "水，喝水、水果。": {
+      "fileName": "24067ab8a320f0b6b6a83721.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "拉，拉手、拉开。": {
+      "fileName": "fd913e18e8f427952fb44ac1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "好，好人、友好。": {
+      "fileName": "e78876ea81d42e65bedd8c9e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "真，认真、真正。": {
+      "fileName": "784507aac0eddb4635358e8b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "慢，慢走、慢慢。": {
+      "fileName": "27584e86bb4f379efc47937d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "饱，吃饱、饱满。": {
+      "fileName": "a77eace5b998e023126d48dc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "怕，害怕、不怕。": {
+      "fileName": "e9b7e2f4994e278220795dd6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "静，安静、平静。": {
+      "fileName": "9a56ebc1cd9aa8812ed4586d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "欢，欢乐、欢迎。": {
+      "fileName": "5dbe6a35f99adf8fb8204985.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "亮，明亮、月亮。": {
+      "fileName": "33ecbce6b649b53faf275b00.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "室，教室、卧室。": {
+      "fileName": "28ac039c60e7160ccb6b5973.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "院，医院、院子。": {
+      "fileName": "e499a63fe2872de2bd046d68.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "超，超市、超过。": {
+      "fileName": "0d397d6f7b1c1783cbfe6d4c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "屋，房屋、屋顶。": {
+      "fileName": "3176d9bc13371f31e1a64d97.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "厕，厕所、公厕。": {
+      "fileName": "4aa0e71336c056e797364655.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "城，城市、长城。": {
+      "fileName": "412772fbb5d92dca25250239.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "火，火苗、火车。": {
+      "fileName": "305d1ec7ea38ceb7f1be8334.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "有，没有、有趣。": {
+      "fileName": "cb2f4f4820a5482c385f09bd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "会，开会、学会。": {
+      "fileName": "7f2247978f5aa4a0c600367f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "很，很好、很多。": {
+      "fileName": "5b877fae4524ed4129d6b1c7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "这，这里、这个。": {
+      "fileName": "3101f44c23287c5aa7ed4bf0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "么，什么、怎么。": {
+      "fileName": "430f99ea9dfb34e9d81b9706.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "以，可以、以后。": {
+      "fileName": "c4b0afb70cb51d6952a26e4a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "与，与你、与我。": {
+      "fileName": "a813f2f14f25531d84d84e28.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "还，还有、还是。": {
+      "fileName": "e409e0197f71c62e2e157c3d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "并，并排、并且。": {
+      "fileName": "10e618165b8b9c427e4ec6b8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "把，把手、一把。": {
+      "fileName": "452296c387d52d83b37b8c24.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "及，及时、及格。": {
+      "fileName": "10e99cfe6805478b9b0b4589.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "用，使用、用心。": {
+      "fileName": "339650dc5f648ce53120af3c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "吧，好吧、走吧。": {
+      "fileName": "6384deea7f830e9ad83a3189.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "啊，好啊、来啊。": {
+      "fileName": "1f63a610fc7e8df7d612d876.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "内，内外、室内。": {
+      "fileName": "9d30b726fed7e3c762fa8e69.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "木，木头、树木。": {
+      "fileName": "a91da81eb89adbbc44b52273.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "呢，你呢、好着呢。": {
+      "fileName": "3d2e4942dec992ea507e5f20.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "使，使用、天使。": {
+      "fileName": "f79ddda1d2f7909fcdf98100.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "两，两个、两边。": {
+      "fileName": "703f482c02fe234ddd168744.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "带，带来、皮带。": {
+      "fileName": "8209ecd7b145c91033ac295a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "区，地区、小区。": {
+      "fileName": "ba0becb64656da85b5b6dffc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "元，一元、元旦。": {
+      "fileName": "404437c59bd3c101e2e8909d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "见，见面、再见。": {
+      "fileName": "7afd96ec6a1a0b399dd9f7c8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "曾，曾经、不曾。": {
+      "fileName": "eb64f1872c71e93c44c98e78.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "应，回应、答应。": {
+      "fileName": "9e21a20e2e424f178cc3ca08.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "间，中间、房间。": {
+      "fileName": "57a466212c951c7f41fca050.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "您，您好、您的。": {
+      "fileName": "efbc48949d52d87a850e2c7c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "处，到处、处所。": {
+      "fileName": "fb68219ba63b55b06958e7b1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "未，未来、未知。": {
+      "fileName": "87c8155043202bcb4a57bff9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "经，经过、已经。": {
+      "fileName": "709fee7f32d8a4ef2c29bd08.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "制，制作、制服。": {
+      "fileName": "20cb4f36147b5c480a77f7ae.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "日，日光、日出。": {
+      "fileName": "09d24e479a8b8f625b2d3788.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "非，非常、是非。": {
+      "fileName": "824631cb66b1e126f18c7973.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "反，反面、相反。": {
+      "fileName": "1edfcf9ae5dc243c726522ce.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "版，出版、版本。": {
+      "fileName": "113a4fb5446f92b1dcbbd7a5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "均，平均、均匀。": {
+      "fileName": "22eaa514634bdac35d91ec8f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "共，共同、一共。": {
+      "fileName": "24ba5d6d8c50400f88fd406c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "类，种类、分类。": {
+      "fileName": "f0669cc70f33171978b2e431.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "型，模型、大型。": {
+      "fileName": "ebd3f4c0679916e6b4b28859.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "报，报纸、报名。": {
+      "fileName": "4b8b2ad410d28222f3110ab9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "且，而且、并且。": {
+      "fileName": "c9045e49e33b8bb86ca09258.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "金，金色、黄金。": {
+      "fileName": "1ff0b0c79827023c23d02c68.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "选，选择、选手。": {
+      "fileName": "9ea7d72a1944a11992e6a22e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "张，张开、一张。": {
+      "fileName": "dbbe4a743899c0c1b30f46d3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "动，动物、运动。": {
+      "fileName": "feb5e8dab5b1c88b468b76b4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "届，一届、届时。": {
+      "fileName": "a9db51f43865ddec9168f66e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "段，一段、路段。": {
+      "fileName": "405bd0e92e6d482a2c400492.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "月，月亮、月牙。": {
+      "fileName": "f1618f7e2e261e87e10ff127.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "刚，刚才、刚好。": {
+      "fileName": "e03d111be51865b98a4145db.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "神，神气、精神。": {
+      "fileName": "edbf2e2c14d8fc28cbbb6eb0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "团，团圆、团结。": {
+      "fileName": "7bebd833f7d400320ca3c95e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "求，请求、要求。": {
+      "fileName": "2e6c6eb04edab6f47421bd70.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "乡，家乡、乡村。": {
+      "fileName": "dfcb401ff1eb72347947097f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "获，获得、收获。": {
+      "fileName": "6d6c329374a85266214e8c19.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "懂，听懂、懂得。": {
+      "fileName": "c85f9b06fc53392b8c1fce5d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "假，假如、假装。": {
+      "fileName": "42aad6a6be32b35de0d692e4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "活，生活、活泼。": {
+      "fileName": "ef74de17b03995f1ee0a416b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "离，离开、距离。": {
+      "fileName": "fd5c59fca697c0a64e547f98.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "体，身体、体育。": {
+      "fileName": "f78116cf945aa2c2187e4499.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "赢，输赢、赢得。": {
+      "fileName": "584d3f0c212be5682e3c8426.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "度，温度、速度。": {
+      "fileName": "d65bc18019fee74848e665f9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "遭，遭遇、遭到。": {
+      "fileName": "f4b5c9dbf108a5a55568a04a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "皆，皆是、皆有。": {
+      "fileName": "12202d4e0dfc8d4b68d046b8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "田，田地、水田。": {
+      "fileName": "53c97fc0190d3c62dce0ada0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "官，五官、官员。": {
+      "fileName": "f84137886c01e7d497926ed6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "克，克服、千克。": {
+      "fileName": "20d0cdfcc212a47dd99a8923.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "格，格子、格外。": {
+      "fileName": "43000a6fd71c16ae98502205.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "阿，阿姨、阿爸。": {
+      "fileName": "04a5d6b767dcc38e3552718d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "陈，陈旧、陈列。": {
+      "fileName": "e0a1b6632f9ded6ca0c0629c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "接，接住、接力。": {
+      "fileName": "6a9f618e315d4a361335d80b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "合，合作、合唱。": {
+      "fileName": "06b2c3c7b3be7abf25459fe7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "量，测量、量一量。": {
+      "fileName": "696760acb18b82cc38bcf636.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "表，手表、表演。": {
+      "fileName": "8abdfa5f9df7ec53ced46c89.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "复，复习、重复。": {
+      "fileName": "779d066e9a37f7bdaf6b325b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "装，服装、安装。": {
+      "fileName": "f4a7106f31d1f361c3f06c77.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "层，一层、云层。": {
+      "fileName": "344b129d964f9df2657df523.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "片，一片、叶片。": {
+      "fileName": "b6acc0ba96279236bb850477.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "班，班级、上班。": {
+      "fileName": "7ec92668bb8309ba4e553a3c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "挺，挺好、挺直。": {
+      "fileName": "5a6047f851b694d626ca7b3d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "一，一个、一起。": {
+      "fileName": "4f0a81ee1524dfe518a40abd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "局，邮局、棋局。": {
+      "fileName": "ea413f791c59ae5c41aa75d7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "义，意义、义工。": {
+      "fileName": "ed5465621c9c24d650b3dadd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "视，电视、重视。": {
+      "fileName": "35478e8f5a9c3009d404ba56.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "声，声音、笑声。": {
+      "fileName": "25583f5d0d8d7765ab9d4b0b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "抢，抢先、抢救。": {
+      "fileName": "e2d4af07f1c6ba8befd29c27.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "罪，认罪、罪过。": {
+      "fileName": "0f2bba3828f391e47843cecf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "情，心情、友情。": {
+      "fileName": "b064c3b58123710654ef5957.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "骂，责骂、骂人。": {
+      "fileName": "8ae7361187a425bf6e7b08bf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "猜，猜想、猜谜。": {
+      "fileName": "84198fd47629b9eda5cc34b7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "酒，白酒、酒店。": {
+      "fileName": "55e27b90a2025154767d90f1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "色，颜色、彩色。": {
+      "fileName": "68c1f7ed5799784667036cfc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "韩，韩国、姓韩。": {
+      "fileName": "f9fe96ec260cd84dce7e2bd9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "器，乐器、机器。": {
+      "fileName": "bfeb54f1e6d32a11d63f4247.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "款，款式、付款。": {
+      "fileName": "d0f7021e1639cba69f72dbf7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "棒，木棒、真棒。": {
+      "fileName": "d3eba0c1f2ad8297b2ae4856.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "二，二月、二十。": {
+      "fileName": "c984e590c9feba7df3e5369e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "题，题目、问题。": {
+      "fileName": "88e2e67ccfcd7176992c999d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "户，窗户、用户。": {
+      "fileName": "b69ad10a41d90c72f9dbd4e3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "诗，古诗、诗人。": {
+      "fileName": "a62e4fa576ff8b57095bb12a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "代，代表、代替。": {
+      "fileName": "346312529c21025219de61ee.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "巴，下巴、尾巴。": {
+      "fileName": "4679265fab94ca176e5d202d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "立，立正、站立。": {
+      "fileName": "4827e1c7871d72e391df60c6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "吓，吓人、惊吓。": {
+      "fileName": "f3ed23a882f665f433ab0712.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "目，目光、目标。": {
+      "fileName": "cc8d1f1fc7efc73459b44355.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "塔，宝塔、灯塔。": {
+      "fileName": "cc2c198b35b688f129fd3d90.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "计，计算、计划。": {
+      "fileName": "3d34e73e55635020ddf6605e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "含，含义、包含。": {
+      "fileName": "93a66230e7930c058bd806ca.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "理，道理、整理。": {
+      "fileName": "d94d22e059ef156a33696c1f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "载，载货、载重。": {
+      "fileName": "c749b16cfba1d96bce18e8f1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "微，微笑、微风。": {
+      "fileName": "1f81a5ddd7444d99584787f3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "修，修理、修剪。": {
+      "fileName": "b91a84a7b944629a17ebeaea.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "三，三天、三角。": {
+      "fileName": "1e417cd36d4fd6fbc66730a6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "列，排列、列车。": {
+      "fileName": "ebe0faac31c07e4953d2c2d4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "奥，奥秘、奥运。": {
+      "fileName": "10939c45d0dadac86a6bffbe.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "贵，宝贵、昂贵。": {
+      "fileName": "e0c2cefc9b23301c1cb5a6f8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "保，保护、保温。": {
+      "fileName": "93474d422972fd1bb5973c96.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "置，放置、布置。": {
+      "fileName": "730a714e45f9a9e09b8cf556.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "尚，时尚、高尚。": {
+      "fileName": "82fcca0dd890bacabdd29646.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "端，端正、端午。": {
+      "fileName": "eba7d82b1af3e2a91df7bcbd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "赴，赴约、奔赴。": {
+      "fileName": "2a178c9c96192f525db86c5a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "句，句子、一句。": {
+      "fileName": "11c2369ecdf811656b236855.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "板，木板、黑板。": {
+      "fileName": "e8255626a6e4c42059faa1ff.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "解，解决、理解。": {
+      "fileName": "9afa880d1c07611b7d8fde54.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "摆，摆好、摇摆。": {
+      "fileName": "527af8f4f7f91659c2a6e1b0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "剧，戏剧、京剧。": {
+      "fileName": "afc64b28dcf31cb1bb4198b0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "搬，搬家、搬动。": {
+      "fileName": "883a122d41881fa3cc0c098f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "盖，盖子、锅盖。": {
+      "fileName": "6ceb5a2806cd62e08eccbb69.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "四，四季、四方。": {
+      "fileName": "8414b62515dbe0c4743ba632.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "民，人民、农民。": {
+      "fileName": "6f97cb2f64eed4156719ca5e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "恨，痛恨、悔恨。": {
+      "fileName": "c015f5fb0ffbac9a2a0f7267.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "烟，烟花、烟雾。": {
+      "fileName": "870831c8ecfb3ed0965d8a31.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "证，证明、证书。": {
+      "fileName": "9e91e0a2318cd5809d449df1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "拖，拖鞋、拖地。": {
+      "fileName": "d140c7a41554ce1123f31446.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "夜，夜晚、黑夜。": {
+      "fileName": "eb722cd24eefda1cbff1fa2b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "谢，谢谢、感谢。": {
+      "fileName": "fb332aea4e2e03d345d318b3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "赵，姓赵、赵国。": {
+      "fileName": "e630727e82012cacacec9968.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "碰，碰到、碰面。": {
+      "fileName": "8242a00e954f628afe97eabc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "骑，骑车、骑马。": {
+      "fileName": "f528ea3c853fdfadcf516a6f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "喊，喊声、呼喊。": {
+      "fileName": "4cb6ee629765746604301c86.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "念，想念、念书。": {
+      "fileName": "76a9482693224d13f47731f9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "翻，翻书、翻身。": {
+      "fileName": "4895d5436833e8a8029311fa.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "银，银色、银耳。": {
+      "fileName": "99658f1a67cf1ced1488fb8f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "塞，塞满、塞进。": {
+      "fileName": "0f55b15dee30754d4e9f4533.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "五，五官、五月。": {
+      "fileName": "f6792a9eba4a8db083450dbc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "竟，竟然、究竟。": {
+      "fileName": "e936311547012e64f23cffe3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "志，志向、志气。": {
+      "fileName": "0cdc2aa120135f3bdfeaceed.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "认，认识、认真。": {
+      "fileName": "8efaefd1a6326c7c1164c5f7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "品，物品、品德。": {
+      "fileName": "70050baa28943a3735f909b9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "精，精神、精彩。": {
+      "fileName": "11f53162b8c65ead77647052.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "历，历史、日历。": {
+      "fileName": "426c02102a4657d2d9540e18.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "继，继续、继承。": {
+      "fileName": "b7552c224908f1d3a40a8cea.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "影，影子、电影。": {
+      "fileName": "6302cc169a538549abc2ded0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "丝，丝线、丝巾。": {
+      "fileName": "a4889456ea553c7cf1210fd4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "叔，叔叔、大叔。": {
+      "fileName": "e4a08ad441891f2b7d87bc93.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "甚，甚至、甚好。": {
+      "fileName": "23a9dfc5e6dc729a97114b84.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "胜，胜利、获胜。": {
+      "fileName": "a383ce2ba1a3e035e20f65da.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "乌，乌云、乌鸦。": {
+      "fileName": "7583670e77485af496d2b2d6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "护，保护、护士。": {
+      "fileName": "0cd6ee6fe0e3349b66875a17.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "左，左边、左手。": {
+      "fileName": "4e1a94830b7e710dc1bdca17.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "六，六月、六个。": {
+      "fileName": "c5d0422eb406fc72c0f8422a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "下，下面、下雨。": {
+      "fileName": "c0ff54d3fedc93058bd94129.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "里，里面、家里。": {
+      "fileName": "1aba737d2fbfccea3343ec9e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鼻，鼻子、鼻尖。": {
+      "fileName": "00fdcb60e2f1c879f6b1ea21.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "外，外面、外婆。": {
+      "fileName": "5e72576a71264140a5ccd281.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "西，西方、西瓜。": {
+      "fileName": "9f6463024ca1844e732b6a64.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "南，南方、南瓜。": {
+      "fileName": "04598f4634e8d899adeb2661.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "牙，牙齿、刷牙。": {
+      "fileName": "97cd55b74e577a35f11ef115.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "北，北方、北京。": {
+      "fileName": "8357e10b9e0a1c22ce0385d7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "边，一边、身边。": {
+      "fileName": "8f57de5d33cd9f7d218d5488.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "远，远方、远处。": {
+      "fileName": "b6b3ea598917a71d113f2d4b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "舌，舌头、舌尖。": {
+      "fileName": "a916ab2449e1cc49f11d084b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "近，近处、远近。": {
+      "fileName": "f2012203d984fd48e4ac89a5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "再，再见、再次。": {
+      "fileName": "4b3982d5604b161599c05e88.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "看，看书、看见。": {
+      "fileName": "21de7c16f6859ffacfb1fe7e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "手，小手、拍手。": {
+      "fileName": "78349621b118890d10db0fa9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "七，七天、七月。": {
+      "fileName": "9a4fa0e1da29af24d396b09d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "读，读书、朗读。": {
+      "fileName": "1f669c3f03dde5cb3aef7d4f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "写，写字、书写。": {
+      "fileName": "c1d83f4834732f44d068e8a6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "足，足球、手足。": {
+      "fileName": "a93adeddec1b694736fc5a8d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "唱，唱歌、合唱。": {
+      "fileName": "f29a26c1179b5ea45da93cab.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "跑，跑步、奔跑。": {
+      "fileName": "92f0f05829ee1b8a4eb8437e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "走，走路、行走。": {
+      "fileName": "94c54cdf9a77fb3e779cbee2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "脚，双脚、脚步。": {
+      "fileName": "d5da1091448c0221707699b4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "坐，坐下、请坐。": {
+      "fileName": "0e71bdbbfa2ed65c8ae7a42b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "睡，睡觉、睡衣。": {
+      "fileName": "5388bab5394b988dfbae9af3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "醒，醒来、提醒。": {
+      "fileName": "1ee71660f4d968b3787a5941.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "腿，大腿、小腿。": {
+      "fileName": "9e070a4a13c8d822354688a9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "笑，笑脸、微笑。": {
+      "fileName": "8b2c5dfe9f9ce1a13c5c7cba.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "叫，叫声、叫好。": {
+      "fileName": "596280c66aa0acabe4c466fd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "问，问好、问题。": {
+      "fileName": "11886b633816da1b383df878.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "臂，手臂、双臂。": {
+      "fileName": "8b77b88fa00bda8246d8d71d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "八，八月、八方。": {
+      "fileName": "8ffbc71577d42d67b871f070.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "关，关门、关心。": {
+      "fileName": "9a434eace266e2a1ef1ffa94.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "来，回来、来到。": {
+      "fileName": "a0c3eba89cba84b4b5ba17ac.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "肩，肩膀、肩头。": {
+      "fileName": "3cbbb44ee0bae85a82864055.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "去，回去、出去。": {
+      "fileName": "5b0a05466db158341930e878.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "进，进去、前进。": {
+      "fileName": "9e9f97841eac0b260d03e043.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "出，出门、日出。": {
+      "fileName": "1dfa8c00103262963ac018b4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "背，后背、背心。": {
+      "fileName": "724d13ad80d0b39ae05d541c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "拿，拿起、拿手。": {
+      "fileName": "425b2f2116e3c468f9080ff6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "给，送给、给你。": {
+      "fileName": "d1eea20744dfc72c7a7a519e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "找，找到、寻找。": {
+      "fileName": "e73c6ea7183477b0bcb77a16.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "肚，肚子、肚皮。": {
+      "fileName": "54f1c9e1153a476274754f00.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "洗，洗手、洗脸。": {
+      "fileName": "18d4b2251fc217199ad4d56e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "脱，脱下、脱衣。": {
+      "fileName": "2a971844fac15ea00cdd3743.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "做，做饭、做事。": {
+      "fileName": "dfab1314ad39c6a6fe7b2edb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "心，开心、爱心。": {
+      "fileName": "fa722322795dbd5713c84fb0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "九，九月、九个。": {
+      "fileName": "606b85f6d13748345a573016.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "抱，拥抱、抱住。": {
+      "fileName": "56b119fac3131fccef162516.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "拍，拍手、拍球。": {
+      "fileName": "d4041eb929082c8f8e3d0042.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "身，身体、身边。": {
+      "fileName": "a444fb0b8068d5628fb1a5a9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "推，推车、推开。": {
+      "fileName": "76e3ed57f996929a60688fd1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "飞，飞机、飞鸟。": {
+      "fileName": "f96ef497130b0d30a47bcf5e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "游，游泳、游戏。": {
+      "fileName": "2415475471d50174393ee0bd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "毛，毛衣、羽毛。": {
+      "fileName": "a9fc915dced91883b1ecee56.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "爬，爬山、爬行。": {
+      "fileName": "f1d541e32abd15384b273e43.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "坏，坏人、坏处。": {
+      "fileName": "edf9f97d923cfd95facd5739.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "对，答对、对面。": {
+      "fileName": "0ac7e539d3690f2eb206df7e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "发，发芽、发现。": {
+      "fileName": "ecbf931d30d06f63692c0b56.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "错，错误、认错。": {
+      "fileName": "44fb8d3647c2686fb133a089.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "快，快乐、飞快。": {
+      "fileName": "2d1243bb114e8c9ebca8bdb1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "乐，快乐、欢乐。": {
+      "fileName": "21ee91a963130194c0708e14.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "皮，果皮、皮球。": {
+      "fileName": "ab5ced6c98bbd8da4b557106.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "十，十指、十月。": {
+      "fileName": "235b76e6f83ee0311398a85d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "旧，旧书、新旧。": {
+      "fileName": "6ae7bcf54566301d02028336.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "净，干净、洁净。": {
+      "fileName": "435e27539a253bb5cf1e5983.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "血，血液、鲜血。": {
+      "fileName": "c67c35eaa11c1ae6a32f8888.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "脏，脏水、弄脏。": {
+      "fileName": "0ef139edfc75ab796ad80be4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "饿，饥饿、饿肚子。": {
+      "fileName": "8c5143120cfd6a27eb72e750.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "渴，口渴、渴望。": {
+      "fileName": "902b03674b1558300e8b38aa.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "骨，骨头、排骨。": {
+      "fileName": "0853b5972c543f162553c717.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "累，劳累、累了。": {
+      "fileName": "faffc3ab0e326363bcef4b5e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "勇，勇敢、勇气。": {
+      "fileName": "7f61b444ba67555a54898182.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "敢，敢于、勇敢。": {
+      "fileName": "7eaed8c1b9b19d9e99f19abd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "天，天空、今天。": {
+      "fileName": "20cdf223a0afe8772de68866.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "安，安全、平安。": {
+      "fileName": "2b9d14e13599e87f52d991c0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "生，学生、生日。": {
+      "fileName": "692f0ecf3d417547419b1101.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "喜，喜欢、欢喜。": {
+      "fileName": "ccbc2a4e5637b86e6fc63224.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "地，大地、地面。": {
+      "fileName": "741db0cb9292aa1e8987b4d4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "百，一百、百合。": {
+      "fileName": "c82e3d856fd461402fa5fcf9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "易，容易、简易。": {
+      "fileName": "eb3eeed7f109416f43b5d822.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "美，美丽、美好。": {
+      "fileName": "4c8de31338bb99c2bc175bee.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "星，星星、星空。": {
+      "fileName": "f279722cee2c6479939f2eec.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "丑，丑小鸭、丑陋。": {
+      "fileName": "0504e4054da1e43af4a99e66.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "暗，黑暗、暗处。": {
+      "fileName": "d07c095f4873c1c8e40fb3ad.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "校，学校、校园。": {
+      "fileName": "81927e2386ac9581e7d5c739.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "云，白云、云朵。": {
+      "fileName": "c1406591c0db317c996676e7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "教，教室、教师。": {
+      "fileName": "ee5183cfc8f149ffa11a68be.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "公，公园、公共。": {
+      "fileName": "82880502e09c05fb3e239c83.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "园，公园、花园。": {
+      "fileName": "f58b516bacc3c166c76f85f5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "雨，下雨、雨伞。": {
+      "fileName": "fddbed7b1c916619a4fe5b4c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "医，医生、医院。": {
+      "fileName": "21c1b30790dfc28d2fa6e605.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "商，商店、商场。": {
+      "fileName": "517bf02b871f097f0be2018f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "店，商店、书店。": {
+      "fileName": "5ed23c0717add1bf3e6024eb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "雪，雪花、雪人。": {
+      "fileName": "19e32a53edd8575b08bc5534.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "千，一千、千万。": {
+      "fileName": "004f96d01317409d3fa7264c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "街，街道、大街。": {
+      "fileName": "2647b20ad57adffed92d2de2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "路，走路、马路。": {
+      "fileName": "f68bea58083dbb1f401e1122.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "风，微风、大风。": {
+      "fileName": "2b38de860e5914ec00a8c076.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "房，房子、厨房。": {
+      "fileName": "2c3c6b43fba9114ceacfd6d1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "厨，厨房、厨师。": {
+      "fileName": "12f40882c7074f12911c1260.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "客，客人、做客。": {
+      "fileName": "013752a47b59762ae64d1a93.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "雷，雷声、雷雨。": {
+      "fileName": "7cdd3aaa6add6a86b627bb6a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "厅，客厅、大厅。": {
+      "fileName": "8217cbc93439e5279f9da008.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "所，所有、一所。": {
+      "fileName": "07515e60a7ff987e30e314b3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "楼，楼房、上楼。": {
+      "fileName": "902a44a1d45249a0c044ac6c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "电，电灯、电视。": {
+      "fileName": "2804e2239ebc05633d2a07f2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "桥，小桥、木桥。": {
+      "fileName": "d1500e024b4c17c77ea6f893.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "农，农民、农田。": {
+      "fileName": "7628b25594ed9aea1797bd78.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "村，村庄、山村。": {
+      "fileName": "6ac98e82f5598cdebd686580.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "阳，太阳、阳光。": {
+      "fileName": "64ddf2e347aa4e2f6b9173c5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "万，一万、万一。": {
+      "fileName": "043fda60cdce62cb64f9b5a9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "是，是的、于是。": {
+      "fileName": "3ec3b6898b19d264a45dc935.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "了，完成了、吃饭了。": {
+      "fileName": "1180c0f391036b23c25f5208.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "光，阳光、月光。": {
+      "fileName": "2645205fd858bc596f958798.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "不，不要、不同。": {
+      "fileName": "2edc0f8cf07a2a28fd588f83.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "在，在家、现在。": {
+      "fileName": "b8cfd4d6e9f62eeaa8b10d6a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "和，和平、和好。": {
+      "fileName": "a315833c7633228461a422bf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "空，天空、空气。": {
+      "fileName": "82b3559b723227cfa141ef70.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "也，也许、也是。": {
+      "fileName": "37cd1edc6edf712089f5f2f5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "能，能力、可能。": {
+      "fileName": "a2065eb306252a189331d3b5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "要，重要、需要。": {
+      "fileName": "2912590ca7ce330de882f5ac.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "气，空气、天气。": {
+      "fileName": "1dfb2bfd24e3d9ba21fef477.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "可，可以、可爱。": {
+      "fileName": "4b55015e5fe291c9400810f4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "都，都是、都有。": {
+      "fileName": "637794324a4bfac582ea3eec.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "就，就是、成就。": {
+      "fileName": "95795cd15db779e84be915b2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "春，春天、春风。": {
+      "fileName": "ed66886b0de8d27c0d1ce198.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "零，零食、零个。": {
+      "fileName": "c4517d7319b83c2bebe4f227.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "哪，哪里、哪个。": {
+      "fileName": "1e35f927463893ba7dd8e3cb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "谁，是谁、谁的。": {
+      "fileName": "fda4c7a13c554e5c373cf22c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "夏，夏天、夏季。": {
+      "fileName": "73881f9f0c51bbab33ac6877.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "什，什么、为什么。": {
+      "fileName": "e95efb7c288052927a71dfa7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "怎，怎么、怎样。": {
+      "fileName": "099d8bb79c484a9a9d499b18.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "为，为了、因为。": {
+      "fileName": "99db224872f7d5f063e4ef6d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "秋，秋天、秋风。": {
+      "fileName": "77fd119677d76eda6af76d74.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "因，因为、原因。": {
+      "fileName": "df2e819c38062e7a5d6e8f5e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "如，如果、如今。": {
+      "fileName": "22db378fc09b166432b0dbb8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "但，但是、不但。": {
+      "fileName": "19c1e3bed665d76f3a226924.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "冬，冬天、冬季。": {
+      "fileName": "5fed42555af0e5f38f3a65f9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "又，又来、又是。": {
+      "fileName": "6b0070741f4536abff0c47ad.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "吗，好吗、是吗。": {
+      "fileName": "0b35c16c3eac60eaa5d25635.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "到，到家、来到。": {
+      "fileName": "003ef353256ec4ef70ed51c3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "晴，晴天、晴朗。": {
+      "fileName": "109bb0a2052a5e8c9bd273dc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "多，多少、许多。": {
+      "fileName": "b1d9f04397f4b417253c9bbb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "等，等待、等于。": {
+      "fileName": "363a359c90a504dceaeed698.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "于，于是、等于。": {
+      "fileName": "5ad9de1e0bebf7793456199f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "阴，阴天、树阴。": {
+      "fileName": "63ed2c0868c6da83c7504539.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "将，将来、即将。": {
+      "fileName": "dc29635cb3546d117d928743.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "让，让开、礼让。": {
+      "fileName": "f9e1779ef0e76dfc3f40e19e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "从，从前、从来。": {
+      "fileName": "f12ef4c978e6c0542ba1da9d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "冷，冷水、寒冷。": {
+      "fileName": "3f003a5bcb624be7002a48a0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "着，看着、听着。": {
+      "fileName": "9436f6eeeb3e49bbc917f1d5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "或，或者、或许。": {
+      "fileName": "82b0852b5a04d71a5149b673.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "之，之间、之后。": {
+      "fileName": "87ef18d1e5aa42a9725091af.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "热，热水、热闹。": {
+      "fileName": "155fd1acb8b8031716857d08.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "过，过来、过去。": {
+      "fileName": "e2fbefe2589ef9eaf0766eda.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "由，自由、由于。": {
+      "fileName": "684b50b73b01b5aa5d791898.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "没，没有、没事。": {
+      "fileName": "487a27d5d1529a790c631e94.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "冰，冰块、冰雪。": {
+      "fileName": "b190cc05fe454f816faee48c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "少，很少、少量。": {
+      "fileName": "71c881111cea29daf3849dad.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "得，得到、获得。": {
+      "fileName": "805b8ae4bbc964f057424acb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "最，最后、最好。": {
+      "fileName": "0544a1c44a3476cb45bfa5b2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "河，小河、河水。": {
+      "fileName": "09d830f5b143c2ef15be6b8b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "它，它们、它的。": {
+      "fileName": "6a65add779005792259b59f3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "其，其他、其中。": {
+      "fileName": "816717a18c229cf33ec0193e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "该，应该、该做。": {
+      "fileName": "640bb0e1d8c85e24c70ce38b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "湖，湖水、湖面。": {
+      "fileName": "caf2ddabbd9939dd30c21547.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "向，方向、向前。": {
+      "fileName": "164973e3aef03f05f29128ea.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "已，已经、早已。": {
+      "fileName": "cfed37d356223bd96dd48a37.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "当，当时、应当。": {
+      "fileName": "efa2f081126177d5a5adec99.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "海，大海、海水。": {
+      "fileName": "3edbd76c923b0140795fe9cc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "们，我们、你们。": {
+      "fileName": "4555d9da0b0923a2902d8501.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "却，却是、退却。": {
+      "fileName": "05f025a68d0521690c8bc36d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "才，刚才、才能。": {
+      "fileName": "ec9fc54b2814d0a5dd605537.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "江，长江、江水。": {
+      "fileName": "ec301ade2de6a2b12a1b27ea.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "半，一半、半天。": {
+      "fileName": "b680c01d3c8da385bd2b07e3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "比，比赛、比较。": {
+      "fileName": "65c8080baf79bd536724f34c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "跟，跟着、脚跟。": {
+      "fileName": "6a3542d5ddf1f0b89f4d6bbc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "石，石头、石子。": {
+      "fileName": "25cdf8f022fb9c64085c7ac3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "请，请问、请坐。": {
+      "fileName": "c0d57cc3d17d5601d63e0afe.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "则，规则、守则。": {
+      "fileName": "8582016cb8b74e7e1cf6263a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "至，至今、至少。": {
+      "fileName": "842598a2a9e5d9ae36a5f008.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "土，泥土、土地。": {
+      "fileName": "d78712b73fc1ec1a08a1a69d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "钱，零钱、花钱。": {
+      "fileName": "5ab75c230088a538bd736548.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "像，好像、画像。": {
+      "fileName": "173dc6dc94fb7647b9e45cd8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "此，此时、因此。": {
+      "fileName": "bd35e0297923ea4545a46a68.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "沙，沙子、沙滩。": {
+      "fileName": "9bd1c56512fdeb11f263bbb9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "起，起床、一起。": {
+      "fileName": "446f57619b8fd1cdbf973641.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "自，自己、自由。": {
+      "fileName": "a953540712ed9680a8d18479.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "国，中国、国家。": {
+      "fileName": "0dc8390a2e535ace038741f3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "泉，泉水、温泉。": {
+      "fileName": "0faaf7ed2b2abdd9d8f2e474.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "双，双手、双脚。": {
+      "fileName": "f54138bf6959290dd28c77b9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "无，无声、无人。": {
+      "fileName": "5ad21f6f55a8947ad66c7fcf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "话，说话、电话。": {
+      "fileName": "d149b67102141be76da94ad9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "猫，小猫、花猫。": {
+      "fileName": "d51692714d1b06351d407d6b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "较，比较、计较。": {
+      "fileName": "e205974a33cd959848881f9d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "太，太阳、太空。": {
+      "fileName": "05270a7f69a91dca82c5cc4d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "约，约定、大约。": {
+      "fileName": "b203f50e31ebad32f2ca63a1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "狗，小狗、花狗。": {
+      "fileName": "76c4208d194ba23f1a18710f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "者，作者、读者。": {
+      "fileName": "e2dc0b3cefcaaa8680cf7a60.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "成，成功、完成。": {
+      "fileName": "efd14b695ff2e3b353f0a25f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "打，打开、打球。": {
+      "fileName": "866c368d1313df2f98e7950a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鸟，小鸟、飞鸟。": {
+      "fileName": "ad2db9ba50d48d7ae1a56cbf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "死，枯死、生死。": {
+      "fileName": "cc1f0bbb473b717c90b1d975.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "买，买菜、购买。": {
+      "fileName": "bd5cb6589e597971ab0ac038.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "图，图画、地图。": {
+      "fileName": "2714caa7322114e541bc264b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鱼，小鱼、金鱼。": {
+      "fileName": "124a17e31809cdab94cdb9b5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "个，一个、个子。": {
+      "fileName": "e4c1b43e08f1a9a0074a7cf4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "道，道路、知道。": {
+      "fileName": "285830faadbf13103d835aa9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "总，总是、总数。": {
+      "fileName": "687c3725d7bd87e45a462213.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "虫，虫子、昆虫。": {
+      "fileName": "071891550163f30d73cf87f8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "另，另外、另一个。": {
+      "fileName": "ecc432ec659bb8ddfad43db1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "正，正好、正确。": {
+      "fileName": "d51af9d5f20e6a904fae697d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "便，方便、便利。": {
+      "fileName": "f7245d5b7b1dbf950feabe47.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "马，小马、木马。": {
+      "fileName": "7dfb04d0edef55650723cd09.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "党，党员、党旗。": {
+      "fileName": "296bea248231d25cbf08b609.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "名，名字、姓名。": {
+      "fileName": "7751f6c198aaced06095c25b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "达，到达、表达。": {
+      "fileName": "fa02b7178241513d75b2ec92.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "牛，小牛、牛奶。": {
+      "fileName": "9dddfe5c04e62f774f38c60b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "称，称呼、称赞。": {
+      "fileName": "2c8cdb4b502822b9674f1041.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "县，县城、县长。": {
+      "fileName": "fe0043c727703ab9a087e6f5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "受，接受、感受。": {
+      "fileName": "1d6eb58a4ed368d64504f629.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "羊，山羊、羊毛。": {
+      "fileName": "53bcdd33b24cdbe4ac1a2942.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "只，一只、两只。": {
+      "fileName": "ebd76cb192388cff3c15583d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "各，各自、各种。": {
+      "fileName": "8ebc2f9f847d0dacb2bdfb9a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "位，座位、一位。": {
+      "fileName": "8579278c8843499d25a4f551.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鸡，小鸡、公鸡。": {
+      "fileName": "332254c8cef9802e6541321d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "作，作业、工作。": {
+      "fileName": "677324ca71ce2ceb8c035e3a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "次，一次、次数。": {
+      "fileName": "98d7eb37e93a33865f7deb3d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "省，节省、省心。": {
+      "fileName": "277b8e7da5c05ea669c6e84c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鸭，鸭子、小鸭。": {
+      "fileName": "b3ff92033c744d8d0d19cd50.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "网，上网、蜘蛛网。": {
+      "fileName": "c1845530524ec603d1b8ea45.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "副，一副、副手。": {
+      "fileName": "d3bc5a88e2114e843463519d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "行，步行、行走。": {
+      "fileName": "ee079a7ca2a47e0df192f68f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鹅，白鹅、天鹅。": {
+      "fileName": "1631218acb92d16ac6d262d8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "连，连忙、连线。": {
+      "fileName": "6e2c990d1def9533abc5490a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "仍，仍然、仍旧。": {
+      "fileName": "2b517adadfa138ab42a3e690.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "军，军人、军队。": {
+      "fileName": "9418f0398b738e4857381afd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "兔，兔子、白兔。": {
+      "fileName": "a866946f11a32241e21f7ce4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "第，第一、第二。": {
+      "fileName": "095cd51553ec7dfa6abf7a93.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "杀，杀菌、杀虫。": {
+      "fileName": "add4f6a643c7e2510dc7d7ea.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "住，住处、记住。": {
+      "fileName": "129c7e3139d5b141b40bc993.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "猪，小猪、猪肉。": {
+      "fileName": "2c529872575fd611a3da8903.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "据，根据、依据。": {
+      "fileName": "df6883d716fbd8f1a383fc3b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "亦，亦可。": {
+      "fileName": "c4e36a8f7516c91ca849519e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "别，别人、分别。": {
+      "fileName": "fa63693d1962be73681fcaf8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "虎，老虎、虎牙。": {
+      "fileName": "4e8e2d2064061ce1bc0bce98.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "讲，讲话、讲台。": {
+      "fileName": "95d7e1c241731e205b14dcc7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "条，面条、一条。": {
+      "fileName": "99ca011ec5234cb4d10114fc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "送，送给、送别。": {
+      "fileName": "2945ebb940468cc260802a51.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "狮，狮子、海狮。": {
+      "fileName": "9833e7bd17580d5999a2ae32.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "啦，来啦、好啦。": {
+      "fileName": "371fd62424046bd10cf21f83.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "性，性格、个性。": {
+      "fileName": "b2d930c132f877c691f68bbe.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "指，手指、指出。": {
+      "fileName": "e40794609b48eb75f392b884.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "象，大象、象牙。": {
+      "fileName": "a76c168cc8f3b1559999eb30.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "我，我们、我的。": {
+      "fileName": "179e71cc81bf7db5596e96ab.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "法，方法、办法。": {
+      "fileName": "93d1d4efc9403f4433fe4c67.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "全，全部、安全。": {
+      "fileName": "9d8491568193e7d5d61ec578.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "猴，猴子、小猴。": {
+      "fileName": "584dc8df83638610d6b6934f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "变，变化、改变。": {
+      "fileName": "af7520d12964f62123e55958.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "派，派出、派人。": {
+      "fileName": "e7f328c32751087c18e9be1c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "搞，搞好、搞清楚。": {
+      "fileName": "69951dd9a05c653169d84145.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "熊，小熊、熊猫。": {
+      "fileName": "11c7dfd3afd383cba90921ea.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "原，原来、草原。": {
+      "fileName": "b4d73947b897a22075358d59.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "级，年级、高级。": {
+      "fileName": "cef620b19fca3120e71e6a89.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "些，一些、这些。": {
+      "fileName": "6495f89110f1799789aa8ee9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鹿，小鹿、梅花鹿。": {
+      "fileName": "c6ce85e80fed6b81378222a3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "场，操场、广场。": {
+      "fileName": "f80fdc4d9d7f01ea073cfe09.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "按，按时、按钮。": {
+      "fileName": "0d93063132a9924eb8f68e57.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "亿，一亿、亿万。": {
+      "fileName": "a43cfbdf25b3871cc1c9a8f7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "蛇，小蛇、蛇皮。": {
+      "fileName": "75e6a0d9a8aaa71aa3c1a2c8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "你，你好、你们。": {
+      "fileName": "eb8fd1e988461f2761a42055.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "靠，靠近、依靠。": {
+      "fileName": "d89188625b3a3b04b026f5c3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "加，加油、参加。": {
+      "fileName": "917ecf07223f362c97e2c6a9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "蛙，青蛙、牛蛙。": {
+      "fileName": "8d8fd5ded471eda8fb6b2a34.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "队，队伍、排队。": {
+      "fileName": "8bb2fa8e704e554385997d26.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "系，联系、关系。": {
+      "fileName": "249372c20aa5b756bd2da7c8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "完，完成、完全。": {
+      "fileName": "9c68ae780da9311689b49921.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "龟，乌龟、海龟。": {
+      "fileName": "58fe11431fb944406df3b331.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "式，方式、公式。": {
+      "fileName": "2aebc95165118899aa0e8570.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "属，属于、金属。": {
+      "fileName": "2f262e2c4a4029338c5e58ee.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "强，强大、强壮。": {
+      "fileName": "4ca8cecb90eaea11f77372e6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "虾，小虾、龙虾。": {
+      "fileName": "cdf1af9648afc20e2481a65c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "越，越过、超越。": {
+      "fileName": "8b22a3429c8afbe8c91427e4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "任，任务、责任。": {
+      "fileName": "4c9ecdf6b1f3cd6be42896cf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "办，办法、办公。": {
+      "fileName": "6a72018b91d7da2f6af9ed40.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "蟹，螃蟹、河蟹。": {
+      "fileName": "847c9f00fcf6ac322d0f10a3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "他，他们、他的。": {
+      "fileName": "21efe1948a775352f544cee2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "谈，谈话、交谈。": {
+      "fileName": "6789891d6a46c5fd072bf1ea.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "转，转弯、转身。": {
+      "fileName": "8cdab91d53408e8ad83538e7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "蝶，蝴蝶、蝶泳。": {
+      "fileName": "0b8dcecb5ff8ee94dad128b0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "仅，仅仅、不仅。": {
+      "fileName": "ea6281a6ea06dcf5e1b003f5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "卖，卖菜、买卖。": {
+      "fileName": "b80a989750cd1b7d44b52646.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "字，写字、汉字。": {
+      "fileName": "6dbaab33011d877032b67e5f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "蜂，蜜蜂、蜂蜜。": {
+      "fileName": "3f3e2ea5dbe3b6bef1dd7bc2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "帮，帮忙、帮助。": {
+      "fileName": "28d8d0b828286f37a718c687.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "相，相同、相信。": {
+      "fileName": "4f4601c071b91ea81855abfd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "部，部分、全部。": {
+      "fileName": "d60a5352033e7cb91b59d5a9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "蚁，蚂蚁、白蚁。": {
+      "fileName": "cca0122d573d5392c6fe8e3d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "主，主人、公主。": {
+      "fileName": "82a099b82cbb42b0b626b07d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "件，一件、文件。": {
+      "fileName": "95a7f1a366982d065157e49a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "信，信心、相信。": {
+      "fileName": "990650f53a6630058fdb923c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "狼，大灰狼、狼群。": {
+      "fileName": "44561ca4ad83d66f639f5a8d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "她，她们、她的。": {
+      "fileName": "6607627c3a8875143a8a78c8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "令，命令、口令。": {
+      "fileName": "e9daf7b69523c77474bb4704.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "管，水管、管理。": {
+      "fileName": "bd3b48d59c420cde8a8010f1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "狐，狐狸、白狐。": {
+      "fileName": "b5837ed5eb73e351ef4b1ef0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "需，需要、必需。": {
+      "fileName": "3df870d2e8534c0993adb56c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "王，国王、大王。": {
+      "fileName": "1b879a6b4a28e691dac06770.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "倒，倒下、跌倒。": {
+      "fileName": "29e0b035491ac460940b80da.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "龙，恐龙、龙舟。": {
+      "fileName": "f6e118678b59c95ecc50a78a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "数，数字、数学。": {
+      "fileName": "fc4eb5db2f686602e04e8034.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "设，设计、建设。": {
+      "fileName": "fc6a4dffcc7811461949d5c3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "几，几个、几天。": {
+      "fileName": "b9aa267c137679d3d78c4920.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "花，花朵、鲜花。": {
+      "fileName": "477e01b41c2040730ef41a8b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "员，队员、演员。": {
+      "fileName": "6dfdef83e4db91a9bc9f25f1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "既，既然、既有。": {
+      "fileName": "35931c68e58a8e49c21c9489.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "权，权利、权力。": {
+      "fileName": "6082d6d6b6c44812dfa94fb5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "草，小草、草地。": {
+      "fileName": "55225dae63671c69f9cb625a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "爸，爸爸、老爸。": {
+      "fileName": "b375516958fad6e10d12f200.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "群，羊群、人群。": {
+      "fileName": "cc6a7a3a6cc545b30dcc8691.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "逼，逼近、紧逼。": {
+      "fileName": "a75169925173665bef1cae71.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "树，大树、树叶。": {
+      "fileName": "ef5d9dfd9c4230812b269122.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "镇，小镇、镇定。": {
+      "fileName": "13d5ffbe959fbf237ab1f322.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "呀，好呀、来呀。": {
+      "fileName": "ac8c50cda85bf1612a132389.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "现，现在、发现。": {
+      "fileName": "ff8242d496be78c3cf5c1898.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "叶，叶子、树叶。": {
+      "fileName": "d3802f7e06b855da8ecfce4c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "组，组长、小组。": {
+      "fileName": "3517aed7567f6113e790ac3f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "奖，奖品、奖状。": {
+      "fileName": "414ebb3ad2bdafe9521a782a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "德，品德、美德。": {
+      "fileName": "eb61eb8543d3f2f98446377d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "根，树根、根本。": {
+      "fileName": "e411a9a2246d503d5624eaa0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "定，一定、决定。": {
+      "fileName": "b3d5bc46e72f92948b6303bc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "机，飞机、机会。": {
+      "fileName": "ca9135692cf69fa9052e893b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "集，集合、收集。": {
+      "fileName": "796ca5df33243bd033c31ffb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "枝，树枝、枝头。": {
+      "fileName": "031d454d348468ab094226e7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "妈，妈妈、姑妈。": {
+      "fileName": "7a9b7ca7006e163c7bfb62f1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "常，常常、非常。": {
+      "fileName": "c432341a926dc39eed30759a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "换，交换、换衣。": {
+      "fileName": "c5abd678369c07fa951c4b10.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "林，树林、森林。": {
+      "fileName": "1c32ee43628a47ec84d178e1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "改，改变、改正。": {
+      "fileName": "adcb9a340254f429adb733f6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "特，特别、特点。": {
+      "fileName": "8e21db1e617ed872fd49121f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "项，项目、一项。": {
+      "fileName": "4bc96a5ce7a096400d71580c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "果，水果、苹果。": {
+      "fileName": "366bd85441c55052d68934b9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "往，往前、来往。": {
+      "fileName": "b9508eb0bae031304e747e9f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "亚，亚洲、亚军。": {
+      "fileName": "a9c8b34986aa583e4077f7d5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "传，传说、传递。": {
+      "fileName": "532343023588bcb6961a4cdd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "米，大米、米饭。": {
+      "fileName": "b4e3834fc6eb4e5a8bad71a2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "梦，梦想、做梦。": {
+      "fileName": "506470fa69524b8e8ca097b5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "卡，卡片、贺卡。": {
+      "fileName": "6bceacc8843595e826064d55.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "著，著名、著作。": {
+      "fileName": "8ff224bfad32b9aa2727f11d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "麦，小麦、麦子。": {
+      "fileName": "29a124e7fecd2db7662f3d9a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "父，父亲、父母。": {
+      "fileName": "5827073b3a2bbc240347f612.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "值，值日、值得。": {
+      "fileName": "631e8f03698d3d8d34bdd94c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "单，简单、单独。": {
+      "fileName": "a6edca2efb5375fdd18e5f32.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "豆，豆子、绿豆。": {
+      "fileName": "323db68e738faac456d3ba72.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "周，周末、一周。": {
+      "fileName": "581adc561b0605b0c27a64d6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "文，文字、课文。": {
+      "fileName": "e05e490457e150ebbedf6ad4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "斯，斯文。": {
+      "fileName": "51b9a8a415be6abbb5f64bb4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "瓜，西瓜、南瓜。": {
+      "fileName": "f7de14b4a48a76e04f6973d9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "语，语文、语言。": {
+      "fileName": "861c4ca85c32db513371024b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "久，很久、长久。": {
+      "fileName": "e83818ecc591af4320593674.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "史，历史、史书。": {
+      "fileName": "6ed063381e7c22b921415205.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "菜，白菜、青菜。": {
+      "fileName": "d0ee9a950ecad477115f472c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "某，某人、某天。": {
+      "fileName": "0a14e05b5e761f690d43884c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "科，科学、学科。": {
+      "fileName": "9124a63060a0a69dfacf53ac.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "页，一页、书页。": {
+      "fileName": "1ef9f66aea4170771c9abfab.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "苹，苹果、苹果树。": {
+      "fileName": "9dc888403a1d6c3aa1f8e19b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "母，母亲、母鸡。": {
+      "fileName": "a047f86155b6a515891fa782.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "案，答案、方案。": {
+      "fileName": "cce6af4f52358d02c972dcc3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "除，除法、除了。": {
+      "fileName": "388e641300b836f8ac238893.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "梨，梨子、雪梨。": {
+      "fileName": "7497ece8129bc08ef4cbb1fa.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "化，变化、文化。": {
+      "fileName": "5d1faad59226ecd107b734aa.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "尔，偶尔。": {
+      "fileName": "9984b6454070893a7b7330bf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "救，救人、救助。": {
+      "fileName": "2a11132fb660c3ba6777bd97.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "桃，桃子、桃花。": {
+      "fileName": "934d0384db2602ba85b744e2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "李，李子、行李。": {
+      "fileName": "4e9f0110853b9d8429ccab4d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "初，初次、最初。": {
+      "fileName": "8c861a89f5f63bf830178bbe.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "卷，卷起、卷起来。": {
+      "fileName": "bdc2280d93f9092baf058783.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "杏，杏子、杏花。": {
+      "fileName": "25a5ad434e4557a92961b24b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "块，一块、石块。": {
+      "fileName": "8162ba982d9c1ceef1334f5e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "言，语言、发言。": {
+      "fileName": "936d2ff6e1113a2368e6bca8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "词，词语、歌词。": {
+      "fileName": "8f2ee9332a70a9056da810c0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "梅，梅花、杨梅。": {
+      "fileName": "b2da0d7f254f471fe0a06144.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "爷，爷爷、大爷。": {
+      "fileName": "88103722fee6220f29c62c26.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "产，生产、产品。": {
+      "fileName": "3cf70cfbf155e2f11813754f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "差，差不多、差劲。": {
+      "fileName": "6ab7cfde052733171e736d99.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "竹，竹子、竹叶。": {
+      "fileName": "f30927c5e37036fa25234bed.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "论，讨论、论文。": {
+      "fileName": "21f1d8ca896b8598e3d21c13.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "份，一份、月份。": {
+      "fileName": "565d15a92a6d9c46c269d6de.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "战，战士、挑战。": {
+      "fileName": "c4f5f6efb68e84675660bb55.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "松，松树、松果。": {
+      "fileName": "8bdab82db2cdca731c04b667.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "掉，掉下、丢掉。": {
+      "fileName": "3df04bbf7c14fe3bd5b23002.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "极，极点、北极。": {
+      "fileName": "80a132c8ee68851c629f10c4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "查，检查、查看。": {
+      "fileName": "f73bea963dd57cf8638006ae.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "荷，荷花、荷叶。": {
+      "fileName": "066b8615928f915e1973bcd5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "贴，贴纸、粘贴。": {
+      "fileName": "fbcc637fc00f46b4b05fd61d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "待，等待、待会。": {
+      "fileName": "9feba3c70f6ef727a2d8c1da.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "枪，水枪、枪声。": {
+      "fileName": "ebbbfb6626759114ec37c434.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "苗，树苗、禾苗。": {
+      "fileName": "1c7b3e67e31acb24a6c28029.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "奶，牛奶、奶奶。": {
+      "fileName": "f6daee62f745b8f0e4427b2d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "操，早操、操场。": {
+      "fileName": "5ba5d2e3ae484d1df78fbffb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "投，投球、投入。": {
+      "fileName": "b48eca6dcacd5a6d0c123d2f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "种，种子、花种。": {
+      "fileName": "4e40c4b23a7e2befd17cca4f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "挂，挂上、挂号。": {
+      "fileName": "37a57ecb1e3c3290c10276f9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "领，衣领、带领。": {
+      "fileName": "0184a7fc4288b6cb7f41aa78.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "骗，骗人、欺骗。": {
+      "fileName": "4623436571bdb17017a1d064.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "饭，米饭、吃饭。": {
+      "fileName": "fe27b66fecd84cf285546905.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "倍，加倍、一倍。": {
+      "fileName": "2afa7b998a97bd2ffa1ecb99.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "建，建设、建造。": {
+      "fileName": "4e45603d2ed0c2401d12eec7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "注，注意、注水。": {
+      "fileName": "32c793840ff74fb42ba985c3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "面，面条、面包。": {
+      "fileName": "20c5a490d1671eaaf1d03628.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "清，清水、清楚。": {
+      "fileName": "5add081704bc4015fba905a1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "力，力气、用力。": {
+      "fileName": "d40e3fe22e5fea8c5dfd9314.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "厂，工厂、厂房。": {
+      "fileName": "593438ecc67019d80d92357b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "粥，白粥、米粥。": {
+      "fileName": "e9fbda169bf67d4e888eee9c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "哥，哥哥、大哥。": {
+      "fileName": "d6c240e9ad81a4b99642b4b3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "忙，帮忙、连忙。": {
+      "fileName": "d8b77c06bcd6655fad442263.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "故，故事、故乡。": {
+      "fileName": "d583c70aa64b68028db016cf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "包，包子、面包。": {
+      "fileName": "9a9b7fd0049de870a27f52be.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "深，深浅、深处。": {
+      "fileName": "f3dba68f21e2eeb00f59798f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "病，生病、病人。": {
+      "fileName": "56922d993766334017d83632.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "追，追赶、追上。": {
+      "fileName": "e981acad2c4462516cbaa357.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "蛋，鸡蛋、鸭蛋。": {
+      "fileName": "3e075be10bc37a614c35d8ff.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "乱，打乱、乱跑。": {
+      "fileName": "59b3a4423203837efeccd82a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "交，交朋友、交换。": {
+      "fileName": "597f7e5b67635e8d752504ac.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "够，足够、能够。": {
+      "fileName": "4163f4aabc46171ebf30823a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "茶，茶叶、喝茶。": {
+      "fileName": "5191e37bb9462ea29176cd63.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "岛，海岛、小岛。": {
+      "fileName": "7d561dd8a13eb65fed46dc02.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "罗，罗汉、罗列。": {
+      "fileName": "14dcff13ad7a44f38da39c7c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "记，记住、日记。": {
+      "fileName": "978324a26027a70a862d64f3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "汤，喝汤、菜汤。": {
+      "fileName": "c98f7fa1a7a7cf726d749403.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "姐，姐姐、大姐。": {
+      "fileName": "2e77c3d10230b8c329a2bc6b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "馆，图书馆、博物馆。": {
+      "fileName": "e48c12f2aabd43061d33e4ad.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "啥，干啥、是啥。": {
+      "fileName": "ae4740f8a5485aee6e884c8f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "糖，糖果、白糖。": {
+      "fileName": "f29013bd1c9f5dfc7c5824c0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "实，其实、实在。": {
+      "fileName": "7d9d47ece001b531ae325521.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "忘，忘记、难忘。": {
+      "fileName": "bbfb2629ec0fbc12625bce4f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "照，照片、照亮。": {
+      "fileName": "867519b733c224d234b746a8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "盐，食盐、盐水。": {
+      "fileName": "79cb7e08b69a33df45bb46cb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "调，调整、调皮。": {
+      "fileName": "80d7b663cc667319b9caca38.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "座，座位、星座。": {
+      "fileName": "1f3c2d9ba7e3c7923c25457a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "率，效率、速率。": {
+      "fileName": "aed225b5760dc623c103dd29.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "肉，鸡肉、牛肉。": {
+      "fileName": "9706147953f9530ef9a2d4bb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "篇，一篇、篇章。": {
+      "fileName": "d0bd2017813229282ac50c95.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "赚，赚钱、赚取。": {
+      "fileName": "97f59a1114105f96aac33065.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "通，通过、通知。": {
+      "fileName": "d31dfd3bd6bac0cdb4e7353e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "饼，饼干、月饼。": {
+      "fileName": "d5db79eb0cc27bb885fcd65d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "弟，弟弟、兄弟。": {
+      "fileName": "76a9051b45c71dc37605b75a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "府，政府、府邸。": {
+      "fileName": "a396e3ea75a6790c6b01911b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "弄，弄好、弄懂。": {
+      "fileName": "17aaf7692b573e1f137bc802.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "干，干净、饼干。": {
+      "fileName": "9b5d1a9bdc0260428e5491e4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "意，注意、意思。": {
+      "fileName": "8ab8f909325054f39da06fe7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "物，动物、植物。": {
+      "fileName": "326d2cfceb3e0657254f3373.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "留，留下、留心。": {
+      "fileName": "686f52952aea91a53263c4c8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "杯，水杯、杯子。": {
+      "fileName": "fce6f66a8e6bb0f9d5c52482.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "知，知道、知识。": {
+      "fileName": "01d01fabb64454b0f830ee63.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "股，一股、屁股。": {
+      "fileName": "1472a4b42a67df760419a5c5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "费，费用、花费。": {
+      "fileName": "5f18f207f583c722d3fd609c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "碗，饭碗、小碗。": {
+      "fileName": "8a96b42802e93ca375001070.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "布，布料、瀑布。": {
+      "fileName": "754fdf2cc6284b4eef6d0347.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "替，替换、代替。": {
+      "fileName": "7ac6c9fbd67a3932ecdf46a9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "英，英语、英雄。": {
+      "fileName": "800fda62ed7dcd724889c172.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "盘，盘子、果盘。": {
+      "fileName": "68c07881a19851f8fb01c027.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "妹，妹妹、姐妹。": {
+      "fileName": "cd6832d1bd1dd4bdbb43c5a0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "平，平安、平地。": {
+      "fileName": "b38d53365f0448a65a511f44.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "愿，愿意、心愿。": {
+      "fileName": "4bba03ae0fe52f227be7f26f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "勺，勺子、汤勺。": {
+      "fileName": "914f33bef82c90a7ad176174.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "歌，歌曲、唱歌。": {
+      "fileName": "51ef1c92c36a40d0ca286e98.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鬼，鬼脸、鬼怪。": {
+      "fileName": "c9036fdea34b30bc8010ba7a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "丢，丢掉、丢失。": {
+      "fileName": "95e75f69b826e7692743629c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "筷，筷子、竹筷。": {
+      "fileName": "11e9680aa02ce744a13f2735.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "感，感谢、感动。": {
+      "fileName": "fe94ea374e813d3b5159d99f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "命，生命、命令。": {
+      "fileName": "19ef130fe88cbea530d7ac80.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "破，打破、破旧。": {
+      "fileName": "c4774475df22c03c3290e208.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "吃，吃饭、吃饱。": {
+      "fileName": "c636346c6a00954544ed8907.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "票，车票、门票。": {
+      "fileName": "5300d46d5764f87a3dbe7e50.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "藏，躲藏、收藏。": {
+      "fileName": "c8479728c444b264f3dc127c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "输，输赢、输入。": {
+      "fileName": "f0ccdb08d5724973fb2e17ad.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "喝，喝水、喝汤。": {
+      "fileName": "2fc12f29197f01a04af81b17.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "儿，儿子、儿童。": {
+      "fileName": "55e8d03b38585eeba35049c7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "满，满意、装满。": {
+      "fileName": "d5bb291394efb59e0c136462.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "编，编织、编写。": {
+      "fileName": "2edf5a1bba2da2d038726d74.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "甜，香甜、甜瓜。": {
+      "fileName": "217c93c1a4d5a650f3a93644.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "首，首先、一首。": {
+      "fileName": "125c672bf05da13b7d4baac0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "圈，圆圈、圈子。": {
+      "fileName": "1f04ac1af87d65647ff60772.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "归，回归、归还。": {
+      "fileName": "355bec10304c61ff12da578c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "香，花香、香气。": {
+      "fileName": "c4440b592b0865e71c7c1170.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "怪，奇怪、怪物。": {
+      "fileName": "a13878f0aef8f101562769a3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "亲，亲人、亲手。": {
+      "fileName": "e3f687b3be9967244c0e25ec.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "吨，一吨、吨位。": {
+      "fileName": "f0f2729b5d894f65d2bf3dcd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "衣，衣服、毛衣。": {
+      "fileName": "6338b1ff089ecce237020110.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "朝，朝代、朝向。": {
+      "fileName": "0b78f5a054bba4d105c670da.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "试，试试、考试。": {
+      "fileName": "c971887d7f89395ba66ef681.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "课，上课、课本。": {
+      "fileName": "8f2643af514d4dcd37dff9a2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "裤，裤子、短裤。": {
+      "fileName": "9470fc164e7ce6f3ff953d38.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "女，女孩、女儿。": {
+      "fileName": "e423689610e84ba7440eafd7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "苏，苏州、苏醒。": {
+      "fileName": "cbfa82dbe782051379ff50ad.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "药，吃药、药水。": {
+      "fileName": "65861633d267bd982494c343.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鞋，鞋子、凉鞋。": {
+      "fileName": "221d27010e34c92416722ec4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "辖，管辖、辖区。": {
+      "fileName": "4384f1a11e456e9302b91036.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "哈，哈哈、哈气。": {
+      "fileName": "8f11cc5a8a00d656940efcdc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "圣，圣诞、神圣。": {
+      "fileName": "be3134d0f1d42aee4f26bd58.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "袜，袜子、棉袜。": {
+      "fileName": "4b8ef2c9ab59cd8529c5210d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "射，射箭、发射。": {
+      "fileName": "abc6b2929142d079c8c93260.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "欲，欲望、食欲。": {
+      "fileName": "902bf08d38cf02f616c35ae7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "流，流水、河流。": {
+      "fileName": "eb1a30fb88e1f62eaae79b8d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "帽，帽子、草帽。": {
+      "fileName": "bea1d11a4b9f59452c5310e9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "虽，虽然、虽说。": {
+      "fileName": "c48494f2c68b7a6e7d5738e0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "铁，铁路、铁门。": {
+      "fileName": "f76f42eca8ce56c2c39769d8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "陪，陪伴、陪同。": {
+      "fileName": "e54bbbeb2bfaa406bbd2fd0b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "裙，裙子、长裙。": {
+      "fileName": "b653268ca0ded52c0329444b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "子，孩子、叶子。": {
+      "fileName": "77afa3da5eb3be2ec2d926c1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "利，胜利、便利。": {
+      "fileName": "35f8597e940e637acf99327d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "华，中华、华丽。": {
+      "fileName": "534600802186cc989335a14c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "伞，雨伞、花伞。": {
+      "fileName": "aa0b5b2f0ac41be82f9599df.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "古，古代、古诗。": {
+      "fileName": "39ffc8c460497c9fdfe0f1e4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "族，民族、家族。": {
+      "fileName": "76271881af94f3a6d768e063.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "治，治病、治理。": {
+      "fileName": "7fa9e7f332c30ccc9f484ef0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "巾，毛巾、围巾。": {
+      "fileName": "549da265bc546ffebb3f7843.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "犯，犯错、犯规。": {
+      "fileName": "91c8afe65e27d519138e4e7f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "负，负责、负重。": {
+      "fileName": "79bd437a18d6c3a7d70a35ae.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "伤，伤心、受伤。": {
+      "fileName": "3b30b3a3ae827ad39bac50db.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "床，小床、起床。": {
+      "fileName": "29be15f3db5fff66430206ea.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "依，依靠、依然。": {
+      "fileName": "f16b818ce96d1ec37b68f2ef.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "嘴，嘴巴、张嘴。": {
+      "fileName": "4f9f95e7d38e2a3004c72bca.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "欧，欧洲、欧元。": {
+      "fileName": "52f67b09394902362c5de41b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "被，被子、棉被。": {
+      "fileName": "8102b030c1a6dcada5e0296f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "男，男孩、男生。": {
+      "fileName": "4825590467a2af68b2ca6d4f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "造，制造、建造。": {
+      "fileName": "ed657297e1c3af2acb460ac3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "须，胡须、必须。": {
+      "fileName": "efa4a2a6dc874c59bdd0f76e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "枕，枕头、枕巾。": {
+      "fileName": "3e6e969edc047b67decea960.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "准，准备、准时。": {
+      "fileName": "3a9f24e1d4a2f9c4ba4964d6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "封，一封、封面。": {
+      "fileName": "6dfa0b7fa8be49c2d7ae32e3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "必，必须、必要。": {
+      "fileName": "3713a9a1acb7865c06508ed8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "桌，桌子、书桌。": {
+      "fileName": "d3f7d814d1ccd688b390408b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "营，营养、夏令营。": {
+      "fileName": "37697993133e248150925fdd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "专，专心、专门。": {
+      "fileName": "47a4d84efb2a0244fe94e0e1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "俄，俄国、俄语。": {
+      "fileName": "2af11c426895c513b8f00bfc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "椅，椅子、木椅。": {
+      "fileName": "6185db8528667ebd1c53a514.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "凭，凭借、凭证。": {
+      "fileName": "a8c19a162127b1d1dc4a0915.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "宽，宽大、宽阔。": {
+      "fileName": "7daaab9aeea24398d52fe126.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "港，港口、香港。": {
+      "fileName": "7a72fe6ab2d05bdd64b00277.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "门，开门、大门。": {
+      "fileName": "84d3486332bfc5cabbce7acf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "家，回家、家人。": {
+      "fileName": "dadc863fdccb34fd5e504467.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "职，职业、职责。": {
+      "fileName": "b9e8cacc448f59f3b4d9be2e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "观，观看、参观。": {
+      "fileName": "412cc1b1eb96bfa35bbe4536.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "窗，窗户、窗帘。": {
+      "fileName": "995ea0319cabbbd0a779920a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "赛，比赛、赛跑。": {
+      "fileName": "508ab5bf23abf4a408a5cbd6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "借，借书、借用。": {
+      "fileName": "2baa68628fd6609c84017b9c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "养，养花、营养。": {
+      "fileName": "55e58114bd613edefd5c3691.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "灯，电灯、台灯。": {
+      "fileName": "33fa8669a9feabf687d32df4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "墙，墙壁、围墙。": {
+      "fileName": "f8a77a28758034533d1c40f9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "搭，搭车、搭积木。": {
+      "fileName": "f02b42eadf213ebd5d42df21.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "绝，绝对、拒绝。": {
+      "fileName": "ac4a6ce386a74bf4e3702949.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "钟，时钟、闹钟。": {
+      "fileName": "ce9d270dc77644c1dc8a766c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "辆，一辆、车辆。": {
+      "fileName": "6c88ae72ee617ce60ccaec7c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "吹，吹风、吹气。": {
+      "fileName": "e4e6862067a61b79dfcfbd45.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "套，一套、手套。": {
+      "fileName": "49c623e02dd8e90014e703c7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "镜，镜子、眼镜。": {
+      "fileName": "6167cb63ae8aed4185501699.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "朋，朋友、亲朋。": {
+      "fileName": "cf3485a2f001a0d7b5c6a6dc.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "界，世界、边界。": {
+      "fileName": "646c4a58318f2b2d84ebfd1d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "社，社区、社会。": {
+      "fileName": "40777ea288cd4b9b095afc12.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "纸，白纸、折纸。": {
+      "fileName": "794bd8edd107dd37f4b54f61.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "运，运动、运气。": {
+      "fileName": "2eb62e1b4fe2bd7ae9e54a9a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "剑，宝剑、剑术。": {
+      "fileName": "6e1677e928ccf402b1d4d688.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "压，压住、压力。": {
+      "fileName": "09554f7a1f004673f4e13fb3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "笔，铅笔、毛笔。": {
+      "fileName": "52f8598028e2cafe3306b625.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "呈，呈现、呈上。": {
+      "fileName": "63173ca4c97a0b13d68bcfd4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "支，一支、支持。": {
+      "fileName": "c9cee6614aa42fa522d8d635.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "波，波浪、水波。": {
+      "fileName": "8cd97d8ad766fcb4590aae2b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "书，书本、看书。": {
+      "fileName": "6477bee17b05bdb6584c478d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "纳，收纳、接纳。": {
+      "fileName": "fb3d859a1ee4db39cd2313a9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "余，多余、其余。": {
+      "fileName": "b9306c183dcb80d61ca7890d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "例，例子、例如。": {
+      "fileName": "9652da2d472785dea94c2168.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "本，本子、书本。": {
+      "fileName": "e929e9bbd08fab6ed4e0d5cb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "友，朋友、友好。": {
+      "fileName": "7699146e89c4e6291e3261e5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "库，书库、仓库。": {
+      "fileName": "48306159fb30887ab0af3ed7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "架，书架、衣架。": {
+      "fileName": "d144c842032576240056fcb8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "画，画画、图画。": {
+      "fileName": "2cb767d252cf0ed151c8e30b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "紧，紧张、抓紧。": {
+      "fileName": "4425ca190cb75fafa7635520.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "联，联系、联合。": {
+      "fileName": "4a7e67f896c7b940ee090216.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "跨，跨过、跨步。": {
+      "fileName": "5b9f4ce32095c6bafde4265c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "玩，玩具、玩耍。": {
+      "fileName": "7cb471b10ef60fa24926ae0d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "世，世界、世代。": {
+      "fileName": "d2404855dfdd7bb25501365e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "戏，游戏、唱戏。": {
+      "fileName": "be476156fdfec1452ddaa42e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "拜，拜年、拜托。": {
+      "fileName": "1d4158d8ca3eca23c9b84b18.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "具，玩具、工具。": {
+      "fileName": "b14f80a8c9ceea8099dd6a2f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "演，表演、演员。": {
+      "fileName": "ac101b4db90f6c5a7dfea649.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "维，维护、维修。": {
+      "fileName": "71792b0dd868a83cf3a43be3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "致，致谢、一致。": {
+      "fileName": "f3bfb09c32bb8166f2ce84d6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "球，皮球、足球。": {
+      "fileName": "42320d15f4a879a963a357a5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "老，老师、老人。": {
+      "fileName": "e464a27fd4548a9b4598f467.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "刀，菜刀、小刀。": {
+      "fileName": "eb598ca922192c185d7680fd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "刘，姓刘、刘海。": {
+      "fileName": "125912291f539874b77bc8e6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "车，汽车、火车。": {
+      "fileName": "b084875e36521e2552058131.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "参，参加、参观。": {
+      "fileName": "d09eacb911135a57a5e3e47e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "广，广场、广大。": {
+      "fileName": "e1c4a05216e1848c88cd3043.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "引，引导、吸引。": {
+      "fileName": "e83fe8e898937f2b3a6a2080.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "船，小船、轮船。": {
+      "fileName": "37a45c245c80b9cb5cd280bd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "形，形状、圆形。": {
+      "fileName": "899653d2c7054ae8de7e1b62.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "码，号码、码头。": {
+      "fileName": "d8387f9e8d62086f91bdc8cf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "结，结束、结果。": {
+      "fileName": "d595fbd1f2a74d7813a4c1a8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "红，红花、红色。": {
+      "fileName": "35798924f7a5db32af5c426d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "考，考试、思考。": {
+      "fileName": "0f9dadd0f4612903af1cddee.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "逃，逃跑、逃走。": {
+      "fileName": "5cba561c91863ae77d940f04.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "俩，咱俩、他俩。": {
+      "fileName": "fe999922960bae636566a97b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "黄，黄色、金黄。": {
+      "fileName": "183453ace669c6360c376b93.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "师，老师、师父。": {
+      "fileName": "a7348e340a51f278150efacb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "税，税收、交税。": {
+      "fileName": "e2731bab813628977c140c6d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "降，降落、下降。": {
+      "fileName": "421dbaca9bca3ebe13ef95c4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "蓝，蓝天、蓝色。": {
+      "fileName": "fe54318b08c39caba0f7fd1b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "众，观众、大众。": {
+      "fileName": "55319919640a1cbaf51b6977.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "吻，亲吻、吻别。": {
+      "fileName": "24ce54aa51cf5923a9ebccde.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "夫，丈夫、夫人。": {
+      "fileName": "15ef15d1cd012963b86c3832.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "绿，绿叶、绿色。": {
+      "fileName": "811baa8e76f1c8a959957709.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "币，硬币、人民币。": {
+      "fileName": "4228a9dabd87abb933a7cd6b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "杨，杨树、白杨。": {
+      "fileName": "dbdc29a45f0b04b663b7d27e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "毁，损毁、毁坏。": {
+      "fileName": "449931c026768d5337db8978.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "青，青草、青山。": {
+      "fileName": "efa33a295d1fe76deacda273.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "疯，疯狂、发疯。": {
+      "fileName": "348406ec94b4add410074818.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "硬，坚硬、硬币。": {
+      "fileName": "2df2fc1397ea036eb8508a4d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "争，争取、争先。": {
+      "fileName": "eaa26c89cc38dae293a60482.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "白，白云、白色。": {
+      "fileName": "77a9bc70fc9c90e7c22a637c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "同，同学、同伴。": {
+      "fileName": "a045d21dbe4e49dc97c3a37b.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "奇，好奇、奇怪。": {
+      "fileName": "7797d0431eabb440f0ce4006.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "持，坚持、保持。": {
+      "fileName": "23f233dca524958a53f5c3cb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "黑，黑色、黑夜。": {
+      "fileName": "a2d7b81d4c680a3f1474db33.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "步，跑步、脚步。": {
+      "fileName": "019af73ddfae0b7f48d46d7e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "躺，躺下、平躺。": {
+      "fileName": "dc0801298965b160a04f4812.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "举，举手、举起。": {
+      "fileName": "6122acfd5177e34a4d0327ca.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "灰，灰色、灰尘。": {
+      "fileName": "c28a57c918b9daaf537d7932.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "决，决定、解决。": {
+      "fileName": "ab6929ddd01e425e09dd9a78.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "排，排队、排列。": {
+      "fileName": "e0a1a7509ec7781d7b5a3f8e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "摸，摸摸、抚摸。": {
+      "fileName": "48f5c040efa3709361221b5a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "紫，紫色、紫菜。": {
+      "fileName": "2f305af264eb844664c8296f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "显，明显、显示。": {
+      "fileName": "aca659c2bc42dcddd27a5ed4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "环，手环、环境。": {
+      "fileName": "69203dbbc2f9904fa4dd29fb.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "祝，祝福、庆祝。": {
+      "fileName": "34c0439c81c8ea93cd39af0d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "粉，粉色、面粉。": {
+      "fileName": "a4c5245a60de9436c1fc04d8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "学，学生、学校。": {
+      "fileName": "09d8dffebc9ecedd81ad6a97.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "顶，头顶、山顶。": {
+      "fileName": "52c4ea9296bb0a97b968be3e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "司，司机、公司。": {
+      "fileName": "3539244a0135b233ce0e76bf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "棕，棕色、棕熊。": {
+      "fileName": "02380406b91a0a31fec663d3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "害，害怕、伤害。": {
+      "fileName": "598ee0e7ea8d173d336bede1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "断，断开、判断。": {
+      "fileName": "11b1b1af766e78be26d2549d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "赶，赶快、追赶。": {
+      "fileName": "35a3efce36bc4b6812436573.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "圆，圆形、团圆。": {
+      "fileName": "cbaf530f9c827ac978973bf4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鲁，鲁莽、粗鲁。": {
+      "fileName": "add2edea78a65ff62462e9f1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "居，居住、邻居。": {
+      "fileName": "ab55b1d01d311129e53e3316.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "录，记录、录音。": {
+      "fileName": "7cd9f3cc2e7fb88d1f92ff18.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "方，方向、方形。": {
+      "fileName": "641a2b7308824c6e9220c270.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "纯，纯净、单纯。": {
+      "fileName": "4eaa5ddf4756103e0bdc9928.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "谱，乐谱、歌谱。": {
+      "fileName": "9616c50a908c8d33c245bfd7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "货，货物、货车。": {
+      "fileName": "675053b2e960917658d0d38f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "长，长短、长江。": {
+      "fileName": "78f0e4e9d448e92922eaa927.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "宝，宝贝、宝宝。": {
+      "fileName": "e0cd0ec62a10828e521d90de.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "撞，撞到、碰撞。": {
+      "fileName": "e3c27cab1255af95433d9935.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "样，样子、一样。": {
+      "fileName": "d12efa86d59a1236806450f4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "短，短裤、长短。": {
+      "fileName": "d1a21833d2d117407e453906.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "滚，滚动、打滚。": {
+      "fileName": "777b0dd838c5fb4ab706a2c9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "谷，山谷、稻谷。": {
+      "fileName": "43f0d252d33aa4589af0c839.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "退，后退、退步。": {
+      "fileName": "db0fc20a5409fbfe4e2d452f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "高，高山、高兴。": {
+      "fileName": "9f42cba6675793ff69be4a6d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "额，额头、名额。": {
+      "fileName": "5469eac34ccdc95b6bbfa256.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "偷，偷看、小偷。": {
+      "fileName": "6fefefe2ba477ff259a5116e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "傻，傻笑、傻乎乎。": {
+      "fileName": "89ec8cf3a7b7d5f20d144704.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "低，低头、高低。": {
+      "fileName": "12a2d6ffa02dd0484a699028.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "呆，发呆、呆住。": {
+      "fileName": "0892b20fb73905173a4decc7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "宫，故宫、宫殿。": {
+      "fileName": "f2542e22bd13153ef49c5a1f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "工，工作、工人。": {
+      "fileName": "19e03c46b839a60da8c826f3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "粗，粗细、粗心。": {
+      "fileName": "6a37cb50f5ccb90bd2b91ed6.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "孩，孩子、小孩。": {
+      "fileName": "19e804635218cbff836583a5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "抽，抽出、抽空。": {
+      "fileName": "bba130a7d35061933124ecc4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "油，加油、油菜。": {
+      "fileName": "c02de0b36ff1cd538e0e992a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "细，细心、细雨。": {
+      "fileName": "75e4c045b92e9edc73a1f45c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "牌，路牌、门牌。": {
+      "fileName": "5eadcfe19e75b71393fd5433.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "莫，莫非、莫急。": {
+      "fileName": "2a9abe1732e2c2f213100688.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "购，购买、购物。": {
+      "fileName": "265e94be29bddcd2a5635c2e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "轻，轻重、轻轻。": {
+      "fileName": "e9f4e28499fcb934f242ed63.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "赞，赞美、夸赞。": {
+      "fileName": "42774a9f1a6fc839968641d4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "价，价格、价钱。": {
+      "fileName": "a1c58d0b63a983b4137cdce5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "兽，野兽、兽医。": {
+      "fileName": "15988315501d011cdde6b2e1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "重，重要、重量。": {
+      "fileName": "3dd5baee7e3ab2c290afd004.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "刷，刷牙、刷子。": {
+      "fileName": "192b23133dad77aa7bf94b9a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "底，底下、海底。": {
+      "fileName": "c093067941b7634cc49ef30c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "插，插花、插入。": {
+      "fileName": "fcb27c4f741cbf3e5c310034.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "直，直线、一直。": {
+      "fileName": "faca41f596bf6034c1b15cc7.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "头，头发、点头。": {
+      "fileName": "9423519fab6ced007e1d0a0d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "尾，尾巴、结尾。": {
+      "fileName": "8a847667d96cabdefedc7c31.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "顿，一顿、顿时。": {
+      "fileName": "96c3d16f83c023a1a249b935.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "弯，弯曲、转弯。": {
+      "fileName": "c07364f9b113e1c0940d5568.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "源，水源、源头。": {
+      "fileName": "631cf43909af57649e5f1965.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "资，资料、资源。": {
+      "fileName": "159d4d70875439935f341a0d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "攻，进攻、攻克。": {
+      "fileName": "391c72860eb63fab00ab33ee.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "点，点头、雨点。": {
+      "fileName": "c19a328ca67b489bc2999de2.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "付，付钱、支付。": {
+      "fileName": "5fdf346f77dce18de06245dd.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "恩，感恩、恩情。": {
+      "fileName": "be95535bbad07c60a563d3d1.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "料，材料、布料。": {
+      "fileName": "60682f3ed8c5ff64d03b4995.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "线，毛线、直线。": {
+      "fileName": "b52472b2e25df6b459ef2e1d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "痛，头痛、痛快。": {
+      "fileName": "6da08c48e369801283a7863a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "讯，讯息、通讯。": {
+      "fileName": "dafd6f2d7b154a002d05e78d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "遇，遇见、相遇。": {
+      "fileName": "f7fa2721479f33647de10f38.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "今，今天、今年。": {
+      "fileName": "c1db2e73a8bd6582c7118a53.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "脸，笑脸、洗脸。": {
+      "fileName": "a880452c0addc578fc095c34.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "望，希望、看望。": {
+      "fileName": "6b58e06238d4c1d33c050033.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "核，果核、核心。": {
+      "fileName": "abee952de9981e512dabd960.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "年，过年、今年。": {
+      "fileName": "becf682fe8c50b17743c695e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "瞧，瞧见、瞧瞧。": {
+      "fileName": "bffa911b4c8d6dca63ea7187.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "睛，眼睛、定睛。": {
+      "fileName": "df9b47665d0f819e7f25b370.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "般，一般、这般。": {
+      "fileName": "0df59a8ecdafb4edd5d5668f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "时，时间、小时。": {
+      "fileName": "bea41835f40be266fa62e7b5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "京，北京、京剧。": {
+      "fileName": "a3c54f28cb11873ecf5a2754.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "响，响声、响亮。": {
+      "fileName": "72c74341762196caeeb39286.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "季，季节、四季。": {
+      "fileName": "9ff67ea5ec8ef63db075232c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "分，分开、分钟。": {
+      "fileName": "edf0aef0ec451c519745d63c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "签，签字、书签。": {
+      "fileName": "d04a722ee94fffb7a2619511.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "防，防止、预防。": {
+      "fileName": "c89e92dd5f8bd7e81e6a6095.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "兵，士兵、兵器。": {
+      "fileName": "978988bd9e94cc6b9eb0e1af.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "秒，秒针、秒表。": {
+      "fileName": "1ddf3a2a2fbff83794be190e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "眼，眼睛、眼光。": {
+      "fileName": "f830b9fdc8f9ea670db6b55e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "旗，红旗、国旗。": {
+      "fileName": "7d55d2908cd17ff1b1aa76e0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "许，许多、也许。": {
+      "fileName": "1b36576e703eb4ce914fdee9.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "早，早上、早安。": {
+      "fileName": "0a4fa3c9e51ac359dc1ae300.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "丁，园丁、丁点。": {
+      "fileName": "72677f07682be9c1e8d2fa26.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "备，准备、备用。": {
+      "fileName": "30fa876a2274e03508e74dd3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "弹，弹琴、弹力。": {
+      "fileName": "e1237da3fa5851948f53b5d5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "中，中间、中国。": {
+      "fileName": "9902b7809d1855577a5bd736.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "搜，搜索、搜寻。": {
+      "fileName": "474a1684f941c74b2ee0c086.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "洞，山洞、洞口。": {
+      "fileName": "b427042e8ff40863129ac87a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "湾，海湾、河湾。": {
+      "fileName": "6d419f26f97d299b352c0c21.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "晚，晚上、晚安。": {
+      "fileName": "1fda6d9b99422ae3b1a3468d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "烧，烧水、发烧。": {
+      "fileName": "75b98c65271553991e28ee8d.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "暖，暖和、温暖。": {
+      "fileName": "c8d58b387220587f3ab51818.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "秀，秀丽、优秀。": {
+      "fileName": "3327733fa73c14b5ef5e8d54.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "昨，昨天、昨日。": {
+      "fileName": "ca11e9743a343770a1bbebe5.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "耳，耳朵、木耳。": {
+      "fileName": "a98c843332156bd8fa5b4c72.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "踢，踢球、踢腿。": {
+      "fileName": "81f5cad631286b6f7dd5835a.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "链，项链、铁链。": {
+      "fileName": "9cf7b1a05cd78e71a62b140e.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "明，明天、明亮。": {
+      "fileName": "84f2628fa2511d5ada5e4a48.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "册，册子、画册。": {
+      "fileName": "8484a70d9064bf9c036faff0.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "划，划船、划桨。": {
+      "fileName": "fad0aa77b67993534c1fd4db.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "灭，熄灭、灭火。": {
+      "fileName": "9699630ba68091e7801b09ec.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "前，前面、以前。": {
+      "fileName": "272368518a6008a7e5c10b92.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "鸦，乌鸦、鸦雀无声。": {
+      "fileName": "84a07b8134690d7d9d8cf20c.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "井，水井、井口。": {
+      "fileName": "d0209354920fbb8520a687cf.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "丽，美丽、秀丽。": {
+      "fileName": "52a31caeac5b9312bac0b8a4.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "后，后面、以后。": {
+      "fileName": "4f2707633c2d8712566ec97f.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "温，温暖、温水。": {
+      "fileName": "1ba8c0bc6b5f08f9fc1d90d3.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
+    },
+    "口，口水、门口。": {
+      "fileName": "a7e39726e8b7dca3f296dbb8.mp3",
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+10%",
+      "volume": "+0%",
+      "pitch": "+4Hz"
     }
   }
 }

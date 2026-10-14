@@ -8,7 +8,7 @@ export const CLOUD_CONFIG = Object.freeze({
   publishableKey: "wbpk_GmOXzpfOUNz2OjF2Hyvdj9_B4A2hcHXU4KX4cvUwf1QLoHRx9OsNC51"
 });
 
-export const APP_VERSION = "0.3.2";
+export const APP_VERSION = "0.3.4";
 
 // 学习记录与课程的稳定协议名。与 Windows 端 data/schemas 保持一致，便于互相导入导出。
 export const PROTOCOLS = Object.freeze({

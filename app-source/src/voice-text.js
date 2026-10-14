@@ -1,5 +1,6 @@
 import { hanziDemonstration, taskHint } from "./targeted-hints.js";
 import { naturalSpeechText } from "./natural-hints.js";
+import { HANZI_WORDS } from "./hanzi-hints.js";
 
 export function questionSpeechText(task) {
   return String(task?.speechPrompt || task?.prompt || "").trim();
@@ -34,7 +35,13 @@ function englishLetterExplanation(task) {
 }
 
 export function reinforcementSpeechText(task, studyMode) {
-  if (!task?.target?.display || studyMode === "test" || studyMode === "practice") return "";
+  if (!task?.target?.display) return "";
+  if (task.subject === "hanzi") {
+    const character = String(task.correctAnswer || task.target.display).trim();
+    const words = HANZI_WORDS[character];
+    return words?.length ? `${character}，${words.join("、")}。` : `${character}。`;
+  }
+  if (studyMode === "test" || studyMode === "practice") return "";
   if (task.subject === "english_letter") return englishLetterExplanation(task);
   const explicit = String(task.reinforcement || "").trim();
   if (explicit) return explicit;
