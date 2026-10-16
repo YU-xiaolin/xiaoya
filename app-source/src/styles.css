@@ -58,6 +58,21 @@ button { font: inherit; }
 .report { white-space: pre-wrap; max-height: 220px; overflow: auto; margin: 0; font-size: 13px; line-height: 1.75; color: #4d5951; }
 .empty { color: #8a938d; font-size: 13px; line-height: 1.7; }
 .error-box { margin-top: 15px; border-radius: 13px; padding: 12px 14px; background: #fff0ed; color: #9d3f37; font-size: 13px; line-height: 1.6; }
+.ai-transfer-card { max-width: 1180px; margin: 0 auto 20px; display: grid; grid-template-columns: 1fr auto; gap: 12px 24px; }
+.ai-transfer-intro h2 { margin: 0 0 8px; font-size: 20px; color: var(--forest-dark); }
+.ai-transfer-intro p, .ai-transfer-help, .ai-transfer-local-help { margin: 0; font-size: 13px; line-height: 1.7; color: var(--ink-soft); }
+.ai-transfer-actions { display: flex; align-items: center; gap: 10px; }
+.ai-transfer-help, .ai-transfer-local-help, .ai-transfer-status { grid-column: 1 / -1; }
+.ai-transfer-local-help { padding-top: 10px; border-top: 1px solid var(--line); }
+.ai-transfer-status { border-radius: 12px; padding: 11px 14px; background: #f0f3ed; font-size: 13px; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.ai-transfer-status.error-box { margin-top: 0; background: #fff0ed; }
+.ai-transfer-status.success { background: #e9f4e8; color: var(--forest-dark); }
+@media (max-width: 960px) {
+  .ai-transfer-card { grid-template-columns: 1fr; }
+  .ai-transfer-actions { flex-wrap: wrap; }
+  .topbar { flex-wrap: wrap; gap: 14px; }
+  .top-actions { flex-wrap: wrap; }
+}
 .warning-box { margin-top: 15px; border-radius: 13px; padding: 12px 14px; background: #fff4d9; color: #8a5a12; font-size: 13px; line-height: 1.6; }
 
 .lesson-shell { min-height: 100vh; padding: 20px 28px 28px; display: grid; grid-template-rows: auto 1fr auto; gap: 18px; }

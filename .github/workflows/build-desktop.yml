@@ -1,0 +1,75 @@
+name: Build Windows Desktop
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-source/**'
+      - '.github/workflows/build-desktop.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app-source/package-lock.json
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: app-source/src-tauri -> target
+      - run: npm ci --prefix app-source
+      - run: npm ci --prefix app-mobile
+      - uses: actions/cache@v4
+        with:
+          path: app-mobile/public/voice/*.mp3
+          key: voice-${{ hashFiles('tools/voice-assets.json') }}
+          restore-keys: voice-
+      - run: node tools/fetch-voice-assets.mjs
+      - run: npm test --prefix app-source
+      - run: npm test --prefix app-mobile
+      - run: node tools/check-public.mjs
+      - run: node tools/sync-core.mjs --check
+      - run: node app-source/scripts/generate-ai-transfer-templates.mjs --check
+      - run: cargo test --locked --manifest-path app-source/src-tauri/Cargo.toml
+      - run: npm run build --prefix app-source
+      - run: node tools/stamp-build.mjs desktop
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xiaoya-windows-${{ github.sha }}
+          path: |
+            app-source/src-tauri/target/release/family-learning.exe
+            app-source/src-tauri/target/release/build-info-desktop.json
+          if-no-files-found: error
+          retention-days: 90
+
+  release:
+    needs: windows
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: xiaoya-windows-${{ github.sha }}
+          path: release/windows
+      - name: Publish desktop build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          cp release/windows/family-learning.exe release/xiaoya-windows.exe
+          cp release/windows/build-info-desktop.json release/build-info-desktop.json
+          tag="build-$GITHUB_SHA"
+          gh release create "$tag" --target "$GITHUB_SHA" --title "Xiaoya desktop ${GITHUB_SHA:0:12}" --notes "Windows desktop build from this commit. No private family data is included. Mobile use and maintenance are paused." release/xiaoya-windows.exe release/build-info-desktop.json

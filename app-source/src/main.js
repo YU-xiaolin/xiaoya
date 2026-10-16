@@ -21,6 +21,7 @@ import {
 import { demonstrationSpeechText, hintSpeechText, questionSpeechText, reinforcementSpeechText } from "./voice-text.js";
 import { taskHint } from "./targeted-hints.js";
 import { createSpeechPlayer } from "./speech-player.js";
+import { collectAiVoiceRequirements, compileAiLesson, missingAiVoiceTexts, parseAiResult } from "./ai-transfer.js";
 import {
   buildMathLesson,
   buildMathPracticeTasks,
@@ -71,7 +72,9 @@ const runtime = {
   testDifficultyWeights: { ...DEFAULT_DIFFICULTY_WEIGHTS },
   hanziOralReadingPercent: DEFAULT_HANZI_ORAL_READING_PERCENT,
   testLessons: [],
-  voiceManifest: null
+  voiceManifest: null,
+  aiTransferBusy: false,
+  aiTransferMessage: null
 };
 
 function escapeHtml(value = "") {
@@ -156,7 +159,7 @@ async function command(name, args) {
 
 function aiLabel(status) {
   return {
-    missing: ["warn", "等待 Work 生成", "完成学习后，请让 ChatGPT Work 处理最新记录。"],
+    missing: ["warn", "等待 AI 处理", "完成学习后，可导出学习资料交给 AI 分析，再导入结果。"],
     applied: ["ok", "状态更新已通过", "软件已校验并合并这次 AI 状态建议。"],
     already_applied: ["ok", "状态已是最新", "这份状态更新此前已经安全合并。"],
     invalid: ["warn", "AI 文件未通过校验", "软件没有采用这份更新，请按错误提示重新生成。"]
@@ -406,6 +409,7 @@ function renderTestSetup() {
 }
 
 function renderParentDashboard() {
+  runtime.view = "parent";
   const data = runtime.dashboard;
   const lesson = data.lesson;
   const localErrors = validateLesson(lesson);
@@ -431,18 +435,30 @@ function renderParentDashboard() {
           <div><h1>家长管理</h1><p>学习进度、AI 状态与家长报告</p></div>
         </div>
         <div class="top-actions">
-          <button class="button secondary" data-action="home">返回入口</button>
-          <button class="button secondary" data-action="open-folder">打开数据文件夹</button>
-          <button class="button secondary" data-action="refresh">检查 AI 新内容</button>
+          <button class="button secondary" data-action="home" ${runtime.aiTransferBusy ? "disabled" : ""}>返回入口</button>
+          <button class="button secondary" data-action="open-folder" ${runtime.aiTransferBusy ? "disabled" : ""}>打开数据文件夹</button>
+          <button class="button secondary" data-action="refresh" ${runtime.aiTransferBusy ? "disabled" : ""}>检查 AI 新内容</button>
         </div>
       </header>
+
+      <section class="card ai-transfer-card" aria-labelledby="ai-transfer-title" aria-busy="${Boolean(runtime.aiTransferBusy)}">
+        <div class="ai-transfer-intro"><h2 id="ai-transfer-title">把学习记录交给 AI，带回下一课</h2><p>导出包含本机学习记录和课程安排。交给任意能够读取文件的 AI，按文件里的说明分析并下载结果，再回到这里导入。</p></div>
+        <div class="ai-transfer-actions">
+          <button class="button primary" data-action="export-ai" ${runtime.aiTransferBusy ? "disabled" : ""}>导出学习资料</button>
+          <button class="button warm" data-action="import-ai" ${runtime.aiTransferBusy ? "disabled" : ""}>导入 AI 结果</button>
+        </div>
+        <p class="ai-transfer-help">导出时可选择桌面等位置；导入时选择 AI 生成的结果文件，检查通过后自动加载课程和报告。</p>
+        <p class="ai-transfer-local-help">“检查 AI 新内容”用于重新读取本机已生成的 AI 文件，由软件检查并应用；它不会联网调用 AI。</p>
+        ${runtime.aiTransferBusy ? `<div class="ai-transfer-status" role="status">${escapeHtml(runtime.aiTransferBusy === "export" ? "正在导出学习资料…" : "正在读取并检查 AI 结果…")}</div>` : ""}
+        ${runtime.aiTransferMessage ? `<div class="ai-transfer-status ${runtime.aiTransferMessage.kind === "error" ? "error-box" : "success"}" role="${runtime.aiTransferMessage.kind === "error" ? "alert" : "status"}">${escapeHtml(runtime.aiTransferMessage.text)}</div>` : ""}
+      </section>
 
       <section class="dashboard">
         <article class="card hero">
           <div>
             <div class="eyebrow">${lesson?.isBootstrap ? "第一课已准备" : "下一课已准备"}</div>
             <h2>${escapeHtml(lesson?.title || "等待下一课")}</h2>
-            <p class="summary">${escapeHtml(lesson?.teacherNote || "完成当前学习后，让 ChatGPT Work 生成新的课程文件。")}</p>
+            <p class="summary">${escapeHtml(lesson?.teacherNote || "完成当前学习后，导出学习资料，让 AI 分析并安排下一课。")}</p>
             ${validationWarnings.length ? `<div class="warning-box"><strong>有新记录，请准备下一课</strong><br>${validationWarnings.map(escapeHtml).join("<br>")}<br>当前课程仍可继续进入。</div>` : ""}
             ${validationErrors.length ? `<div class="error-box">${validationErrors.map(escapeHtml).join("<br>")}</div>` : ""}
           </div>
@@ -455,7 +471,7 @@ function renderParentDashboard() {
               <span class="pill">数学 ${summary.mathLearned || 0} / ${summary.mathTotal || 35}</span>
               <span class="pill">待测试 ${totalNeedsAssessment} 项</span>
             </div>
-            <button class="button primary" data-action="child-home" ${lessonReady || mathReady ? "" : "disabled"}>进入孩子学习</button>
+            <button class="button primary" data-action="child-home" ${(lessonReady || mathReady) && !runtime.aiTransferBusy ? "" : "disabled"}>进入孩子学习</button>
           </div>
         </article>
 
@@ -464,7 +480,7 @@ function renderParentDashboard() {
             <h3>闭环状态</h3>
             <div class="status-row">
               <i class="status-dot ${data.latestSessionId ? "ok" : ""}"></i>
-              <div class="status-copy"><strong>${data.latestSessionId ? "已有本地学习记录" : "还没有学习记录"}</strong><span>${data.latestSessionId ? escapeHtml(data.latestSessionId) : "完成第一课后会自动保存，不需要导出。"}</span></div>
+              <div class="status-copy"><strong>${data.latestSessionId ? "已有本地学习记录" : "还没有学习记录"}</strong><span>${data.latestSessionId ? escapeHtml(data.latestSessionId) : "完成第一课后会自动保存，可以导出交给 AI 分析。"}</span></div>
             </div>
             <div class="status-row">
               <i class="status-dot ${status[0]}"></i>
@@ -489,32 +505,118 @@ function renderParentDashboard() {
 
           <article class="card">
             <h3>最新家长报告</h3>
-            ${report ? `<div class="report">${escapeHtml(report)}</div>` : `<div class="empty">第一课完成后，请在 ChatGPT Work 中说“处理最新学习记录”。生成的 parent-report.md 会显示在这里。</div>`}
+            ${report ? `<div class="report">${escapeHtml(report)}</div>` : `<div class="empty">第一课完成后，导出学习资料交给 AI。导入处理结果后，家长报告会显示在这里。</div>`}
           </article>
         </div>
       </section>
     </main>`;
 }
 
-async function loadDashboard(message) {
+async function refreshDashboardData() {
+  const [dashboard, voiceManifest] = await Promise.all([
+    command("load_dashboard"),
+    command("load_voice_manifest").catch(() => null)
+  ]);
+  runtime.dashboard = dashboard;
+  runtime.voiceManifest = voiceManifest;
+  runtime.lesson = dashboard.lesson;
+  try {
+    const savedStage = Number(localStorage.getItem(`xiaoya.math-stage.v025:${dashboard.dataDir}`));
+    runtime.selectedMathStage = savedStage >= 1 && savedStage <= 6 && Number.isInteger(savedStage) ? savedStage : 6;
+  } catch { runtime.selectedMathStage = 6; }
+  runtime.mathLesson = buildMathLesson(dashboard?.testCatalog?.math || [], new Date(), { stage: runtime.selectedMathStage });
+}
+
+async function loadDashboard(message, stayInParent = false) {
   app.innerHTML = `<div class="loading">正在检查本地学习资料…</div>`;
   try {
-    const [dashboard, voiceManifest] = await Promise.all([
-      command("load_dashboard"),
-      command("load_voice_manifest").catch(() => null)
-    ]);
-    runtime.dashboard = dashboard;
-    runtime.voiceManifest = voiceManifest;
-    runtime.lesson = runtime.dashboard.lesson;
-    try {
-      const savedStage = Number(localStorage.getItem(`xiaoya.math-stage.v025:${dashboard.dataDir}`));
-      runtime.selectedMathStage = savedStage >= 1 && savedStage <= 6 && Number.isInteger(savedStage) ? savedStage : 6;
-    } catch { runtime.selectedMathStage = 6; }
-    runtime.mathLesson = buildMathLesson(runtime.dashboard?.testCatalog?.math || [], new Date(), { stage: runtime.selectedMathStage });
-    renderHome();
+    await refreshDashboardData();
+    if (stayInParent) renderParentDashboard();
+    else renderHome();
     if (message) toast(message);
   } catch (error) {
     app.innerHTML = `<div class="loading">无法初始化：${escapeHtml(error.message)}</div>`;
+  }
+}
+
+function chooseAiResultFile() {
+  return new Promise(resolve => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = ".json,application/json";
+    input.hidden = true;
+    input.setAttribute("aria-label", "选择 AI 生成的结果文件");
+    const finish = file => { input.remove(); resolve(file); };
+    input.addEventListener("change", () => finish(input.files?.[0] || null), { once: true });
+    input.addEventListener("cancel", () => finish(null), { once: true });
+    document.body.append(input);
+    input.click();
+  });
+}
+
+async function exportAiBundle() {
+  if (runtime.aiTransferBusy) return;
+  runtime.aiTransferBusy = "export";
+  const previousMessage = runtime.aiTransferMessage;
+  runtime.aiTransferMessage = null;
+  renderParentDashboard();
+  try {
+    const result = await command("export_ai_bundle");
+    runtime.aiTransferMessage = result.cancelled ? previousMessage : {
+      kind: "success",
+      text: result.analysisOnly
+        ? `资料已导出到 ${result.path}。目前没有未处理的新记录，这份资料可用于复盘；无需导入或更换当前课程。`
+        : `已导出 ${result.pendingSessionCount} 份待分析记录到 ${result.path}。把此文件交给 AI，按文件说明分析并下载结果，然后点击“导入 AI 结果”。`
+    };
+  } catch (error) {
+    runtime.aiTransferMessage = { kind: "error", text: `导出没有完成：${error.message}` };
+  } finally {
+    runtime.aiTransferBusy = false;
+    renderParentDashboard();
+  }
+}
+
+async function importAiResult() {
+  if (runtime.aiTransferBusy) return;
+  runtime.aiTransferBusy = "import";
+  const previousMessage = runtime.aiTransferMessage;
+  runtime.aiTransferMessage = null;
+  renderParentDashboard();
+  let committed = false;
+  try {
+    const file = await chooseAiResultFile();
+    if (!file) { runtime.aiTransferMessage = previousMessage; return; }
+    if (file.size > 10 * 1024 * 1024) throw new Error("结果文件过大，请选择 AI 生成的结果文件，不要选择之前导出的学习资料。");
+    const bundle = parseAiResult(await file.text());
+    const prepared = await command("prepare_ai_import", { bundle });
+    if (prepared.alreadyImported) {
+      committed = true;
+      await refreshDashboardData();
+      runtime.aiTransferMessage = { kind: "success", text: prepared.message || "这份结果已经导入过，当前课程已重新加载。" };
+      return;
+    }
+    const lesson = compileAiLesson(prepared.bundle, prepared);
+    const voiceRequirements = collectAiVoiceRequirements(lesson, prepared.catalog);
+    const manifest = await command("load_voice_manifest").catch(() => null);
+    const missing = missingAiVoiceTexts(voiceRequirements, manifest);
+    if (missing.length) throw new Error(`这份课程还缺 ${missing.length} 条可用的晓伊自然语音，例如：${missing.slice(0, 3).join("；")}。请先补齐语音后重新导入。`);
+    const result = await command("import_ai_result", { bundle: prepared.bundle, lesson, voiceRequirements });
+    committed = true;
+    await refreshDashboardData();
+    runtime.aiTransferMessage = {
+      kind: "success",
+      text: result.alreadyImported ? result.message : `AI 结果已导入，课程和家长报告已更新。下一课：${runtime.lesson?.title || lesson.title}。`
+    };
+  } catch (error) {
+    runtime.aiTransferMessage = {
+      kind: "error",
+      text: committed
+        ? `结果已保存，刷新显示暂未完成：${error.message}。请重新打开软件查看。`
+        : `这次没有导入，原课程继续保留：${error.message}`
+    };
+  } finally {
+    runtime.aiTransferBusy = false;
+    renderParentDashboard();
   }
 }
 
@@ -1034,7 +1136,9 @@ document.addEventListener("click", async event => {
     startTest("custom", days);
   }
   if (action === "parent-home") renderParentDashboard();
-  if (action === "refresh") await loadDashboard("已经重新检查 AI 文件");
+  if (action === "refresh" && !runtime.aiTransferBusy) await loadDashboard("已经重新检查本机 AI 文件", true);
+  if (action === "export-ai") await exportAiBundle();
+  if (action === "import-ai") await importAiResult();
   if (action === "open-folder") {
     try { await command("open_data_folder"); } catch (error) { toast(error.message); }
   }

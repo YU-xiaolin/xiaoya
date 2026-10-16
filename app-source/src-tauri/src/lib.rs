@@ -8,6 +8,8 @@ use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::Mutex;
 
+mod ai_transfer;
+
 static TEMPORARY_FILE_SEQUENCE: AtomicU64 = AtomicU64::new(0);
 static DATA_ACCESS: Mutex<()> = Mutex::new(());
 
@@ -270,6 +272,7 @@ fn initial_state() -> Value {
 }
 
 fn ensure_data(root: &Path) -> Result<(), String> {
+    ai_transfer::recover(root)?;
     for relative in [
         "raw/sessions",
         "state",
@@ -1333,7 +1336,10 @@ pub fn run() {
             load_voice_manifest,
             load_voice_clip,
             save_session,
-            open_data_folder
+            open_data_folder,
+            ai_transfer::export_ai_bundle,
+            ai_transfer::prepare_ai_import,
+            ai_transfer::import_ai_result
         ])
         .run(tauri::generate_context!())
         .expect("小芽家庭学习启动失败");

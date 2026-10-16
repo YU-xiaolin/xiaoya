@@ -147,6 +147,13 @@ for (const subject of ["hanzi", "english_letter"]) {
   }
 }
 
+// 手动导入可安排任意后续字母，提前覆盖全部标准预习，避免推进到新字母时缺音。
+for (const item of catalog.english_letter || []) {
+  for (const task of buildPreviewTasks("english_letter", [], catalog, [item.ref], 1)) {
+    addTaskClips(task, "preview");
+  }
+}
+
 const mathCatalog = (await loadJson(path.join(dataDir, "catalog", "数学启蒙课程.json")))
   .map(item => {
     const stateItem = state.items?.math?.[item.ref];

@@ -753,11 +753,12 @@ dependencies = [
 
 [[package]]
 name = "family-learning"
-version = "0.2.10"
+version = "0.2.11"
 dependencies = [
  "chrono",
  "serde",
  "serde_json",
+ "sha2",
  "tauri",
  "tauri-build",
 ]

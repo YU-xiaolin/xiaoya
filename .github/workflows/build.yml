@@ -3,6 +3,10 @@ name: Build Windows and PWA
 on:
   push:
     branches: [main]
+    paths:
+      - 'app-mobile/**'
+      - 'tools/**'
+      - '.codebuddy/**'
   workflow_dispatch:
 
 permissions:
